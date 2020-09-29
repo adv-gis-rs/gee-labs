@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-In the previous two labs you used non-parametric models $f$ that relate predictor variables $X$ to a response variable $Y$. There was in the context of prediction tasks where given $x$ inputs a trained model $\hat{f}$ will predict a response $\hat{y}$. 
+In the previous two labs you used non-parametric models $f$ that relate predictor variables $X$ to a response variable $Y$. This was in the context of prediction tasks where given $x$ inputs, a trained model $\hat{f}$ will predict a response $\hat{y}$. 
 
 $$\hat{y}=\hat{f}(x)$$
 Non-parametric models do not make any prior assumptions about the functional form of the relationship between $X$ and $Y$ (i.e. there is no requirement that $f$ is linear, quadratic, or another form of model). For example, when you trained a classification tree model in lab 7 you did not make prior assumptions about the functional form of the relationship between $X$ (spectral reflectance values) and $Y$ (land cover categories). During the process of training a non-parametric model the data informs the estimation of $f$ and its model of the relationship between $X$ and $Y$.
