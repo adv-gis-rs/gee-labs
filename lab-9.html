@@ -26,6 +26,15 @@
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      </style>
+
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
   pre:not([class]) {
@@ -668,10 +677,10 @@ Abrupt - non-linear change in NDVI
 <p>You can compute the RSE for each location where you estimated a trend in NDVI. Areas with higher RSE values are mapped in deeper red shades; compare these locations on the map to charts visualising trends in NDVI at that location in the <em>console</em>. At locations with higher RSE values you should observe greater spread in observed NDVI values around the estimated trend line.</p>
 <p><br></p>
 <pre class="js"><code>// RSE
-var n = lNDVI.size();
+var n = landsatNDVI.size();
 print(&#39;number of observations:&#39;, n);
 
-var rse = lNDVI.map(function(image) {
+var rse = landsatNDVI.map(function(image) {
   var yHat = image.select(&#39;year&#39;).multiply(lRegNDVI.select(&#39;scale&#39;)).add(lRegNDVI.select(&#39;offset&#39;));
   var residualSquared = image.select(&#39;ndvi&#39;).subtract(yHat).pow(2);
   return residualSquared;
@@ -694,15 +703,15 @@ Map.addLayer(rse, {min: 0, max: 0.2, palette:[&#39;#fee5d9&#39;,&#39;#fcae91&#39
 <p>You can estimate the <span class="math inline">\(R^{2}\)</span> for each trend in NDVI that you estimated as:</p>
 <p><br></p>
 <pre class="js"><code>// R Squared
-var rss = lNDVI.map(function(image) {
+var rss = landsatNDVI.map(function(image) {
   var yHat = image.select(&#39;year&#39;).multiply(lRegNDVI.select(&#39;scale&#39;)).add(lRegNDVI.select(&#39;offset&#39;));
   var residualSquared = image.select(&#39;ndvi&#39;).subtract(yHat).pow(2);
   return residualSquared;
 }).sum();
 
-var meanY = lNDVI.select(&#39;ndvi&#39;).mean();
+var meanY = landsatNDVI.select(&#39;ndvi&#39;).mean();
 
-var tss = lNDVI.map(function(image) {
+var tss = landsatNDVI.map(function(image) {
   var devSquared = image.select(&#39;ndvi&#39;).subtract(meanY).pow(2);
   return devSquared;
 }).sum();
@@ -732,7 +741,7 @@ Map.addLayer(rSquared, {min: 0, max: 1, palette:[&#39;#f2f0f7&#39;,&#39;#cbc9e2&
 <p><br></p>
 <pre class="js"><code>// Confidence Intervals
 // variance of residuals
-var varE = lNDVI.map(function(image) {
+var varE = landsatNDVI.map(function(image) {
   var yHat = image.select(&#39;year&#39;).multiply(lRegNDVI.select(&#39;scale&#39;)).add(lRegNDVI.select(&#39;offset&#39;));
   var residualSquared = image.select(&#39;ndvi&#39;).subtract(yHat).pow(2);
   return residualSquared;
@@ -740,9 +749,9 @@ var varE = lNDVI.map(function(image) {
   .multiply(ee.Number(1).divide(n.subtract(2)));
 
 //variance of X
-var meanX = lNDVI.select(&#39;year&#39;).mean();
+var meanX = landsatNDVI.select(&#39;year&#39;).mean();
 
-var varX = lNDVI.map(function(image) {
+var varX = landsatNDVI.map(function(image) {
   var devSquared = image.select(&#39;year&#39;).subtract(meanX).pow(2);
   return devSquared;
 }).sum();

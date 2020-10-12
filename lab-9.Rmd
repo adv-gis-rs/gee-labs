@@ -349,10 +349,10 @@ You can compute the RSE for each location where you estimated a trend in NDVI. A
 
 ```{js, echo=TRUE, eval=FALSE}
 // RSE
-var n = lNDVI.size();
+var n = landsatNDVI.size();
 print('number of observations:', n);
 
-var rse = lNDVI.map(function(image) {
+var rse = landsatNDVI.map(function(image) {
   var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
   var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
   return residualSquared;
@@ -388,15 +388,15 @@ You can estimate the $R^{2}$ for each trend in NDVI that you estimated as:
 
 ```{js, echo=TRUE, eval=FALSE}
 // R Squared
-var rss = lNDVI.map(function(image) {
+var rss = landsatNDVI.map(function(image) {
   var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
   var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
   return residualSquared;
 }).sum();
 
-var meanY = lNDVI.select('ndvi').mean();
+var meanY = landsatNDVI.select('ndvi').mean();
 
-var tss = lNDVI.map(function(image) {
+var tss = landsatNDVI.map(function(image) {
   var devSquared = image.select('ndvi').subtract(meanY).pow(2);
   return devSquared;
 }).sum();
@@ -444,7 +444,7 @@ You can compute the standard error $\hat\sigma_{\epsilon}^{2}$ for each of your 
 ```{js, echo=TRUE, eval=FALSE}
 // Confidence Intervals
 // variance of residuals
-var varE = lNDVI.map(function(image) {
+var varE = landsatNDVI.map(function(image) {
   var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
   var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
   return residualSquared;
@@ -452,9 +452,9 @@ var varE = lNDVI.map(function(image) {
   .multiply(ee.Number(1).divide(n.subtract(2)));
 
 //variance of X
-var meanX = lNDVI.select('year').mean();
+var meanX = landsatNDVI.select('year').mean();
 
-var varX = lNDVI.map(function(image) {
+var varX = landsatNDVI.map(function(image) {
   var devSquared = image.select('year').subtract(meanX).pow(2);
   return devSquared;
 }).sum();
