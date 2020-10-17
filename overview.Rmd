@@ -15,14 +15,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Google Earth Engine Labs 
 
-These labs introduce Google Earth Engine as a tool for performing geospatial data analysis. Geospatial data analysis can be considered as a workflow comprising four stages (that are often iterative):
+These labs introduce Google Earth Engine as a tool for geospatial data analysis. Geospatial data analysis can be broken down into a workflow comprising four stages (that are often iterative):
 
 * Data (variables to represent spatial concepts, phenomena, or entities - data collection, data entry, data download, and data import)
 * Transform (transforming data so it can can be used for geospatial data analysis - summarising, combining, filtering)
 * Visualisation (look for patterns, features, and relationships in your data - maps, charts, tables)
 * Model (use mathematical and statistical tools to answer questions using your data)
 
-These stages are based on the more generic data science workflow presented by <a href="https://r4ds.had.co.nz" target="_blank">Wickham and Grolemund (2017)</a>. As the figure below indicates, all the stages of the data analysis workflow are wrapped in a *program* box. You will use a programming language to specify the tasks to be performed at each of the stage of the data analysis workflow. In these labs you will be introduced to JavaScript, a programming language for writing commands in Google Earth Engine programs. While learning to code is not the primary aim of these labs, an awareness of programming concepts and the ability to perform tasks using code is a useful skill for geospatial data analysis and often makes your life easier through the ability to automate tasks. The labs are designed to provide support in using a programming language to perform geospatial data analysis using Google Earth Engine and hopefully this is another skill you'll pick up.   
+These stages are based on the more generic data science workflow presented by <a href="https://r4ds.had.co.nz" target="_blank">Wickham and Grolemund (2017)</a>. As the figure below indicates, the stages of the data analysis workflow are wrapped in a *program* box. You will use a programming language to specify the tasks to be performed at each of the stage of the data analysis workflow. In these labs you will be introduced to JavaScript, a programming language for writing commands in Google Earth Engine programs. While learning to code is not the primary aim of these labs, an awareness of programming concepts and the ability to perform tasks using code is a useful skill for geospatial data analysis and often makes your life easier through the ability to automate tasks. 
 
 <br>
 
@@ -33,7 +33,7 @@ knitr::include_graphics("img/data-science.png")
 
 <br>
 
-Each of the labs relate to a stage in the geospatial data analysis workflow outlined above. Thematically, the labs will focus on geospatial data analysis issues in urban areas primarily using data from the Perth region.  
+Each of the labs relate to a stage in the geospatial data analysis workflow outlined above. Thematically, the labs will focus on geospatial data analysis issues in urban areas (primarily using data from the Perth region).  
 
 * **Preliminary Resource:** Introduction to JavaScript and programming concepts
 * **Lab 4a:** Data: Spatial data models and data structures
@@ -61,7 +61,7 @@ Sign up for Google Earth Engine <a href="https://signup.earthengine.google.com/#
 
 ## Google Earth Engine
 
-Google Earth Engine is a platform for geospatial data analysis. It combines <a href="https://developers.google.com/earth-engine/datasets/" target="_blank">databases of big geospatial data</a> that are updated daily, a range of geospatial data analysis and processing functions poften found in GIS and remote sensing software, and access to cloud computing resources to apply these functions to geospatial datasets. You can access Google Earth Engine through the <a href="https://code.earthengine.google.com" target="_blank"><em>Code Editor</em></a> - a web-based interactive development environment (IDE) for creating Google Earth Engine programs for geospatial data analysis and visualising the results in web maps, interactive charts, or text summaries.
+Google Earth Engine is a platform for geospatial data analysis. It combines <a href="https://developers.google.com/earth-engine/datasets/" target="_blank">databases of big geospatial data</a> that are updated daily, a range of geospatial data analysis and processing functions, and access to cloud computing resources to apply these functions to geospatial datasets. You can access Google Earth Engine through the <a href="https://code.earthengine.google.com" target="_blank"><em>Code Editor</em></a> - a web-based interactive development environment (IDE) for creating Google Earth Engine programs for geospatial data analysis and visualising the results in web maps, interactive charts, or text summaries.
 
 <br>
 <center>
