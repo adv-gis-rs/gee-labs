@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="John Duncan and Bryan Boruff">
+
+<title>3301</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./js-introduction.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">3301</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lab 5a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lab 5b</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lab 6</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#advanced-gis-and-remote-sensing" id="toc-advanced-gis-and-remote-sensing" class="nav-link active" data-scroll-target="#advanced-gis-and-remote-sensing"> <span class="header-section-number">1</span> Advanced GIS and Remote Sensing</a>
+  <ul class="collapse">
+  <li><a href="#google-earth-engine-labs" id="toc-google-earth-engine-labs" class="nav-link" data-scroll-target="#google-earth-engine-labs"> <span class="header-section-number">1.1</span> Google Earth Engine Labs</a>
+  <ul class="collapse">
+  <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up"> <span class="header-section-number">1.1.1</span> Sign Up</a></li>
+  </ul></li>
+  <li><a href="#google-earth-engine" id="toc-google-earth-engine" class="nav-link" data-scroll-target="#google-earth-engine"> <span class="header-section-number">1.2</span> Google Earth Engine</a>
+  <ul class="collapse">
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"> <span class="header-section-number">1.2.1</span> Applications</a></li>
+  </ul></li>
+  <li><a href="#useful-resources" id="toc-useful-resources" class="nav-link" data-scroll-target="#useful-resources"> <span class="header-section-number">1.3</span> Useful Resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">3301</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John Duncan and Bryan Boruff </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="advanced-gis-and-remote-sensing" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Advanced GIS and Remote Sensing</h1>
+<section id="google-earth-engine-labs" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="google-earth-engine-labs"><span class="header-section-number">1.1</span> Google Earth Engine Labs</h2>
+<p>These labs introduce Google Earth Engine as a tool for geospatial data analysis. Geospatial data analysis can be broken down into a workflow comprising four stages (that are often iterative):</p>
+<ul>
+<li>Data (variables to represent spatial concepts, phenomena, or entities - data collection, data entry, data download, and data import)</li>
+<li>Transform (transforming data so it can can be used for geospatial data analysis - summarising, combining, filtering)</li>
+<li>Visualisation (looking for patterns, features, and relationships in your data - maps, charts, tables)</li>
+<li>Model (use mathematical and statistical tools to answer questions using your data)</li>
+</ul>
+<p>These stages are based on the data science workflow presented by <a href="https://r4ds.had.co.nz" target="_blank">Wickham and Grolemund (2017)</a>. As the figure below indicates, the stages of the data analysis workflow are wrapped in a <em>program</em> box. You will use a programming language to specify the tasks to be performed at each of the stage of the data analysis workflow. In these labs you will be introduced to JavaScript, a programming language for writing commands in Google Earth Engine programs. While learning to code is not the primary aim of these labs, an awareness of programming concepts is useful for geospatial data analysis and often makes your life easier through the ability to automate tasks.</p>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/data-science.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Data science workflow (source: <a href="https://r4ds.had.co.nz">Wickham and Grolemund (2017)</a>)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Each of the labs relate to a stage in the geospatial data analysis workflow outlined above. Thematically, the labs will focus on geospatial data analysis in urban areas (primarily using data from the Perth region).</p>
+<ul>
+<li><strong>Preliminary Resource:</strong> Introduction to JavaScript and programming concepts</li>
+<li><strong>Lab 4a:</strong> Data: Spatial data models and data structures</li>
+<li><strong>Lab 4b:</strong> Visualisation: Spatial data visualisation</li>
+<li><strong>Lab 5:</strong> Transform: Vector data operations</li>
+<li><strong>Lab 6:</strong> Transform: Raster and remote sensing data processing</li>
+<li><strong>Lab 7:</strong> Model: Land cover classification</li>
+<li><strong>Lab 8:</strong> Model: Predicting urban land surface temperatures</li>
+<li><strong>Lab 9:</strong> Model: Trends in urban vegetation and temperature</li>
+</ul>
+<p>A series of questions are posed throughout the lab as demonstrated below; these are to help you engage with the content, have a go at answering them and click on the question to reveal the answer.</p>
+<br>
+<details>
+<summary>
+<b><em>Example Question?</em></b>
+</summary>
+<p>
+<br>Answer.
+</p>
+</details>
+<p><br></p>
+<section id="sign-up" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="sign-up"><span class="header-section-number">1.1.1</span> Sign Up</h3>
+<p>Sign up for Google Earth Engine <a href="https://signup.earthengine.google.com/#!/" target="_blank">here</a>. Identify that you are using Google Earth Engine for educational purposes as part of the Advanced GIS and Remote Sensing undergraduate course at the University of Western Australia.</p>
+<p><br></p>
+</section>
+</section>
+<section id="google-earth-engine" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="google-earth-engine"><span class="header-section-number">1.2</span> Google Earth Engine</h2>
+<p>Google Earth Engine is a platform for geospatial data analysis. It combines <a href="https://developers.google.com/earth-engine/datasets/" target="_blank">databases of big geospatial data</a> that are updated daily, a range of geospatial data analysis and processing functions, and access to cloud computing resources to apply these functions to geospatial datasets.</p>
+<p>You can access Google Earth Engine through the <a href="https://code.earthengine.google.com" target="_blank"><em>Code Editor</em></a> - a web-based interactive development environment (IDE) for creating Google Earth Engine programs for geospatial data analysis and visualising the results in web maps, interactive charts, or text summaries.</p>
+<br>
+<center>
+<iframe width="720" height="405" src="https://www.youtube.com/embed/gKGOeTFHnKY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="">
+</iframe>
+</center>
+<p><br></p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0034425717302900" target="_blank">Gorelick et al.&nbsp;(2017)</a> provide a detailed description of the Google Earth Engine platform.</p>
+<section id="applications" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="applications"><span class="header-section-number">1.2.1</span> Applications</h3>
+<p>Applications of Google Earth Engine span a variety of disciplines which utilise geospatial data:</p>
+<ul>
+<li><a href="https://earthenginepartners.appspot.com/science-2013-global-forest" target="_blank">Monitoring global forest change</a></li>
+<li><a href="http://species.mol.org/species/map/Perdix_dauurica" target="_blank">Mapping habitat ranges</a></li>
+<li><a href="https://blog.google/around-the-globe/google-europe/nature-water-unveiling-most-detailed-view-water-earth/" target="_blank">Global water security</a></li>
+<li><a href="http://www.g-feed.com/2015/05/introducing-scym.html" target="_blank">Monitoring global croplands</a></li>
+<li><a href="https://medium.com/google-earth/mapping-global-travel-time-to-urban-resources-448c1d7919d2" target="_blank">Mapping travel time to urban centres</a></li>
+</ul>
+<p>More examples of how Google Earth Engine is used can be found on the <a href="https://medium.com/google-earth/tagged/earth-engine" target="_blank">Google Earth Engine blog</a>.</p>
+</section>
+</section>
+<section id="useful-resources" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="useful-resources"><span class="header-section-number">1.3</span> Useful Resources</h2>
+<p>There are a range user resources for Google Earth Engine. You should use these resources to supplement the work done in the labs. Becoming familiar with these resources will help you troubleshoot problems. Using these resources will develop your independent problem solving skills when undertaking geospatial data analysis.</p>
+<ol type="1">
+<li><a href="https://developers.google.com/earth-engine/" target="_blank">Google Earth Engine introduction</a> - comprehensive overview of Google Earth Engine’s capabilities.</li>
+<li><a href="https://developers.google.com/earth-engine/tutorials" target="_blank">Google Earth Engine tutorials</a> - range of introductory and advanced tutorials on using Google Earth Engine for geospatial data analysis.</li>
+<li><a href="https://developers.google.com/earth-engine/edu" target="_blank">Google Earth Engine for education</a> - range of training resources.</li>
+<li>User Forum and help tab in the code editor (see below).</li>
+</ol>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/help.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Google Earth Engine user forum and help tab</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./js-introduction.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,10 @@
+/* css styles */
+
+/* tr:nth-child(even) {
+    background-color: #cbc8d0;
+} */
+
+th,
+td {
+    padding: 15px;
+}

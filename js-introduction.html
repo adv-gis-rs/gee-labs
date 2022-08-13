@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3301 - 2&nbsp; JavaScript Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-4a.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lab 5a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lab 5b</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lab 6</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"> <span class="header-section-number">2.2</span> Setup</a>
+  <ul class="collapse">
+  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor"> <span class="header-section-number">2.2.1</span> Code Editor</a></li>
+  <li><a href="#create-a-repository" id="toc-create-a-repository" class="nav-link" data-scroll-target="#create-a-repository"> <span class="header-section-number">2.2.2</span> Create a Repository</a></li>
+  </ul></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming"> <span class="header-section-number">2.3</span> Programming</a>
+  <ul class="collapse">
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"> <span class="header-section-number">2.3.1</span> Data Types</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"> <span class="header-section-number">2.3.2</span> Variables</a></li>
+  <li><a href="#object-data-model" id="toc-object-data-model" class="nav-link" data-scroll-target="#object-data-model"> <span class="header-section-number">2.3.3</span> Object Data Model</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"> <span class="header-section-number">2.3.4</span> Functions</a></li>
+  <li><a href="#syntax-and-code-style" id="toc-syntax-and-code-style" class="nav-link" data-scroll-target="#syntax-and-code-style"> <span class="header-section-number">2.3.5</span> Syntax and Code Style</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<p>You will be using Google Earth Engine to perform geospatial data analysis. Google Earth Engine programs comprise a series of statements written in a programming language (JavaScript or Python) that outline steps taken to perform specific tasks using geospatial data.</p>
+<p>This lab is an introduction to programming using JavaScript. It introduces key concepts that are important to understand when using Google Earth Engine. However, also view this section as a <em>reference resource</em> to refer back to as you work through the labs and become more proficient in using Google Earth Engine. A good exercise to consolidate your understanding of these concepts is to try and identify where, and explain how, the concepts that are introduced here are used to perform various geospatial data analysis tasks in later labs.</p>
+</section>
+<section id="setup" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="setup"><span class="header-section-number">2.2</span> Setup</h2>
+<p>Load the Google Earth Engine code editor in your browser via the URL: <a href="https://code.earthengine.google.com/" target="_blank">https://code.earthengine.google.com/</a>.</p>
+<section id="code-editor" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="code-editor"><span class="header-section-number">2.2.1</span> Code Editor</h3>
+<p>You will create Google Earth Engine programs using the code editor. The code editor is a web-based interactive development environment (IDE) which provides access to the Google Earth Engine JavaScript API. The Google Earth Engine <a href="https://developers.google.com/earth-engine/playground" target="_blank">Developers Guide</a> provides an overview of the code editor tools.</p>
+<p>The code editor provides a range of tools that make geospatial data analysis and visualisation easy. These tools will be introduced in the subsequent labs. Some key code editor features include:</p>
+<ul>
+<li><strong>code editor</strong>: where you write JavaScript statements.</li>
+<li><strong>Scripts tab</strong>: save the JavaScript code for your Google Earth Engine programs.</li>
+<li><strong>Map</strong>: web map to visualise spatial data.</li>
+<li><strong>Docs</strong>: JavaScript API reference - lists all the in-built functions and operations.</li>
+<li><strong>Console</strong>: print results from analysis and metadata.</li>
+<li><strong>Inspector tab</strong>: interactive query of spatial objects on the map.</li>
+<li><strong>Geometry tools</strong>: digitise vector features.</li>
+<li><strong>Run</strong>: Run your script.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Code_editor_diagram.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Google Earth Engine code editor (source: Google Earth Engine <a href="https://developers.google.com/earth-engine/images/Playground_scripts.png">Developers Guide</a>).</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="create-a-repository" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="create-a-repository"><span class="header-section-number">2.2.2</span> Create a Repository</h3>
+<p>Create a repository called <em>labs-gee</em> where you will store the scripts containing the code for programs you write in the labs. Go to the <em>Scripts</em> tab and click the <img src="img/Script_manager_new_button.png" class="img-fluid" style="width:7.0%"> button to create a new <em>labs-gee</em> repository.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Playground_scripts.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Scripts tab and button to create new repositories (source: Google Earth Engine <a href="https://developers.google.com/earth-engine/images/Playground_scripts.png">Developers Guide</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>Enter the following code into the <em>Code Editor</em> and save the script to your <em>labs-gee</em> repository. Name the script <em>JS-intro</em>. This code is just some comments that define what the script does and who wrote it and when. Replace the author name and date as appropriate. Comments are not executed when your program runs. <strong>Under path in the save widget make sure you select the correct repository (i.e.&nbsp;not default)</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">JavsScript Introduction</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- <center> -->
+<!-- ```{r save-js-intro, fig.align = 'center', out.width = "80%", fig.cap = "Save script to labs-gee repository.", echo = FALSE}
+knitr::include_graphics("img/save-js-intro-script.png")
+
+``` -->
+<!-- </center>  -->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/save-js-intro-script.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Save script to labs-gee repository.</figcaption><p></p>
+</figure>
+</div>
+<center>
+<iframe src="https://player.vimeo.com/video/441911311" width="640" height="321" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://vimeo.com/441911311">Create repository and save script.</a>
+</p>
+</center>
+</section>
+</section>
+<section id="programming" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="programming"><span class="header-section-number">2.3</span> Programming</h2>
+<p>Programming (coding) is the creation of source code for programs that run on computers. You will be writing programs using <a href="https://developers.google.com/earth-engine/tutorial_js_01" target="_blank">JavaScript</a>.</p>
+<section id="data-types" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">2.3.1</span> Data Types</h3>
+<p>Programs need data to work with, perform operations on, and to return outputs from computation and analysis. Geographic and non-geographic phenomena and entities are represented in computer programs as data of specific types. In JavaScript there are seven primitive data types:</p>
+<ul>
+<li>undefined</li>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>BigInt</li>
+<li>Symbol</li>
+<li>null</li>
+</ul>
+<p>undefined types are variables that have not been assigned a value. Variables of null data type intentionally have no value.</p>
+<p>All other data types in JavaScript are of type object.</p>
+<p><strong>Strings</strong></p>
+<p>Variables of string data type contain characters and text which are surrounded by single <code>'</code> or double <code>"</code> quotes. There are several cases where string variables are used when working with geospatial data; for example, in the metadata of satellite images the name of the sensor used to collect an image could be stored as a string.</p>
+<br>
+<details>
+<summary>
+<b><em>What other geospatial data could be stored as a string data type?</em></b>
+</summary>
+<p>
+<br>Anything that needs to be represented as text data such as place names, road names, names of weather stations.
+</p>
+</details>
+<p><br></p>
+<p>Enter the following command into the code editor to create a string variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> stringVar<span class="op">=</span> <span class="st">'Hello World!'</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You have created a string variable called <code>stringVar</code> which contains the text information ‘Hello World!’. This is data that you can use in your program.</p>
+<p>You can use the <code>print()</code> operation to print the data in <code>stringVar</code> onto the <em>Console</em> for inspection.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(stringVar)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see ‘Hello World!’ displayed in the <em>Console</em>. You have just written a simple program that creates a string object storing text data in a variable named <code>stringVar</code> and prints this text data to a display.</p>
+<p>In reality, programs that perform geospatial data analysis will be more complex, contain many variables of different data types, and perform more operations than printing values to a display (instead of printing results to the <em>Console</em> a GIS program might write a <em>.tif</em> file containing the raster output from some analysis).</p>
+<center>
+<iframe src="https://player.vimeo.com/video/441912597" width="640" height="321" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://vimeo.com/441912597">Hello World!</a>
+</p>
+</center>
+<p><strong>Numbers</strong></p>
+<p>The number data type in JavaScript is in double precision 64 bit floating point format. Add the following code to your script to make two number variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Storing numbers in variables enables programs to perform mathematical and statistical operations and represent geographic phenomena and entities using quantitative values. For example, spectral reflectance values in remote sensing images are numeric which can be combined mathematically to compute vegetation indices (e.g.&nbsp;NDVI).</p>
+<p>Execute the following code to perform some basic maths with the variables <code>x</code> and <code>y</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> z <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<br>
+<details>
+<summary>
+<b><em>What numeric value do you think variable </em><code>z</code> <em>will contain? How could you check if the variable </em><code>z</code> <em>contains the correct value?</em></b>
+</summary>
+<p>
+<br>3<br> <code>print(z);</code>
+</p>
+</details>
+<p><br></p>
+<p><strong>Boolean</strong></p>
+<p>The Boolean data type is used to store true or false values. This is useful for storing the results of comparison (equal to, greater than, less than) and logical (and, or, not) operations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> demoBool <span class="op">=</span> z <span class="op">==</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(demoBool)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bool1 <span class="op">=</span> x <span class="op">==</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> y <span class="op">==</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bool2 <span class="op">=</span> y <span class="op">&lt;</span> x<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can read up on JavaScript logical and comparison operators <a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank">here</a> or look at the table below.</p>
+<br>
+<details>
+<summary>
+<b><em>What do you think the value of </em><code>bool1</code> <em>and</em> <code>bool2</code> <em>will be?</em></b>
+</summary>
+<p>
+<br><code>bool1</code>: true <br> <code>bool2</code>: false
+</p>
+</details>
+<p><br></p>
+<table class="table">
+<caption>JavaScript comparison and logical operators</caption>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>equal to</td>
+<td><code>x == 5</code></td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>not equal</td>
+<td><code>x != 5</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>greater than</td>
+<td><code>x &gt; 5</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>less than</td>
+<td><code>x &lt; 5</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>greater than or equal to</td>
+<td><code>x &gt;= 5</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>less than or equal to</td>
+<td><code>x &lt;= 5</code></td>
+</tr>
+<tr class="odd">
+<td><code>&amp;&amp;</code></td>
+<td>and</td>
+<td><code>x == 5 &amp;&amp; y == 4</code></td>
+</tr>
+<tr class="even">
+<td><code>||</code></td>
+<td>or</td>
+<td><code>x == 5 || y == 5</code></td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>not</td>
+<td><code>!(x &lt;= 5)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Objects</strong></p>
+<p>An object in JavaScript is a collection properties where each property is a name:value pair and the value can be any primitive data type (e.g.&nbsp;String, Number, Boolean, null) or a type of object. You can create custom data types using objects; for example, you could create an object to represent a point with two name:value pairs: <code>longitude: 25.55</code> and <code>latitude: 23.42</code> where the values are number type coordinates.</p>
+<p>You can access properties of an object using the dot operator: <code>.</code> with the format <code>&lt;object name&gt;.&lt;property name&gt;</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lon <span class="op">=</span> <span class="fl">25.55</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lat <span class="op">=</span> <span class="fl">23.42</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">// create an object named point</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> point <span class="op">=</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">longitude</span><span class="op">:</span> lon<span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">latitude</span><span class="op">:</span> lat</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(point)<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">// access value in object</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(point<span class="op">.</span><span class="at">longitude</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Arrays</strong></p>
+<p>Arrays are a special list-like object that store an ordered collection of elements. Arrays are declared by placing values in square brackets <code>[1, 2, 3]</code> and you access values inside an array using the value’s array index. The first value in an array has an index of 0, the second value has an index of 1, and the final value has an index of <span class="math inline">\(n-1\)</span> where <span class="math inline">\(n\)</span> is the number of elements in the array. This is the distinction between arrays and objects where elements are represented by name:value pairs. The elements in arrays are ordered and accessed by their index position; the elements in objects are unordered and accessed by their property name.</p>
+<p>Below is an example of how to create an array of numbers that represent years.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> years <span class="op">=</span> [<span class="dv">2000</span><span class="op">,</span> <span class="dv">2001</span><span class="op">,</span> <span class="dv">2002</span><span class="op">,</span> <span class="dv">2003</span><span class="op">,</span> <span class="dv">2004</span><span class="op">,</span> <span class="dv">2005</span><span class="op">,</span> <span class="dv">2006</span>]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can see the data inside arrays using the <code>print()</code> command or extract information from arrays using square brackets <code>[]</code> and the index of the element.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(years)<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> year0 <span class="op">=</span> years[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(year0)<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> year1 <span class="op">=</span> years[<span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(year1)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also put strings inside arrays.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> stringList <span class="op">=</span> [<span class="st">'I'</span><span class="op">,</span> <span class="st">'am'</span><span class="op">,</span> <span class="st">'in'</span><span class="op">,</span> <span class="st">'a'</span><span class="op">,</span> <span class="st">'list'</span>]<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(stringList)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remember, each item in an array is separated by a comma. You can create n-Dimensional arrays.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> squareArray <span class="op">=</span> [</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(squareArray)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<br>
+<details>
+<summary>
+<b><em>What kind of geospatial data is well suited to being represented using arrays?</em></b>
+</summary>
+<p>
+<br>raster data (grids of pixels with each pixel assigned a value).
+</p>
+</details>
+<p><br></p>
+</section>
+<section id="variables" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.3.2</span> Variables</h3>
+<p>Variables are named containers that store data.</p>
+<p>To create a variable you need to declare it using the <strong><code>var</code></strong> keyword. Once a variable is declared you can put data inside it and use that variable, and therefore the data inside it, in your program. You assign data to a variable using the assignment operator <code>=</code>.</p>
+<p>The code block below declares a variable <code>temp</code> and then assigns the value <code>25</code> to this variable. As demonstrated by the variable <code>temp1</code> you can declare a variable and assign values to it in one statement.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> temp<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>temp <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> temp1 <span class="op">=</span> <span class="dv">26</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using variables makes code easier to organise and write. For example, if you want to perform multiple operations on temperature data you can refer to the data using the variable name as opposed to either writing out the temperature values or reading them from a file separately for each operation. You can use variables in operations and functions too:</p>
+<br>
+<details>
+<summary>
+<b><em>What value do you think the variable </em></b><code>tempDiff</code> <b><em>would store after executing this statement:</em></b> <code>var tempDiff = temp1 - temp;</code><b><em>?</em></b>
+</summary>
+<p>
+<br>1 <br> <code>print(tempDiff);</code>.
+</p>
+</details>
+<p><br></p>
+<p>You only need to declare a variable once. <strong><code>var</code></strong> is a reserved keyword; this means a variable cannot be named <strong><code>var</code></strong>. Other reserved keywords in JavaScript include <strong><code>class</code></strong>, <strong><code>function</code></strong>, <strong><code>let</code></strong>, and <strong><code>return</code></strong> with a full list <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords" target="_blank">here</a>.</p>
+</section>
+<section id="object-data-model" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="object-data-model"><span class="header-section-number">2.3.3</span> Object Data Model</h3>
+<p>Except for the seven primitive data types, everything in JavaScript is an object. An object is a programming concept where each object can have properties which describe attributes of the object and methods which are operations or tasks that can be performed.</p>
+<p>Real world phenomenon or entities can be represented as objects. For example, you can define an object called <code>field</code> to represent data about fields. The <code>field</code> object can have a numeric array property storing the vertices representing the field’s location, a crop type string property stating what crops are grown in the field, and a numeric type property stating crop yield. The <code>field</code> object could have a <code>computeArea()</code> method which would calculate and return the area of the field. The <code>field</code> object is a spatial object so it could also have methods such as <code>intersects()</code> which would return spatial objects whose extent intersects with the field.</p>
+<p>An object definition, which outlines the properties and methods associated with an object, is called a class; you can create multiple objects of the same class in your program.</p>
+</section>
+<section id="functions" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="functions"><span class="header-section-number">2.3.4</span> Functions</h3>
+<p>There are many methods and operations already defined in JavaScript that you can use in your program. However, there will be cases where you need to create your own operation to perform a task as part of your program; user-defined functions fill this role. First, you declare or define your function which consists of:</p>
+<ul>
+<li>The <code>function</code> keyword.</li>
+<li>The name of the function.</li>
+<li>The list of parameters the function takes in separated by commas and enclosed in parentheses (e.g.&nbsp;<code>function subtraction(number1, number2)</code>).</li>
+<li>A list of statements that perform the function tasks enclosed in braces <code>{ }</code>.</li>
+<li>A <code>return</code> statement that specifies what data is returned by a call to the function.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// substraction function</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">//function declaration</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">subtraction</span>(number1<span class="op">,</span> number2) {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> diff <span class="op">=</span> number1 <span class="op">-</span> number2<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> diff<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once a function has been declared you can call it from within your program. For example, you can call the function <code>subtraction</code> declared above and pass the two numeric variables <code>temp</code> and <code>temp1</code> into it as arguments. This will return the difference between the numeric values stored in <code>temp</code> and <code>temp1</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// use subtraction function</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tempFuncDiff <span class="op">=</span> <span class="fu">subtraction</span>(temp<span class="op">,</span> temp1)<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tempFuncDiff)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see the result -1 printed in the <em>Console</em>.</p>
+<p>This is a very simple example of how to declare and use a function. However, creating your own functions is one of the key advantages of programming. You can flexibly combine functions together to create complex workflows.</p>
+<p>The following example declares and calls a function <code>convertTempToK</code> that takes in a temperature value in degrees centigrade as a parameter and returns the temperature in Kelvin.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// temperature conversion function</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">convertTempToK</span>(tempIn) {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> tempK <span class="op">=</span> tempIn <span class="op">-</span> (<span class="op">-</span><span class="fl">273.15</span>)<span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> tempK<span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tempInK <span class="op">=</span> <span class="fu">convertTempToK</span>(temp)<span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tempInK)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="syntax-and-code-style" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="syntax-and-code-style"><span class="header-section-number">2.3.5</span> Syntax and Code Style</h3>
+<p>There are various syntax rules that need to be followed when writing JavaScript statements. If these rules are not followed your code will not execute and you’ll get a syntax error.</p>
+<p>As you see and write JavaScript programs, syntax and style will become apparent. This is not something you need to get right first time but is part of the process of learning to write your own programs. Error messages when you run your program will alert you to where there are syntax errors so you can fix them.</p>
+<p>Some important syntax rules:</p>
+<ul>
+<li>Strings are enclosed within <code>"</code> or <code>'</code> quotes.</li>
+<li>Hyphen <code>-</code> cannot be used except as the subtraction operator (i.e.&nbsp;<code>perth-airport</code> is <strong>not</strong> valid).</li>
+<li>JavaScript identifiers are used to identify variables or functions (i.e.&nbsp;a variable of function name - <code>x = 23</code> is identified by variable name <code>x</code>). Identifiers are case sensitive and can only start with a letter, underscore (<code>_</code>), or dollar sign (<code>$</code>).</li>
+<li>Identifiers cannot start with a number.</li>
+<li>Variables need to be declared with the <strong><code>var</code></strong> keyword before they are used.</li>
+<li>Keywords (e.g.&nbsp;<strong><code>var</code></strong>) are reserved and cannot be used as variable or function names.</li>
+</ul>
+<p><b>Code Style</b></p>
+<p>Alongside syntax rules, there are stylistic recommendations for writing JavaScript. These are best adhered to as they’ll make your code easier for you, future you, or somebody else to read. This is important if you require help debugging a script.</p>
+<p>Some common style tips:</p>
+<ul>
+<li>Use camel case for variables - first word is lower case and all other words start with an upper case letter with no spaces between words (e.g.&nbsp;<code>camelCase</code>, <code>perthAirport</code>).</li>
+<li>Finish each statement with a semi-colon <code>var x = 23;</code>.</li>
+<li>At most, one statement per line (a statement can span multiple lines if required or improves readability).</li>
+<li>Consistency in code style throughout your script.</li>
+<li>Indent each block of code with two spaces.</li>
+<li>Sensible and logical variable names - variable names should be nouns and describe the variable.</li>
+<li>Sensible and logical function names - function names should be verbs that describe what the function does.</li>
+<li>Keep variable and function names short to avoid typos.</li>
+<li>One variable declaration per line.</li>
+</ul>
+<p>The Google <a href="https://google.github.io/styleguide/jsguide.html" target="_blank">JavaScript style guide</a> is a useful resource for writing clear JavaScript programs.</p>
+<p><b>Comments</b></p>
+<p>You can write text in your script that is not executed by the computer. These are comments and are useful to describe what parts of your script are doing. In general, you should aspire to write your code so that it is legible and easy to follow. However, comments augment good code, can help explain how a program works, and are useful to someone else using your script or to future you if you return to working on it.</p>
+<p>Some useful things to comment:</p>
+<ul>
+<li>Start the script with brief description of what it does.</li>
+<li>Author and date of script.</li>
+<li>Outline any data or other programs the script depends on.</li>
+<li>Outline what data or results are returned by the script.</li>
+<li>Avoid commenting things which are outlined in documentation elsewhere (e.g.&nbsp;Google Earth Engine documentation).</li>
+<li>Outline what arguments (and type) a function takes and returns.</li>
+</ul>
+<p>Lines of code can be commented using <code>//</code> or <code>/* .... */</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">Script declares variables to store latitude and longitude values.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: XXXXX</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: 01/02/0304</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">// longitude</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lon <span class="op">=</span> <span class="fl">25.55</span><span class="op">;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">// latitude</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lat <span class="op">=</span> <span class="fl">23.42</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-4a.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lab 5a</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
