@@ -408,17 +408,14 @@ print(l8ImColl);
 <li><em>function operations:</em> the operation enclosed within this function computes the 50 m buffer for the <code>feature</code> passed into the function.</li>
 <li><em>return:</em> this function <code>return</code>s a <code>Feature</code> object containing the 50 m buffered polygon surrounding the <code>Feature</code> passed into the function.</li>
 </ol>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// This function computes a 50 m buffer around each university building footprint</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bufferFunc <span class="op">=</span> <span class="kw">function</span>(feature) {</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> feature<span class="op">.</span><span class="fu">buffer</span>(<span class="dv">50</span>)<span class="op">;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>You have created a function that will compute the 50 m buffer. Next, you need to apply this function to each university building. You do this by <code>map</code>ping the function over each <code>Feature</code> in the <code>perthUniBuildingOSM</code> <code>FeatureCollection</code>. You can think of this as a “for each” operation; for each <code>Feature</code> in the <code>FeatureCollection</code> compute this function and return the result.</p>
 <p>The concept of mapping a function over elements in a collection can be represented graphically:</p>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -429,24 +426,17 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p><br></p>
-<p>You can think of each of the orange boxes as being an element in a collection and <code>f</code> is a function that can be applied to each element. Here, <code>f</code> is <code>bufferFunc()</code>. Mapping the function <code>f</code> over each element in the collection returns a collection where each element is the return value from passing an input element into <code>f</code> as an argument.</p>
-<p><br></p>
-<div class="well well-sm">
+<p>Each of the orange boxes is an element in a collection and <code>f</code> is a function that is applied to each element. Here, <code>f</code> is <code>bufferFunc()</code>. Mapping the function <code>f</code> over each element in the collection returns a collection.</p>
 <center>
 <code>buildingFootprint</code> → <b><code>bufferFunc(50)</code></b> → <code>bufferedBuildingFootprint</code><br> ↓<br> <code>buildingFootprint</code> → <b><code>bufferFunc(50)</code></b> → <code>bufferedBuildingFootprint</code><br> ↓<br> <code>buildingFootprint</code> → <b><code>bufferFunc(50)</code></b> → <code>bufferedBuildingFootprint</code><br> ↓<br> <code>buildingFootprint</code> → <b><code>bufferFunc(50)</code></b> → <code>bufferedBuildingFootprint</code><br>
 </center>
-</div>
-<p><br></p>
 <p><em>To avoid confusion, map here refers to the mathematical meaning of an “an operation that associates each element of a given set with one or more elements of a second set” and NOT representing objects in space <a href="https://adv-r.hadley.nz/index.html" target="_blank">(Wickham, 2020)</a>.</em></p>
-<p>If you execute the following code snippet you will map the buffer function <code>bufferFunc</code> over each <code>Feature</code> representing a university building in the <code>FeatureCollection</code> <code>perthUniBuildingOSM</code> and return a <code>FeatureCollection</code> stored in the variable <code>perthUniBuildingOSMBuffer</code>. Each <code>Feature</code> in <code>perthUniBuildingOSMBuffer</code> should contain a <code>Geometry</code> polygon object representing a 50 m buffer around a building.</p>
-<p><br></p>
+<p>If you execute the following code snippet you will map the buffer function <code>bufferFunc</code> over each <code>Feature</code> representing a university building in the <code>FeatureCollection</code> <code>perthUniBuildingOSM</code>. This returns a <code>FeatureCollection</code> stored in the variable <code>perthUniBuildingOSMBuffer</code>. Each <code>Feature</code> in <code>perthUniBuildingOSMBuffer</code> should contain a <code>Geometry</code> object representing a 50 m buffer around a building.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// map buffer function over university buildings feature collection</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> perthUniBuildingOSMBuffer <span class="op">=</span> perthUniBuildingOSM<span class="op">.</span><span class="fu">map</span>(bufferFunc)<span class="op">;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(perthUniBuildingOSMBuffer<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">'33FF00'</span>}<span class="op">,</span> <span class="st">'Uni building 50 m buffer'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -461,9 +451,8 @@ print(l8ImColl);
 <section id="zonal-statistics" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="zonal-statistics"><span class="header-section-number">5.3</span> Zonal Statistics</h2>
 <p>You need to compute the area of tree cover and average LST surrounding each university building. You can use your buffered polygon <code>Geometry</code> objects to represent the area surrounding a building. Tree cover and LST data are in raster format. Zonal operations can be used to summarise the raster tree cover or LST values that intersect with a building’s buffer.</p>
-<p>Data aggregation and summaries are computed in Google Earth Engine using reducer objects of the <code>ee.Reducer</code> class; again, the <code>ee</code> prefix indicates that these reducer functions are executed on Google servers. You can find an overview of reducer functions in Google Earth Engine <a href="https://developers.google.com/earth-engine/guides/reducers_intro" target="_blank">here</a>. Reducers aggregate data over space, time, or another dimension in attribute data using an aggregation or summary function (e.g.&nbsp;mean, max, min, sum, standard deviation).</p>
-<p>You the pass values for the pixels that intersect with a building’s buffer into a reducer function. There are <code>reduceRegion()</code> and <code>reduceRegions()</code> functions that can be used to summarise raster values that intersect with a specified region (i.e.&nbsp;a building’s buffer); these functions return one summary value per region. A schematic illustrating a reducer function for a region is depicted below.</p>
-<p><br></p>
+<p>Data aggregation and summaries are computed in Google Earth Engine using reducer objects of the <code>ee.Reducer</code> class. You can find an overview of reducer functions in Google Earth Engine <a href="https://developers.google.com/earth-engine/guides/reducers_intro" target="_blank">here</a>. Reducers aggregate data over space, time, or another dimension in attribute data using an aggregation or summary function (e.g.&nbsp;mean, max, min, sum, standard deviation).</p>
+<p>You the pass values for the pixels that intersect with a building’s buffer into a reducer function. There are <code>reduceRegion()</code> and <code>reduceRegions()</code> functions that can be used to summarise raster values that intersect with a specified region (i.e.&nbsp;a building’s buffer); these functions return one summary value per region.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -474,10 +463,8 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p><br></p>
 <p>The following code snippet applies the <code>reduceRegions()</code> function to the <code>umTreePixelArea</code> <code>Image</code> where each pixel value is the area of tree cover in square metres. If you look at the arguments to <code>reduceRegions()</code> you will see that the regions over which raster values are summarised are taken from the <code>perthUniBuildingOSMBuffer</code> <code>FeatureCollection</code>, a sum reducer function was use to summarise the raster values, and the summary operation was performed on raster data with a spatial resolution of 0.4 metres.</p>
 <p>The result of the <code>reduceRegions()</code> function is a <code>FeatureCollection</code> with the same number of <code>Features</code> as the input <code>FeatureCollection</code> but with a name:value pair in the <code>properties</code> object which contains the result of the summary of raster values within that region.</p>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Zonal stats: reduceRegions to sum tree cover within a building's buffer</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> perthUniBuildingTree <span class="op">=</span> uniTreePixelArea<span class="op">.</span><span class="fu">reduceRegions</span>({</span>
@@ -498,9 +485,7 @@ print(l8ImColl);
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'zonal stats - tree area:'</span><span class="op">,</span> perthUniBuildingTree)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>You can perform a similar <code>reduceRegions()</code> operation to compute average LST surrounding each university building. Inspect the results of the <code>reduceRegions()</code> in the <em>console</em>.</p>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Zonal stats: reduceRegions to average LST within a building's buffer</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> perthUniBuildingLST <span class="op">=</span> landsatLST<span class="op">.</span><span class="fu">reduceRegions</span>({</span>
@@ -521,7 +506,6 @@ print(l8ImColl);
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'zonal stats - ave. LST:'</span><span class="op">,</span> perthUniBuildingLST)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <br>
 <details>
 <summary>
@@ -536,17 +520,15 @@ print(l8ImColl);
 <section id="join" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="join"><span class="header-section-number">5.4</span> Join</h2>
 <p>You now have four <code>FeatureCollection</code>s that contain information about university buildings:</p>
-<div class="well well-sm">
 <ul>
 <li><code>perthUniBuildingOSM</code>: the <code>Geometry</code> objects for university building footprints.</li>
 <li><code>perthUniBuildingOSMBuffer</code>: the <code>Geometry</code> objects for each university building’s polygon buffer.</li>
 <li><code>perthUniBuildingTree</code>: <code>Geometry</code> objects for each university building’s polygon buffer and a <code>properties</code> dictionary with the area of tree cover within each buffer.</li>
 <li><code>perthUniBuildingLST</code>: <code>Geometry</code> objects for each university building’s polygon buffer and a <code>properties</code> dictionary with the average LST within each buffer.</li>
 </ul>
-</div>
-<p>You need to combine these <code>FeatureCollection</code>s into one data set without duplicating common <code>Geometry</code> objects or name:value pairs of attributes (e.g.&nbsp;the buffer <code>Geometry</code> objects will be common for <code>perthUniBuildingOSMBuffer</code>, <code>perthUniBuildingTree</code>, <code>perthUniBuildingLST</code>).</p>
-<p>You can use join operations to combine elements in a <code>FeatureCollection</code> through matching observations based on a common variable in both data sets (if you are familiar with relational database management systems this common variable(s) is often called a key - in Google Earth Engine these variables are called <code>leftField</code> and <code>rightField</code>). In Google Earth Engine what constitutes a match, between observations in two data sets, is determined by an <code>ee.Filter()</code> object; an <code>ee.Filter.eq()</code> object would join the attributes for two <code>Feature</code>s if their values for the specified <code>leftField</code> and <code>rightField</code> are equivalent. The graphic below illustrates the concept of joining two data sets based upon matching values in a common variable.</p>
-<p><br></p>
+<p>You need to combine these <code>FeatureCollection</code>s into one data set without duplicating <code>Feature</code>s.</p>
+<p>You can use join operations to combine elements in a <code>FeatureCollection</code> through matching observations based on a common variable in both data sets (if you are familiar with relational database management systems this common variable(s) is often called a key - in Google Earth Engine these variables are called <code>leftField</code> and <code>rightField</code>).</p>
+<p>In Google Earth Engine what constitutes a match, between observations in two data sets, is determined by an <code>ee.Filter()</code> object; an <code>ee.Filter.eq()</code> object would join the attributes for two <code>Feature</code>s if their values for the specified <code>leftField</code> and <code>rightField</code> are equivalent. The graphic below illustrates the concept of joining two data sets based upon matching values in a common variable.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -557,9 +539,7 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p><br></p>
 <p>The first step is to specify an <code>ee.Filter.equals()</code> object that will match values in a common field between two <code>Feature</code> objects. You can use the <code>osm_id</code> property which uniquely identifies a building object to match common buildings across <code>FeatureCollection</code>s.</p>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Use an equals filter to specify how the collections match.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> osmFilter <span class="op">=</span> ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">equals</span>({</span>
@@ -567,9 +547,7 @@ print(l8ImColl);
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">rightField</span><span class="op">:</span> <span class="st">'osm_id'</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>Next, you need to specify the type of join to apply. Here, you will use an inner join which keeps all attributes from both <code>FeatureCollection</code>s being joined where there are matching observations for the joining field <code>osm_id</code>.</p>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the join.</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> innerJoin <span class="op">=</span> ee<span class="op">.</span><span class="at">Join</span><span class="op">.</span><span class="fu">inner</span>(<span class="st">'primary'</span><span class="op">,</span> <span class="st">'secondary'</span>)<span class="op">;</span></span>
@@ -578,10 +556,8 @@ print(l8ImColl);
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lstTreeJoin <span class="op">=</span> innerJoin<span class="op">.</span><span class="fu">apply</span>(perthUniBuildingTree<span class="op">,</span> perthUniBuildingLST<span class="op">,</span> osmFilter)<span class="op">;</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'joined:'</span><span class="op">,</span> lstTreeJoin)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>The matching <code>Feature</code>s from <code>perthUniBuildingTree</code> and <code>perthUniBuildingLST</code> are stored in a <code>primary</code> and <code>secondary</code> dictionary object of the output from the join. Execute the following helper function to add the name:value pairs in <code>secondary</code> to the <code>properties</code> in the <code>primary</code> dictionary. This puts all your name:value pairs in one <code>properties</code> dictionary and makes it easy for you to query, summarise, and visualise this data. You can inspect the tidied <code>FeatureCollection</code> in the <em>console</em> to see the output from this function.</p>
-<p><em>Not necessary, but it might be a good activity to consolidate understanding: work through the function in the below code snippet and describe what each line is doing. Things to focus on are what operations are being performed, on what, what is the output from an operation, and where is the output stored.</em></p>
-<p><br></p>
+<p><em>Not necessary, but it might be a good activity to consolidate understanding: work through the function in the below code snippet and describe what each line is doing.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// tidy up properties of output from join</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>lstTreeJoin <span class="op">=</span> lstTreeJoin<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(feature) {</span>
@@ -592,13 +568,12 @@ print(l8ImColl);
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'joined and tidied:'</span><span class="op">,</span> lstTreeJoin)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 </section>
 <section id="descriptive-statistics" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">5.5</span> Descriptive Statistics</h2>
 <p>You have now transformed your raw data (open street map buildings near Perth university campuses, a raster layer of tree cover, and a raster layer of LST) into a format where you can answer the question at the beginning of the lab: <em>Which Perth university has the greenest and coolest campus?</em></p>
 <p>Your <code>FeatureCollection</code>, <code>lstTreeJoin</code>, should contain 215 <code>Feature</code>s with each <code>Feature</code> comprising a <code>Geometry</code> object and a dictionary of <code>properties</code>: <code>building</code>, <code>osm_id</code>, <code>uni_name</code>, <code>lstK</code>, and <code>treeAreaSqM</code>. One approach to addressing the question is to perform a <em>group by</em> and <em>summarise</em> operation. Group your data by the <code>uni_name</code> property and compute summary statistics for all observations within each group. Comparing the summary statistics between groups would indicate which university campus has buildings that are surrounded by more trees and cooler temperatures.</p>
-<p>You have already used <a href="https://developers.google.com/earth-engine/guides/reducers_intro" target="_blank">reducers</a> in Google Earth Engine to aggregate values across space, time, or other dimensions. There are other useful reducer functions: <a href="https://developers.google.com/earth-engine/guides/reducers_reduce_columns" target="_blank&quot;"><code>reduceColumns()</code></a> aggregates values in <code>FeatureCollection</code> <code>properties</code> and a <a href="https://developers.google.com/earth-engine/guides/reducers_grouping" target="_blank"><code>reducer.group()</code></a> applies summary operations to groups of observations.</p>
+<p>You have already used <a href="https://developers.google.com/earth-engine/guides/reducers_intro" target="_blank">reducers</a> in Google Earth Engine to aggregate values across space. There are other useful reducer functions: <a href="https://developers.google.com/earth-engine/guides/reducers_reduce_columns" target="_blank&quot;"><code>reduceColumns()</code></a> aggregates values in <code>FeatureCollection</code> <code>properties</code> and a <a href="https://developers.google.com/earth-engine/guides/reducers_grouping" target="_blank"><code>reducer.group()</code></a> applies summary operations to groups of observations.</p>
 <p>The following code snippet demonstrates how to apply <code>reduceColumns()</code> to the <code>FeatureCollection</code> <code>lstTreeJoin</code>. Let’s go through this snippet line by line:</p>
 <p>The <code>reduceColumns()</code> function has a:</p>
 <ul>
@@ -621,22 +596,18 @@ print(l8ImColl);
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(campusSummaryStats)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>If you inspect the <code>print()</code> of <code>campusSummaryStats</code> in the <em>console</em> you will see that it returned a dictionary object which contains a list of dictionary objects. This is an unfriendly data structure for storing and querying the data it contains.</p>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/unfriendly-data-structure.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">Structure of data returned by grouped <code>reduceColumns()</code>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Structure of data returned by grouped reduceColumns().</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><br></p>
-<p>The following code snippet tidies up this data returning a <code>FeatureCollection</code> where each <code>Feature</code> has a null <code>geometry</code> property and a dictionary of <code>properties</code>: <code>uni_name</code>, <code>lstK</code>, and <code>treeAreaSqM</code>.</p>
-<p><br></p>
+<p>The following code snippet tidys up this data returning a <code>FeatureCollection</code> where each <code>Feature</code> has a null <code>geometry</code> property and a dictionary of <code>properties</code>: <code>uni_name</code>, <code>lstK</code>, and <code>treeAreaSqM</code>.</p>
 <p><em>Again, it is not necessary to understand what is going on here but working through it line by line would be a good extra exercise to consolidate understanding of programmatically transforming data into more friendly formats.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// tidy up campus summary stats</span></span>
@@ -661,26 +632,24 @@ print(l8ImColl);
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>tidyCampusStats <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(tidyCampusStats)<span class="op">;</span></span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'tidy campus stats:'</span><span class="op">,</span> tidyCampusStats)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/tidy-data-structure.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<p></p><figcaption class="figure-caption">Tidier data structure for storing the results of grouped <code>reduceColumns()</code>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Tidier data structure for storing the results of grouped reduceColumns().</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><br></p>
 <p>Let’s look at the results. You should have <code>print()</code>ed <code>tidyCampusStats</code> onto the <em>console</em>. The <code>properties</code> object for each <code>Feature</code> stores the average area of tree canopy cover and LST within a 50 m buffer of buildings on each university campus. The figure above shows that, on average, buildings on Curtin University’s Bentley Campus have an LST of 307.47 K. Look at the values reported for the other university campuses.</p>
 </section>
 <section id="visualisation" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="visualisation"><span class="header-section-number">5.6</span> Visualisation</h2>
 <p>To make comparisons between campuses in terms of their greenness and coolness, you can look up the values in the <em>console</em> for the <code>properties</code> object storing the results of the group by and summarise operations. However, this is not a visually friendly way to inspect your data, identify patterns, or detect relationships between variables. Google Earth Engine provides a range of tools to generate <a href="https://developers.google.com/earth-engine/guides/charts" target="_blank">interactive charts</a> from spatial data.</p>
 <p>Chart objects can be rendered in the <em>console</em> to visualise your data. The <code>ui.Chart.feature.byFeature()</code> function creates a chart from a set of <code>Feature</code>s in a <code>FeatureCollection</code> plotting each <code>Feature</code> on the X-axis and the value for a <code>Feature</code>’s property on the Y-axis.</p>
-<p>The first argument to the <code>ui.Chart.feature.byFeature()</code> function is the <code>FeatureCollection</code> - <code>tidyCampusStats</code> here. The second argument to <code>ui.Chart.feature.byFeature()</code> is the label property for <code>Feature</code>s plotted on the X-axis - <code>'uni_name'</code> here. The final argument is a list object of properties whose values are plotted on the Y-axis - <code>['treeAreaSqM']</code> here.</p>
-<p>Use the <code>.setChartType()</code> method to specify the type of chart to create. View possible charts in this <a href="https://developers.google.com/chart/interactive/docs/gallery" target="_blank">gallery</a>. A dictionary of name:value pairs is passed into the <code>setOptions()</code> method to control various stylistic elements of the chart (e.g.&nbsp;chart title, axis title).</p>
+<p>The first argument to the <code>ui.Chart.feature.byFeature()</code> function is the <code>FeatureCollection</code> - <code>tidyCampusStats</code>. The second argument to <code>ui.Chart.feature.byFeature()</code> is the label property for <code>Feature</code>s plotted on the X-axis - <code>'uni_name'</code>. The final argument is a list object of properties whose values are plotted on the Y-axis - <code>['treeAreaSqM']</code>.</p>
+<p>Use the <code>.setChartType()</code> method to specify the type of chart to create. View possible charts in this <a href="https://developers.google.com/chart/interactive/docs/gallery" target="_blank">gallery</a>. A dictionary of name:value pairs is passed into the <code>setOptions()</code> method to control various style elements of the chart (e.g.&nbsp;chart title, axis title).</p>
 <p>To render your chart in the <em>console</em> use the <code>print()</code> function.</p>
 <p><br></p>
 <div class="cell">
@@ -711,7 +680,6 @@ print(l8ImColl);
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lstColumnChart)<span class="op">;</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -722,7 +690,6 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -733,10 +700,8 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p><br></p>
 <p>The <code>ui.Chart.feature.groups()</code> function creates a chart from a set of <code>Feature</code>s in a <code>FeatureCollection</code> plotting values for <code>Feature</code> properties on the X-axis and Y-axis. This chart can be used to visualise the relationships between variables stored in <code>FeatureCollection</code> data.</p>
-<p>The first argument to the <code>ui.Chart.feature.groups()</code> function is the <code>FeatureCollection</code> - <code>lstTreeJoin</code> here as we want to visualise data for individual univeristy buildings. The second argument to <code>ui.Chart.feature.groups()</code> is the property to be plotted on the X-axis - <code>'treeAreaSqM'</code> here. The third argument to <code>ui.Chart.feature.groups()</code> is the property to be plotted on the Y-axis - <code>'lstK'</code> here. The final argument is the series property used to determine groups within the data - <code>'uni_name'</code> here (setting this argument will mean each University’s data points will be rendered in different colours).</p>
-<p><br></p>
+<p>The first argument to the <code>ui.Chart.feature.groups()</code> function is the <code>FeatureCollection</code> - <code>lstTreeJoin</code> here as we want to visualise data for individual univeristy buildings. The second argument to <code>ui.Chart.feature.groups()</code> is the property to be plotted on the X-axis - <code>'treeAreaSqM'</code>. The third argument to <code>ui.Chart.feature.groups()</code> is the property to be plotted on the Y-axis - <code>'lstK'</code>. The final argument is the series property used to determine groups within the data - <code>'uni_name'</code> here (setting this argument will mean each University’s data points will be rendered in different colours).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Make a scatter chart</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> tempVsTree <span class="op">=</span></span>
@@ -750,7 +715,6 @@ print(l8ImColl);
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tempVsTree)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
