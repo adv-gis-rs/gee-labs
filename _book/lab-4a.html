@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3301 - 3&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-4b.html" rel="next">
+<link href="./js-introduction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lab 4a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lab 4b</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"> <span class="header-section-number">3.0.1</span> Setup</a></li>
+  <li><a href="#client-and-server" id="toc-client-and-server" class="nav-link" data-scroll-target="#client-and-server"> <span class="header-section-number">3.1</span> Client and Server</a></li>
+  <li><a href="#the-ee-object" id="toc-the-ee-object" class="nav-link" data-scroll-target="#the-ee-object"> <span class="header-section-number">3.2</span> The <code>ee</code> object</a></li>
+  <li><a href="#spatial-data-models" id="toc-spatial-data-models" class="nav-link" data-scroll-target="#spatial-data-models"> <span class="header-section-number">3.3</span> Spatial Data Models</a>
+  <ul class="collapse">
+  <li><a href="#vector-data-model" id="toc-vector-data-model" class="nav-link" data-scroll-target="#vector-data-model"> <span class="header-section-number">3.3.1</span> Vector Data Model</a></li>
+  <li><a href="#raster-data-model" id="toc-raster-data-model" class="nav-link" data-scroll-target="#raster-data-model"> <span class="header-section-number">3.3.2</span> Raster Data Model</a></li>
+  </ul></li>
+  <li><a href="#spatial-data-structures" id="toc-spatial-data-structures" class="nav-link" data-scroll-target="#spatial-data-structures"> <span class="header-section-number">3.4</span> Spatial Data Structures</a>
+  <ul class="collapse">
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images"> <span class="header-section-number">3.4.1</span> Images</a></li>
+  <li><a href="#geometry-objects" id="toc-geometry-objects" class="nav-link" data-scroll-target="#geometry-objects"> <span class="header-section-number">3.4.2</span> Geometry Objects</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features"> <span class="header-section-number">3.4.3</span> Features</a></li>
+  <li><a href="#collections" id="toc-collections" class="nav-link" data-scroll-target="#collections"> <span class="header-section-number">3.4.4</span> Collections</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This lab introduces spatial data models for representing geographic entities and phenomena in Google Earth Engine.</p>
+<section id="setup" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.0.1</span> Setup</h3>
+<p>Create a new script in your <em>labs-gee</em> repository called <em>lab4a</em>. Enter the following comment header to the script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 4a</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="client-and-server" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="client-and-server"><span class="header-section-number">3.1</span> Client and Server</h2>
+<p>In the preliminary lab you have been writing JavaScript programs that are executed in your browser and run on the hardware in your local machine (i.e.&nbsp;any data in variables you declare resides in your computer’s memory and the functions you call run on your computer’s CPU).</p>
+<p>However, your machine has limited storage, memory, and processing power. Google Earth Engine allows you to access cloud servers comprising more powerful computers and access to larger datasets. You still write a Google Earth Engine program in JavaScript using the code editor in your browser; however, the servers storing and processing the geospatial data in your program are remotely located in the cloud.</p>
+<p>The execution of a Google Earth Engine program is as follows:</p>
+<ol type="1">
+<li>You write a series of JavaScript statements that identify geospatial data, and operations to perform on this data, that run on Google servers and the results to be returned from this processing.</li>
+<li>Your browser sends these statements to the Google servers.</li>
+<li>The Google servers process your message, access data you requested, and perform the operations outlined in your script.</li>
+<li>Results your program requests back from the Google servers are returned to your browser and displayed (e.g.&nbsp;a map is drawn in your browser display, results are printed to the console, a file is made available to download).</li>
+</ol>
+<!-- This differs from a desktop GIS (e.g. QGIS) where all the data and processing occurs locally on your machine's hardware. Google Earth Engine is a distributed system which means the program runs by calling functions running on different computers connected via a network (e.g. your Google Earth Engine programs will call functions running locally in your browser and also functions running on Google servers with data shared between these functions over the internet). Google Earth Engine has a clear client-server architecture where your browser is the client requesting services from Google Earth Engine, the server, which offers a range of services and processes and responds to client requests.  -->
+<!-- There are several advantages to this mode of computing. It is more efficient to just download the result of processing geospatial data than to download all the raw data and process and store it locally. For example, if you wanted to compute the area of forest in Australia using a land cover map you can perform this analysis in the cloud and download one number (the area of forest). Contrast this with having to download a land cover map for all of Australia, process the data, and then run the analysis to calculate the area of forest on your local machine. Also, more geospatial datasets are coming online and they getting larger; it is often not feasible to process all this "big data" locally.   -->
+</section>
+<section id="the-ee-object" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-ee-object"><span class="header-section-number">3.2</span> The <code>ee</code> object</h2>
+<p>It is important to distinguish between variables that are stored, and operations that are run, locally on your machine and data and operations that run in the cloud. The <code>ee</code> prefix indicates that the data being referred to in your script is a server side object. For example, <code>var localString = 'on my computer'</code> is a string type variable stored locally on your machine where as <code>var cloudString = ee.String('in the cloud')</code> is a proxy object for a variable containing string data located on servers in the cloud.</p>
+<p>In general, any variable that is declared as <code>ee.&lt;Thing&gt;()</code> is server side and any method or operation of the form <code>ee.&lt;Thing&gt;().method()</code> is a server side operation. One way of understanding <code>ee.&lt;Thing&gt;()</code> is as a container that you put instructions inside to send to the Google servers; for example, in <code>var cloudString = ee.String('in the cloud')</code> you are putting a client side string <code>'in the cloud'</code> in a container and that data is sent to servers in the cloud. Similarly, you could put the ID of geospatial data that is stored in cloud databases and assign it to server side variables that are used in your program; executing <code>var landsatImage = ee.Image('LANDSAT/LC8_L1T_TOA/LC81130822014033LGN00')</code> will assign the Landsat image with the specified ID to the variable <code>landsatImage</code> in your script.</p>
+<p>If the geospatial data and operations used in your program are server side how do you access or visualise the results? There are a range of functions in Google Earth Engine that let you request data from the server to be displayed in your browser. For example, the <code>print()</code> function can request server side objects and print them to the <em>Console</em> and the <code>Map.addLayer()</code> function requests spatial data which is displayed in the map.</p>
+</section>
+<section id="spatial-data-models" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="spatial-data-models"><span class="header-section-number">3.3</span> Spatial Data Models</h2>
+<p>A spatial data model refers to a conceptual model for describing geographic phenomena or entities. A spatial data model typically contains two pieces of information:</p>
+<ul>
+<li>Positional information describing location, shape, and extent (e.g.&nbsp;an <code>(x, y)</code> coordinate pair representing the location of a weather station).</li>
+<li>Attribute information describing characteristics of the phenomenon or entity (e.g.&nbsp;a name:value pair recording the name of the weather station <code>name:'Perth Airport'</code>).</li>
+</ul>
+<p>A spatial data model is a <em>representation</em> of geographic phenomena or entities; therefore, some detail is abstracted away.</p>
+<section id="vector-data-model" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="vector-data-model"><span class="header-section-number">3.3.1</span> Vector Data Model</h3>
+<p>The vector data model represents geographic phenomena or entities as geometric features:</p>
+<ul>
+<li>points (i.e.&nbsp;a coordinate pair of values)</li>
+<li>lines (i.e.&nbsp;two or more points connected by a line)</li>
+<li>polygons (i.e.&nbsp;three or more points connected by a non-intersecting line which “closes” the polygon)</li>
+</ul>
+<p>Along with coordinates that represent the position of the geometry, vector data also stores non-spatial attribute information which describe characteristics of the geographic phenomenon or entity represented by the geometry feature.</p>
+<p>The figure below demonstrates how geographic entities in Perth can be represented using the vector data model. The blue line feature broadly captures the shape of the river; however, it is a simplification as it does not provide information about how the river’s width varies across space. The red point feature is used to represent the location of Perth; this might be an appropriate way to represent Perth’s location on a zoomed out map but it does not capture Perth’s actual extent.</p>
+<br>
+<details>
+<summary>
+<b><em>What detail is abstracted away by representing Kings Park using the green polygon feature?</em></b>
+</summary>
+<p>
+</p><ul>
+<li>
+Shape of Kings Park is simplified using only 6 vertices.
+</li>
+<li>
+Variation in land cover types and land uses within the park is not captured.
+</li>
+</ul>
+<p></p>
+</details>
+<p><br></p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/vector-data-model.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Representing geographic entities using the vector data model.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+</section>
+<section id="raster-data-model" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="raster-data-model"><span class="header-section-number">3.3.2</span> Raster Data Model</h3>
+<p>The raster data model represents geographic phenomena or entities as a grid of cells (pixels). Attribute information about geographic phenomena or entities is described by assigning a value to each pixel. The dimensions of a pixel relative to distance on the Earth’s land surface determines the complexity and detail of spatial features that can be resolved in raster data. A pixel that represents a 1 km x 1 km footprint on the Earth’s surface will not be able to represent an individual tree or a single building. Pixel values can be continuous (e.g.&nbsp;values represent precipitation) or categorical (e.g.&nbsp;values represent a land cover type).</p>
+<p>The figure below shows the 2018 European Space Agency (ESA) <a href="https://www.esa-landcover-cci.org" target="_blank">Climate Change Initiative (CCI) land cover map</a> for 2018. This is a raster data model representation of land cover; each pixel represents a 300 m x 300 m area on the Earth’s land surface and a pixel can only represent a single land cover type. If you look at the bottom two zoomed in maps you can see some limitations of modelling land cover using 300 m x 300 m spatial resolution raster data. The shape of land cover features are poorly represented by the “block-like” arrangement of pixels and there is variation in land cover within a single pixel (a mixed pixel problem).</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/raster-data-model.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Representing land cover using the raster data model.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<br>
+<details>
+<summary>
+<b><em>How could you represent spatial variation in elevation using vector and raster data models?</em></b>
+</summary>
+<p>
+</p><ul>
+<li>
+Vector data model: contour lines.
+</li>
+<li>
+Raster data model: digital elevation model (DEM) - each pixel value represents the elevation at that location.
+</li>
+</ul>
+<p></p>
+</details>
+<p><br></p>
+<!-- ## Data Structures
+
+Data structures are used to implement data models in a computer system. GEE has a range of non-spatial data structures. 
+
+
+| Name       | Constructor     | Summary                                                                                                                                                                                                                                                                                                                                                                                            |
+|------------|-----------------|--------------------------------------------------------------------|
+| String     | `ee.String()`     | Create a string object on the GEE server. Useful for storing text data (e.g. name of a weather station) and metadata.                                                                                                                                                                                                                                                                              |
+| Dictionary | `ee.Dictionary()` | Create a dictionary object on the GEE server. Dictionary object comprise key and value pairs which describe properties of an object (e.g. a dictionary object could contain key attributes about a point feature representing a city - `{city: 'Perth', population: '1000000'}` - or metadata about a remote sensing image capture - `{CLOUD_COVER: 0.059, DATE_ACQUIRED: 2014-03-18, DATUM: WGS84}`). |
+| Number     | `ee.Number()`     | Create a number object on the GEE server. Useful for storing quantitative data (e.g. the result of a mathematical operation or a numeric measurement such as temperature).                                                                                                                                                                                                                         |
+| List       | `ee.List()`       | Create a list object on the GEE server. Useful for organising different objects (e.g. a list can store images, features, an array, and a string in one object - `var list = ee.List([1, 'text']);`).                                                                                                                                                                                                 |
+| Array      | `ee.Array()`      | Create an array object on the GEE server. 1-D vector, 2-D matrics, 3-D cubes, or n-D hypercubes. Arrays are created from lists of numbers and lists of lists (e.g. `var arr = ee.Array({[1, 2], [1, 2]}`); - a 2x2 array). This demonstrates how complex data structures and objects are constructed from simpler data structures.                                                                   |
+| Date       | `ee.Date()`       | Create a date object on the GEE server. Useful for storing temporal attributes about geographic data (e.g. date of satellite image capture).                                                                                                                                                                                                                                                       |
+
+: Google Earth Engine data structures -->
+</section>
+</section>
+<section id="spatial-data-structures" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="spatial-data-structures"><span class="header-section-number">3.4</span> Spatial Data Structures</h2>
+<section id="images" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="images"><span class="header-section-number">3.4.1</span> Images</h3>
+<p>Raster data in GEE are represented as <code>Image</code> objects.</p>
+<p>To create an <code>Image</code> object that stores raster data on the GEE server use the <code>ee.Image()</code> constructor. You pass arguments into the parentheses of the <code>ee.Image()</code> constructor to specify what raster data should be represented by the <code>Image</code> object. If you pass a number into <code>ee.Image()</code> you will get a constant image where each pixel value is the number passed in.</p>
+<p>Add the following code to your GEE script. This will create an image object where each pixel has the value 5 which can be referred to using the variable <code>img5</code>. Click on the <em>Inspector</em> tab and then click at locations on the map. You should see the value 5 printed in the <em>Inspector</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Raster where pixel values equal 5</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> img5 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(img5)<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(img5<span class="op">,</span> {<span class="dt">palette</span><span class="op">:</span>[<span class="st">'FF0000'</span>]}<span class="op">,</span> <span class="st">'Raster with pixel value = 5'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can pass a string id into the <code>ee.Image()</code> constructor to specify a Google Earth Engine asset (e.g.&nbsp;a Landsat image). Google Earth Engine assets are geospatial data that are stored in cloud databases on Google servers, are available for use in your programs, and are frequently updated - see the available data at the <a href="https://developers.google.com/earth-engine/datasets" target="_blank">Google Earth Engine data catalog</a>.</p>
+<p>The variable <code>img</code> in the code block below refers to an <code>Image</code> object on the Google servers storing Landsat 8 data. This variable can be used in your program to access, query, and analyse the Landsat data. Pass the variable <code>img</code> into the <code>print()</code> function to view the Landsat 8 <code>Image</code>’s metadata. The <code>Image</code> metadata should be printed in the <em>Console</em>. Exploring the <code>Image</code> metadata in the <em>Console</em> is demonstrated in the video below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Pass Landsat 8 image id into Image constructor*</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> img <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">'LANDSAT/LC8_L1T_TOA/LC81130822014033LGN00'</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(img)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>An <code>Image</code> can have one or more bands, each band is a georeferenced raster which can have its own set of properties such as data type (e.g.&nbsp;Integer), scale (spatial resolution), band name, and projection. The <code>Image</code> object itself can contain metadata relevant to all bands inside a dictionary object.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/image.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Schematic of an Image data structure in Google Earth Engine where an image can contain multiple georeferenced bands (source: <a href="https://docs.google.com/presentation/d/1hT9q6kWigM1MM3p7IEcvNQlpPvkedW-lgCCrIqbNeis/edit#slide=id.g4e98c855a5_0_3795">What is Google Earth Engine?</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>Go to the <em>Console</em> and you should see the Landsat 8 <code>Image</code> has 12 bands. Click on a band and you should see some band specific properties such as its projection (<code>crs: EPSG:32650</code>). Click on the <code>Image</code> <code>properties</code> to explore metadata that applies to the <code>Image</code> such as cloud cover at the time of <code>Image</code> capture (<code>CLOUD_COVER: 11.039999961853027</code>) or the satellite carrying the sensor (<code>SPACECRAFT_ID: LANDSAT_8</code>).</p>
+<p>You can visualise the Landsat 8 <code>Image</code> on the map display in your browser. To do this you use the <code>Map.addLayer()</code> function to request the <code>Image</code> stored in the variable <code>img</code> on the Google servers to be displayed in your browser. The following code block will visualise an RGB composite map of the Landsat 8 data stored in <code>img</code> in your browser’s display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Define the visualization parameters. The bands option allows us to specify which bands to map. Here, we choose B4 (Red), B3 (Green), B2 (Blue) to make a RGB composite image.*/</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vizParams <span class="op">=</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">'B4'</span><span class="op">,</span> <span class="st">'B3'</span><span class="op">,</span> <span class="st">'B2'</span>]<span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Centre the display and then map the image</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(img<span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(img<span class="op">,</span> vizParams<span class="op">,</span> <span class="st">'RGB composite'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/map-img.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Visualising Landsat 8 data as a RGB composite image.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<center>
+<iframe src="https://player.vimeo.com/video/442255846" width="640" height="301" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://vimeo.com/442255846"> Images in Google Earth Engine</a>
+</p>
+</center>
+</section>
+<section id="geometry-objects" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="geometry-objects"><span class="header-section-number">3.4.2</span> Geometry Objects</h3>
+<p>The spatial location or extent of vector data is stored as <code>Geometry</code> objects. Google Earth Engine implements the <code>Geometry</code> objects outlined in the <a href="https://tools.ietf.org/html/rfc7946" target="_blank">GeoJSON spec</a>:</p>
+<ul>
+<li>Point</li>
+<li>MultiPoint</li>
+<li>LineString</li>
+<li>MultiLineString</li>
+<li>Polygon</li>
+<li>MultiPolygon</li>
+</ul>
+<p>To create a <code>Geometry</code> object programmatically use the <code>ee.Geometry.&lt;geometry type&gt;()</code> constructor (e.g.&nbsp;for a LineString object use <code>ee.Geometry.LineString()</code>) and pass the coordinates for the object as an argument to the constructor. Look at the code block below to observe that coordinates for a location in Kings Park are passed as arguments to the <code>ee.Geometry.Point()</code> constructor to create a point <code>Geometry</code> object (<code>locationKP</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">//location of Kings Park</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> locationKP <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="fl">115.831751</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.962064</span>)<span class="op">;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(locationKP)<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the point on the map.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(locationKP<span class="op">,</span> <span class="dv">11</span>)<span class="op">;</span> <span class="co">// 11 = zoom level</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(locationKP<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">'FF0000'</span>}<span class="op">,</span> <span class="st">'Kings Park'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you explore the metadata for <code>locationKP</code> in the <em>Console</em> you will see the object has a <code>type</code> field which indicates the object is of <code>Point</code> type and a <code>coordinates</code> field which contains the the coordinates for the point as an array object. The value of the <code>coordinates</code> field is an ordered x y pair.</p>
+<p>You can create LineString objects in a similar way. Here, you can pass the coordinates as an array into the <code>ee.Geometry.LineString()</code> constructor. As noted in the <a href="https://tools.ietf.org/html/rfc7946" target="_blank">GeoJSON spec</a>, coordinates for LineString objects are an array of ordered x y pairs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// May Drive as a LineString object</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mayDr <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        [[<span class="fl">115.84063447625735</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.959551722179764</span>]<span class="op">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.8375445714722</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.957002964307144</span>]<span class="op">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.83303846032717</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.956201911510334</span>]<span class="op">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82994855554202</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.957403488085628</span>]<span class="op">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.827244888855</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.9606440253292</span>]<span class="op">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82625783593753</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.961445039381488</span>]<span class="op">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82368291528323</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.96217322791136</span>]<span class="op">,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82127965600588</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.963811630990566</span>]<span class="op">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82055009515383</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.96563204456937</span>]<span class="op">,</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82278169305422</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.96690631259952</span>]<span class="op">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82325376184085</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.968471817682193</span>]<span class="op">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82218087823489</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.969818858827356</span>]<span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>         [<span class="fl">115.82222379357913</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.970401356984638</span>]])<span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mayDr)<span class="op">;</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mayDr<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">'00FF00'</span>}<span class="op">,</span> <span class="st">'May Drive'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>Geometry</code> objects in Google Earth Engine are by default geodesic (i.e.&nbsp;edges are the shortest path on spherical surface) as opposed to planar (edges follow the shortest path on a 2D surface). You can read more about the difference between geodesic and planar geometries <a href="https://developers.google.com/earth-engine/geometries_planar_geodesic" target="_blank">here</a>.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Geometry_geodesic_vs_planar_annotated.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Illustration of difference between geodesic and planar geometries (source: <a href="https://developers.google.com/earth-engine/images/Geometry_geodesic_vs_planar_annotated.png">Google Earth Engine: Geodesic vs.&nbsp;Planar Geometries</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>You can also import <code>Geometry</code> objects into your scripts by manually drawing them on the map display using the <em>Geometry Tools</em>. The <em>Geometry Tools</em> are located in the upper left corner of the map display.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/geometry-tools.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Geometry Tools.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>The following video illustrates how to use the <em>Geometry Tools</em> to create a Polygon object representing Kings Park and how to use variable storing the geometry object in your script.</p>
+<p>Some things to note:</p>
+<ul>
+<li>Use the placemark icon <img src="img/Playground_button_placemark.png" class="inline-icon" style="width:5%;"> to create Point or MultiPoint objects.</li>
+<li>Use the line icon <img src="img/Playground_button_line.png" class="inline-icon" style="width:5%;"> to create Line or MultiLine objects.</li>
+<li>Use the polygon icon <img src="img/Playground_button_polygon.png" class="inline-icon" style="width:5%;"> to create Polygon or MultiPolygon objects.</li>
+<li>Use the spanner icon to configure how geometry objects that you create using <em>Geometry Tools</em> are imported into your script and styling options for display on the map.</li>
+<li>Use <b>+ new layer</b> to create new <code>Geometry</code> objects. <b>If you want to create separate <code>Geometry</code> objects for different geographic features remember to click this button before digitising a new feature</b>.</li>
+</ul>
+<center>
+<iframe src="https://player.vimeo.com/video/442270755" width="640" height="301" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://vimeo.com/442270755">Geometry Tools.</a>
+</p>
+</center>
+</section>
+<section id="features" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="features"><span class="header-section-number">3.4.3</span> Features</h3>
+<p><code>Geometry</code> objects describe the positional information of vector data; however, there is also a need to represent attribute information about geographic phenomena or entities represented by <code>Geometry</code> objects. Vector data in Google Earth Engine which contains geometry data (representing location and shape of geographic phenomenon or entities) and attribute data are <a href="https://tools.ietf.org/html/rfc7946#page-11" target="_blank">GeoJSON <code>Feature</code> objects</a>.</p>
+<p>A <code>Feature</code> object is of type Feature with a <code>geometry</code> property which contains a <code>Geometry</code> object or <code>null</code> and a <code>properties</code> property which stores a dictionary object of name:value pairs of attribute information associated with the geographic feature represented by the <code>Geometry</code> object.</p>
+<p>Execute the code block below to convert the <code>Geometry</code> object representing Kings Park to a <code>Feature</code> object with a <code>properties</code> property which with a name attribute. Inspect the <code>Feature</code> object in the <em>Console</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a Feature from the Geometry.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> kpFeature <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(locationKP<span class="op">,</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">'Kings Park'</span>})<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(kpFeature)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<br>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/feature.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Kings Park Feature object.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p><br></p>
+<details>
+<summary>
+<b><em>How would a <code>Feature</code> object differ if the Kings Park <code>geometry</code> property was of Polygon type rather than point? Can you convert <code>kpPoly</code> to a <code>Feature</code> object?</em></b>
+</summary>
+<p>
+</p><p><br>The <code>geometry</code> property of the <code>Feature</code> object would contain an array object of coordinates for the outline of the Polygon.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create polygon Feature</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> kpPolyFeature <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(kpPoly<span class="op">,</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">'Kings Park'</span>})<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(kpPolyFeature)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/poly-feature.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Kings Park Polygon Feature object.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+</details>
+<p><br></p>
+<p>You can read more about <code>Feature</code> objects in Google Earth Engine <a href="https://developers.google.com/earth-engine/features" target="_blank">here</a>.</p>
+</section>
+<section id="collections" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="collections"><span class="header-section-number">3.4.4</span> Collections</h3>
+<p>Collections in Google Earth Engine comprise groups of related objects. <code>ImageCollections</code> contain stacks of related <code>Image</code> objects and <code>FeatureCollections</code> contain sets of related <code>Feature</code> objects. Storing objects together in a collection means that operations can be easily applied to all the objects in the collection such as sorting, filtering, summarsing, or other mathematical operations. For example, all Landsat 8 surface reflectance <code>Images</code> are stored in an <code>ImageCollection</code> with the ID <code>'LANDSAT/LC08/C01/T1_SR'</code>. You can pass this string ID into the <code>ee.ImageCollection()</code> constructor to import all Landsat 8 surface reflectance <code>Images</code> into your program.</p>
+<p>If you were creating a program to monitor land surface changes over Kings Park in 2018, you might want to import an <code>ImageCollection</code> of all Landsat 8 <code>Images</code> into your program and then filter the <code>ImageCollection</code> for Landsat 8 scenes that intersect with the extent of Kings Park and were captured in 2018. The following code block demonstrates this. You can then apply subsequent analysis or summary operations to the <code>ImageCollection</code> stored in the variable <code>l8ImCollKP</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Landsat 8 Image Collection</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l8ImColl <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">"LANDSAT/LC08/C01/T1_SR"</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Filter Image Collection for 2018 and Images that intersect Kings Park</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l8ImCollKP <span class="op">=</span> l8ImColl</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(kpPoly)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">"2018-01-01"</span><span class="op">,</span> <span class="st">"2018-12-31"</span>)<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l8ImCollKP)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should find 45 Landsat 8 surface reflectance <code>Images</code> that intersected with Kings Park in 2018. You can inspect all the <code>Images</code> in the <code>ImageCollection</code> <code>l8ImCollKP</code> in the <em>Console</em>. The ability to store spatial data in collections makes creating programs that need to access and analyse big geospatial data easier.</p>
+<p>You have already created your own <code>ImageCollection</code> that contains only the Landsat 8 <code>Images</code> for the spatial and temporal extent of interest to you (Kings Park in 2018). Now you can easily apply a range of functions and operations to all the <code>Images</code> in the <code>ImageCollection</code>. For example, you could apply a function that identifies maximum greenness observed at each pixel in 2018 to analyse spatial variability in vegetation cover. You will learn how to apply functions to <code>Images</code> in <code>ImageCollections</code> in subsequent labs.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/im-coll-kp.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">ImageCollection of all Landsat 8 scenes that intersect with Kings Park in 2018.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>You can find more information on <code>ImageCollections</code> <a href="https://developers.google.com/earth-engine/ic_creating" target="_blank">here</a> and <code>FeatureCollections</code> <a href="https://developers.google.com/earth-engine/feature_collections" target="_blank">here</a>.</p>
+<br>
+<details>
+<summary>
+<b><em>How would you represent multiple weather stations and observations recorded at these stations as a <code>FeatureCollection</code>?</em></b>
+</summary>
+<p>
+</p><p><br>Each weather station would be a <code>Feature</code> object in the <code>FeatureCollection</code>. Each weather station <code>Feature</code> would have a <code>geometry</code> property containing a Point <code>Geometry</code> object representing the location of the station and a <code>properties</code> property containing objects of name:value pairs of weather observations for a given day.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example structure of weather stations Feature Collection</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">"type"</span><span class="op">:</span> <span class="st">"FeatureCollection"</span><span class="op">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">"features"</span><span class="op">:</span> [</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span><span class="op">:</span> <span class="st">"Feature"</span><span class="op">,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"properties"</span><span class="op">:</span> {</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"station-id"</span><span class="op">:</span> XXXX<span class="op">,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"date"</span><span class="op">:</span> <span class="st">"01-01-2018"</span><span class="op">,</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"temperature"</span><span class="op">:</span> <span class="dv">29</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"geometry"</span><span class="op">:</span> {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span><span class="op">:</span> <span class="st">"Point"</span><span class="op">,</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"coordinates"</span><span class="op">:</span> [</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="fl">119.17968749999999</span><span class="op">,</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">26.74561038219901</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span><span class="op">:</span> <span class="st">"Feature"</span><span class="op">,</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"properties"</span><span class="op">:</span> {</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"station-id"</span><span class="op">:</span> XXXX<span class="op">,</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">"date"</span><span class="op">:</span> <span class="st">"02-01-2018"</span><span class="op">,</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">"temperature"</span><span class="op">:</span> <span class="dv">27</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"geometry"</span><span class="op">:</span> {</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"type"</span><span class="op">:</span> <span class="st">"Point"</span><span class="op">,</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"coordinates"</span><span class="op">:</span> [</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="fl">124.1015625</span><span class="op">,</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">29.535229562948455</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+</details>
+<p><br></p>
+<details>
+<summary>
+<b><em>1. Can you use the Geometry Tools to create a LineString <code>Geometry</code> object representing a road? and 2. can you convert the LineString <code>Geometry</code> object to a <code>Feature</code> object by giving it a <code>road_name</code> property?</em></b>
+</summary>
+<p>
+</p><center>
+<iframe src="https://player.vimeo.com/video/442389572" width="640" height="303" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://vimeo.com/442389572">Create a LineString <code>Geometry</code> object to represent a road and create a <code>Feature</code> object with a <code>road_name</code> property.</a>
+</p>
+</center>
+<p></p>
+</details>
+<p><br></p>
+<hr>
+<p>
+Point <img src="img/Playground_button_placemark.png" class="inline-icon" style="width:5%;">, Line <img src="img/Playground_button_line.png" class="inline-icon" style="width:5%;">, and Polygon <img src="img/Playground_button_polygon.png" class="inline-icon" style="width:5%;"> marker symbols obtained from <a href="https://developers.google.com/earth-engine/playground#geometry-tools">Google Earth Engine Developers Guide</a>
+</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./js-introduction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">JavaScript</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-4b.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lab 4b</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

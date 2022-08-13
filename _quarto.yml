@@ -1,0 +1,28 @@
+project:
+  type: book
+
+book:
+  title: "3301"
+  site-url: https://adv-gis-rs.github.io/
+  author: "John Duncan and Bryan Boruff"
+  chapters:
+    - href: index.qmd
+      text: Home
+    - href: js-introduction.qmd
+      text: JavaScript
+    - href: lab-4a.qmd
+      text: Lab 4a
+    - href: lab-4b.qmd
+      text: Lab 4b
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+  pdf:
+    documentclass: scrreprt
+
+
+
