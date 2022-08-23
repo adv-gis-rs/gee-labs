@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3301 - 6&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-5.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5b</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 6</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Lab 7</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#where-has-vegetation-cover-changed-between-2000-2002-and-2017-2019" id="toc-where-has-vegetation-cover-changed-between-2000-2002-and-2017-2019" class="nav-link active" data-scroll-target="#where-has-vegetation-cover-changed-between-2000-2002-and-2017-2019">Where has vegetation cover changed between 2000-2002 and 2017-2019?</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a>
+  <ul class="collapse">
+  <li><a href="#cloud-masks" id="toc-cloud-masks" class="nav-link" data-scroll-target="#cloud-masks">Cloud Masks</a></li>
+  </ul></li>
+  <li><a href="#create-new-variables" id="toc-create-new-variables" class="nav-link" data-scroll-target="#create-new-variables">Create new variables</a>
+  <ul class="collapse">
+  <li><a href="#image-math-and-local-map-algebra-operations" id="toc-image-math-and-local-map-algebra-operations" class="nav-link" data-scroll-target="#image-math-and-local-map-algebra-operations"><code>Image</code> math and local map algebra operations</a></li>
+  <li><a href="#spectral-indices" id="toc-spectral-indices" class="nav-link" data-scroll-target="#spectral-indices">Spectral indices</a></li>
+  </ul></li>
+  <li><a href="#join-combine" id="toc-join-combine" class="nav-link" data-scroll-target="#join-combine">Join / Combine</a></li>
+  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
+  <li><a href="#change-detection" id="toc-change-detection" class="nav-link" data-scroll-target="#change-detection">Change Detection</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This lab will introduce data transformation and manipulation operations for raster data.</p>
+<p><b>Quick recap:</b> In Google Earth Engine, raster data is represented using <code>Image</code> objects which include one or more bands and each band is a georeferenced raster. Each band can have its own set of <code>properties</code> such as data type (e.g.&nbsp;integer), scale (spatial resolution), band name, and projection. The <code>Image</code> object itself can contain metadata relevant to all bands inside a <code>properties</code> dictionary object (e.g.&nbsp;date of <code>Image</code> capture). A collection of <code>Image</code>s are stored in an <code>ImageCollection</code>. For example, all Landsat 8 <code>Image</code>s are stored in an <code>ImageCollection</code> object.</p>
+<p><a href="lab-5.html">Lab 6</a> introduced data transformation operations that can be applied to vector data. These operations can be categorised into:</p>
+<ol type="1">
+<li>filtering or subsetting data</li>
+<li>creating new variables from existing / raw data</li>
+<li>joining or combining data sets</li>
+<li>summarising or aggregating data</li>
+</ol>
+<p>These categories of data transformation operations also apply to raster data. Vector data transformation operations can be spatial or non-spatial. Similarly, raster data transformation operations can be spatial (e.g.&nbsp;changing the spatial resolution of raster pixels, clipping a raster extent), non-spatial and applied to metadata (e.g.&nbsp;filtering raster <code>Image</code>s by date), or applied to values stored in raster pixels (e.g.&nbsp;applying a function to convert raster <code>Image</code> pixel values that represent temperature in Fahrenheit to Celsius).</p>
+<p>Data transformation operations applied to raster data can also be categorised as:</p>
+<ol type="1">
+<li><b>local operations:</b> a pixel value is computed using per-pixel arithmetic, comparison, or logical operations.</li>
+<li><b>focal operations:</b> a pixel value is computed using aggregation or summary operations applied to neighbouring pixel values defined by a moving window or kernel.</li>
+<li><b>zonal operations:</b> a pixel value is computed using aggregation or summary operations applied to pixels within an irregular region.</li>
+<li><b>global operations:</b> an output is the result of aggregation or summary operations applied to all pixels in a raster data set.</li>
+</ol>
+<section id="where-has-vegetation-cover-changed-between-2000-2002-and-2017-2019" class="level3">
+<h3 class="anchored" data-anchor-id="where-has-vegetation-cover-changed-between-2000-2002-and-2017-2019">Where has vegetation cover changed between 2000-2002 and 2017-2019?</h3>
+<p>This lab demonstrates a range of raster data transformations as part of a workflow to address the question: <em>Where has vegetation cover changed between 2000-2002 and 2017-2019?</em> The study area is the urban Perth and Peel region.</p>
+<p>To address this question you will be using surface reflectance data from the Landsat 7 and Landsat 8 satellites.</p>
+<p>The Landsat 7 surface reflectance data is derived from measurements recorded by the Enhanced Thematic Mapper (ETM+) sensor which has a revisit period of 16 days and a 30 m spatial resolution. Data from Landsat 7 is available from 1999 in Google Earth Engine.</p>
+<p>The Landsat 8 surface reflectance data is derived from measurements recorded by the Operational Land Imager (OLI) sensor. Again, Landsat 8 data has a revisit period of 16 days and a spatial resolution of 30 m. Landsat 8 observations are available from 2013.</p>
+<p>The following are good resources for information about Landsat data:</p>
+<ul>
+<li><a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecy.1730" target="_blank">A survival guide to Landsat preprocessing</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S003442571400042X" target="_blank">Landsat-8: Science and product vision for terrestrial global change research</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0034425719300707" target="_blank">Current status of Landsat program, science, and applications</a></li>
+</ul>
+<p>This lab will also introduce you to Google Earth Engine’s capacity to process big geospatial data sets. Here, you will use all Landsat 7 and 8 scenes that intersect with the Perth and Peel region between 2000 and 2002 and 2017 and 2019.</p>
+<p>Your workflow will encompass the following steps:</p>
+<ol type="1">
+<li>Subset all Landsat 7 and 8 <code>Image</code>s that intersect with the study region.</li>
+<li>Mask cloudy pixels out of all Landsat 7 and 8 <code>Image</code>s returned from step 1.</li>
+<li>Merge Landsat 7 and Landsat 8 <code>Image</code>s into one <code>ImageCollection</code>.</li>
+<li>Compute the NDVI for all cloud free Landsat pixels between 2000-2002 and 2017-2019.</li>
+<li>Compute a median NDVI composite <code>Image</code> for 2000-2002 and 2017-2019.</li>
+<li>Compute a difference <code>Image</code> showing the change in NDVI between 2000-2002 and 2017-2019.</li>
+</ol>
+</section>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>Create a new script in your <em>labs-gee</em> repository called <em>lab6</em>. Enter the following comment header to the script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 6</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// import data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// import Landsat 7 and 8 ImageCollections</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l7 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LE07/C01/T1_SR'</span>)<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l8 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LC08/C01/T1_SR'</span>)<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bBox <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        [[[<span class="fl">115.73339493500093</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.00885297734888</span>]<span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">115.73339493500093</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.17638807304199</span>]<span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">115.97097428070406</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.17638807304199</span>]<span class="op">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">115.97097428070406</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.00885297734888</span>]]]<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="filter" class="level2">
+<h2 class="anchored" data-anchor-id="filter">Filter</h2>
+<p><code>ImageCollection</code>s can be filtered using spatial and non-spatial filters. The <code>filterBounds()</code> function filters <code>Image</code>s in an <code>ImageCollection</code> that intersect with the extent of a <code>Geometry</code> object (passed as an argument to the <code>filterBounds()</code> function). This is a spatial filtering operation.</p>
+<p><code>ImageCollection</code>s can also be filtered using non-spatial operations using the values of properties in an <code>Image</code>s metadata. Each Landsat <code>Image</code> has a <code>properties</code> dictionary object of metadata attributes including the date and time of image capture (the <code>system:time_start</code> property). This property can be used with the <code>filterDate()</code> function to subset all Landsat <code>Image</code>s captured within a specified date range. String data for the start and end date are passed as arguments into the <code>filterDate()</code> function and an <code>ImageCollection</code> containing only <code>Image</code>s captured during that period is returned.</p>
+<p>Executing the code below will filter the Landsat 7 and Landsat 8 <code>ImageCollection</code>s using the <code>Geometry</code> object in <code>bBox</code> and subset <code>Image</code>s captured between the dates specified.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* filter Landsat 7 and 8 ImageCollections to return only Images </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">that intersect the bBox and were captured within specified date range */</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l72000 <span class="op">=</span> l7</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(bBox)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">'2000-01-01'</span><span class="op">,</span> <span class="st">'2002-12-31'</span>)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l72017 <span class="op">=</span> l7</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(bBox)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">'2017-01-01'</span><span class="op">,</span> <span class="st">'2019-12-31'</span>)<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l82017 <span class="op">=</span> l8</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(bBox)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">'2017-01-01'</span><span class="op">,</span> <span class="st">'2019-12-31'</span>)<span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Landsat 7 Im Coll 2000-2002:'</span><span class="op">,</span> l72000)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Print the Landsat 7 <code>ImageCollection</code> that is returned from filtering the <code>ImageCollection</code> storing the Landsat 7 archive for the <code>Images</code> that intersect with the <code>Geometry</code> object <code>bBox</code> and were captured between 1 January 2000 and 31 December 2002. The filtered <code>ImageCollection</code> is stored in the variable <code>l72000</code> and should contain 109 Landsat 7 <code>Images</code>. If you inspect the <code>SENSING_TIME:</code> property for each of the <code>Image</code>s in the <code>l72000</code> you should see dates between 1 January 2000 and 31 December 2002.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/l7-filtered-imcoll.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Print() of filtered Landsat 7 ImageCollection.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<details>
+<summary>
+<b><em>What would happen if you passed the dates <code>'2010-01-01', '2010-12-31'</code> into the <code>filterBounds()</code> for a Landsat 8 <code>ImageCollection</code>?</em></b>
+</summary>
+<p>
+<br> Error message - there should be no Landsat 8 <code>Image</code>s captured in 2010. Landsat 8 started collecting data in 2013.
+</p>
+</details>
+<p><br></p>
+<section id="cloud-masks" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-masks">Cloud Masks</h3>
+<p>You have just applied spatial and non-spatial filtering operations to an <code>ImageCollection</code>. You can also apply filtering operations to an individual <code>Image</code>. A common application of spatial filtering operations applied to an <code>Image</code> is masking out a pixel value based upon the pixel value in the corresponding location in another raster.</p>
+<p>Remote sensing data products often have a pixel quality band which indicates if the observation for a pixel is high quality or not. Cloud cover and atmospheric contamination are common sources of low quality observations.</p>
+<p>The following code block displays an <code>Image</code> from the filtered Landsat 8 <code>ImageCollection</code> <code>l82017</code> as an RGB composite. Cloud cover contamination is clearly visible.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// cloud mask function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// visualise a cloudy Landsat Image</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cloudyL8 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">'LANDSAT/LC08/C01/T1_SR/LC08_112082_20170510'</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">/* Define the visualization parameters. The bands option allows us to specify which bands to map. </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">Here, we choose B4 (Red), B3 (Green), B2 (Blue) to make a RGB composite image.*/</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vizParams <span class="op">=</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">'B4'</span><span class="op">,</span> <span class="st">'B3'</span><span class="op">,</span> <span class="st">'B2'</span>]<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="dv">3500</span><span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(cloudyL8<span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(cloudyL8<span class="op">,</span> vizParams<span class="op">,</span> <span class="st">'Cloudy L8 Image'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloudy-l8-image.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Cloud contamination of Landsat 8 Image.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Landsat surface reflectance pixel quality attributes are stored as a bitmask within the <code>pixel_qa</code> band generated by the <a href="https://www.usgs.gov/land-resources/nli/landsat/cfmask-algorithm" target="_blank">CFMASK algorithm</a>. Other remote sensing products (e.g.&nbsp;MODIS and Planet) also provide pixel quality information as a bitmask; therefore, bitmasks are an important concept to understand when working with remote sensing data.</p>
+<p>Each pixel in a quality band stores a number which can be represented as a decimal number (e.g.&nbsp;32) or as a binary number (e.g.&nbsp;00100000 - this is an 8 bit integer or one byte).</p>
+<p><b>Binary numbers</b></p>
+<ul>
+<li>each bit in the binary number can take a value of 0 or 1</li>
+<li>bits are ordered from right to left (i.e.&nbsp;00001001 - bit 0 and bit 3 are represented by the binary digit 1)</li>
+<li>bit order starts at 0 (i.e.&nbsp;bit 5 is set to 1 here - 00100000)</li>
+<li>binary numbers have base 2</li>
+<li>convert binary 00001001 to decimal → 00001001 = <span class="math inline">\((0*2^7) + (0*2^6) + (0*2^5) + (0*2^4) + (1*2^3) + (0*2^2) + (0*2^1) + (1*2^0)\)</span> = 9</li>
+</ul>
+<p>In a bitmask <code>Image</code>, each bit corresponds to an indicator of quality information for that pixel. Keeping with the binary number 00100000, the bitmask represented by bit 5 evaluates to true and all other bitmasks are false. The bitmasks represented by values in the <code>pixel_qa</code> band of Landsat <code>Image</code>s are shown below. The <code>pixel_qa</code> band stores pixel values as unsigned 16 bit integers with bits 0 to 10 representing different bitmasks representing different aspects of pixel quality.</p>
+<p>A high quality pixel observation has the digit 1 in bit 1 (i.e.&nbsp;0000000000000010). A cloudy pixel would have the digit 1 in bits 3 and 5 (i.e.&nbsp;0000000000101000). While using bitmasks to store pixel quality information is more complicated than using separate binary <code>Image</code> bands for each indicator of pixel quality, it is a more efficient way of storing and transporting this information.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cf_mask_pixel_qa.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">pixel_qa bitmask derived from CFMASK for Landsat surface reflectance.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<details>
+<summary>
+<b><em>If a pixel was clear and snow what would its <code>pixel_qa</code> value be in binary?</em></b>
+</summary>
+<p>
+<br> 0000000000010010 (bit 1 for clear and bit 4 for snow)
+</p>
+</details>
+<p><br></p>
+<p>You can use the bitmask contained in the <code>qa_band</code> to mask out cloudy pixels. To do this you need identify which pixels have the digit 1 in bit 3 or bit 5 (i.e.&nbsp;they are cloudy) and then mask those pixels in the Landsat 8 <code>Image</code>. The following steps demonstrate how to do this:</p>
+<ol type="1">
+<li><p>Create a binary number representing cloud shadow (digit 1 in bit 3): <code>var cloudShadowBitMask = (1 &lt;&lt; 3);</code>. The <code>&lt;&lt;</code> shifts bits left by filling in zeros from the right. Here, 1 is shifted three bits left and the resulting value is stored in <code>cloudShadowBitMask</code>. <code>cloudShadowBitMask</code> now represents the value of the bitmask when cloud shadow is present.</p></li>
+<li><p>Create a binary number representing clouds (digit 1 in bit 5): <code>var cloudsBitMask = (1 &lt;&lt; 5);</code>. The <code>&lt;&lt;</code> shifts bits left by filling in zeros from the right. Here, 1 is shifted five bits left and the resulting value is stored in <code>cloudsBitMask</code>. <code>cloudsBitMask</code> now represents the value of the bitmask when cloud is present.</p></li>
+</ol>
+<center>
+
+<table style="width=100%; border-collapse: collapse; border-bottom: 1px solid #ddd; padding: 15px;">
+<caption>
+Left shift operator to create bitmask values for cloud and cloud shadow.
+</caption>
+<tbody><tr>
+<th>
+Variable
+</th>
+<th>
+Operation
+</th>
+<th>
+Operand
+</th>
+<th>
+Output
+</th>
+</tr>
+<tr>
+<td>
+<code>cloudShadowBitMask</code>
+</td>
+<td>
+<code>(1 &lt;&lt; 3)</code>
+</td>
+<td>
+0000000000000001
+</td>
+<td>
+0000000000001000
+</td>
+</tr>
+<tr>
+<td>
+<code>cloudsBitMask</code>
+</td>
+<td>
+<code>(1 &lt;&lt; 5)</code>
+</td>
+<td>
+0000000000000001
+</td>
+<td>
+0000000000100000
+</td>
+</tr>
+
+</tbody></table>
+</center>
+<ol start="3" type="1">
+<li><p>Extract the <code>pixel_qa</code> band into its own <code>Image</code> object <code>pixelQA</code>: <code>var pixelQA = cloudyL8.select('pixel_qa');</code></p></li>
+<li><p>Use <code>bitwiseAnd</code> and comparison operators, that evaluate to boolean true or false values, to identify if pixel values in <code>pixelQA</code> have the digit 1 in bit 3 or bit 5 when the pixel value is represented as a binary number. The <code>bitwiseAnd</code> operator compares two binary numbers and returns a number with same number of bits and the digit 1 in bit locations where both input binary numbers have the digit 1.</p></li>
+</ol>
+<center>
+
+<table style="width:100%; border-collapse: collapse; border-bottom: 1px solid #ddd; padding: 15px;">
+<caption>
+<code>bitwiseAnd</code> operation.
+</caption>
+<tbody><tr>
+<th>
+Situation
+</th>
+<th>
+Operation
+</th>
+<th>
+Operand
+</th>
+<th>
+Output
+</th>
+</tr>
+<tr>
+<td>
+cloud shadow present in <code>pixelQA</code>
+</td>
+<td>
+<code>pixelQA.bitwiseAnd(cloudShadowBitMask)</code>
+</td>
+<td>
+0000000001001000 &amp; 0000000000001000
+</td>
+<td>
+0000000000001000
+</td>
+</tr>
+<tr>
+<td>
+cloud shadow NOT present in <code>pixelQA</code>
+</td>
+<td>
+<code>pixelQA.bitwiseAnd(cloudShadowBitMask)</code>
+</td>
+<td>
+0000000001000000 &amp; 0000000000001000
+</td>
+<td>
+0000000000000000
+</td>
+</tr>
+<tr>
+<td>
+cloud present in <code>pixelQA</code>
+</td>
+<td>
+<code>pixelQA.bitwiseAnd(cloudsBitMask)</code>
+</td>
+<td>
+0000000001111000 &amp; 0000000000100000
+</td>
+<td>
+0000000000100000
+</td>
+</tr>
+<tr>
+<td>
+cloud shadow NOT present in <code>pixelQA</code>
+</td>
+<td>
+<code>pixelQA.bitwiseAnd(cloudsBitMask)</code>
+</td>
+<td>
+0000000001011000 &amp; 0000000000100000
+</td>
+<td>
+0000000000000000
+</td>
+</tr>
+
+</tbody></table>
+</center>
+<ol start="5" type="1">
+<li>If the result of applying a <code>bitwiseAnd</code> operation to a pixel value in <code>pixelQA</code> and either <code>cloudShadowBitMask</code> or <code>cloudsBitMask</code> is not equal to zero then the bitmask indicates either cloud or cloud shadow is present at that pixel location and it should be masked from subsequent processing. The <code>.eq(0)</code> comparison can be used to test if the result of a <code>bitwiseAnd()</code> operation is equal to zero and the <code>.and()</code> logical operator can be used to test if the <code>pixelQA</code> pixel value has the digit 0 for the bitmask for cloud and cloud shadow. If this logical operator evaluates to true then it indicates the pixel is cloud free.</li>
+</ol>
+<p>The following code puts all these commands together. <code>cloudMask</code> stores a raster <code>Image</code> with a pixel value of 1 indicating no cloud and a pixel value 0 indicating cloud. When visualised on the map, cloud pixels should render in black.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// make a cloud mask</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cloudShadowBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cloudsBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> pixelQA <span class="op">=</span> cloudyL8<span class="op">.</span><span class="fu">select</span>(<span class="st">'pixel_qa'</span>)<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cloudMask <span class="op">=</span> pixelQA<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudShadowBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">and</span>(pixelQA<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudsBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(cloudMask<span class="op">,</span> {}<span class="op">,</span> <span class="st">'cloud mask'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-mask.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">cloudMask Image derived from the pixelQA bitmask.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can use the <code>Image</code> stored in the variable <code>cloudMask</code> to mask pixel values in the Landsat 8 <code>Image</code> <code>cloudyL8</code> where a pixel is cloudy. <a href="https://developers.google.com/earth-engine/tutorials/tutorial_api_05#masking" target="_blank">Masking</a> pixels in Google Earth Engine makes pixels transparent and removes them from subsequent processing, analysis, or visualisation. To mask <code>Image</code> pixel values in Google Earth Engine pass a raster <code>Image</code>, where pixel values of zero indicate locations to mask, into the <code>updateMask()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// mask out clouds in the cloudyL8 image</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cloudyL8Mask <span class="op">=</span> cloudyL8<span class="op">.</span><span class="fu">updateMask</span>(cloudMask)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(cloudyL8Mask<span class="op">,</span> vizParams<span class="op">,</span> <span class="st">'Cloud Masked L8 Image'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-masked-l8.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">cloudMask applied to Landsat 8 Image.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Use the <b>Layers</b> widget to toggle the unmasked and masked Landsat 8 <code>Image</code> on and off to see the effect of cloud masking using the bitmask in the <code>pixel_qa</code> band.</p>
+<p>You have gone through the process of masking out cloudy pixels from a single Landsat 8 <code>Image</code>. However, repeating this process manually for all Landsat 8 <code>Image</code>s would be time consuming.</p>
+<p>This is where you can take advantage of a programmatic approach to GIS. You can wrap up the steps to create a cloud mask from an <code>Image</code>s <code>pixel_qa</code> band and use that cloud mask to mask an <code>Image</code>s spectral reflectance values in a function. You can then <code>map</code> that function over an <code>ImageCollection</code> of Landsat <code>Image</code>s masking out cloudy pixels in each <code>Image</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Function to mask clouds based on the pixel_qa band of Landsat data.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">cloudMaskFunc</span>(image) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bits 3 and 5 are cloud shadow and cloud, respectively.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cloudShadowBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cloudsBitMask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Get the pixel QA band.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qa <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'pixel_qa'</span>)<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Both flags should be set to zero, indicating clear conditions.</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mask <span class="op">=</span> qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudShadowBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                 <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudsBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, you need to <code>map</code> this function over each of your filtered <code>ImageCollection</code>s of Landsat 7 and 8 data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// map cloudMask function over Landsat ImageCollections.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>l72000 <span class="op">=</span> l72000<span class="op">.</span><span class="fu">map</span>(cloudMaskFunc)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>l72017 <span class="op">=</span> l72017<span class="op">.</span><span class="fu">map</span>(cloudMaskFunc)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>l82017 <span class="op">=</span> l82017<span class="op">.</span><span class="fu">map</span>(cloudMaskFunc)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In Lab 6 the concept of <code>map</code>ping a function over a <code>FeatureCollection</code>, applying the function to each <code>Feature</code> in the <code>FeatureCollection</code>, and returning a <code>FeatureCollection</code> of <code>Features</code> storing the results returned from the function was introduced. The same concept of <code>map</code>ping a function over an <code>ImageCollection</code> applies here. The function <code>cloudMaskFunc</code> is mapped over the <code>ImageCollection</code>s <code>l72000</code>, <code>l72017</code>, and <code>l82017</code>, each <code>Image</code> in these <code>ImageCollection</code>s is cloud masked, and an <code>ImageCollection</code> of cloud masked <code>Image</code>s is returned.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/function-map.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Graphical representation of mapping a function over a collection and returning a collection as an output (source: <a href="https://adv-r.hadley.nz/index.html">Wickham (2020)</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The concept of masking pixel values based on a cloud mask can be considered spatial subsetting; you are subsetting pixels for subsequent analysis based on the pixel values and their location in another raster <code>Image</code> <a href="https://geocompr.robinlovelace.net/spatial-operations.html#spatial-raster-subsetting" target="_blank">(Lovelace et al.&nbsp;2020)</a>. This is also an example of a local raster operation where operations are applied on a per-pixel basis.</p>
+</section>
+</section>
+<section id="create-new-variables" class="level2">
+<h2 class="anchored" data-anchor-id="create-new-variables">Create new variables</h2>
+<section id="image-math-and-local-map-algebra-operations" class="level3">
+<h3 class="anchored" data-anchor-id="image-math-and-local-map-algebra-operations"><code>Image</code> math and local map algebra operations</h3>
+<p><code>Image</code> math operations are applied to <code>Image</code>s on a per-pixel basis. The output from an <code>Image</code> math operation is a raster where each pixel’s value is the result of the <code>Image</code> math operation. The input to the <code>Image</code> math operation is either:</p>
+<ol type="1">
+<li>two or more <code>Image</code>s where the operation is applied on a per-pixel basis.</li>
+<li>one or more <code>Image</code>s and a constant number where the constant number is combined with each pixel value using the specified math operator.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/map-algebra-image-image.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption class="figure-caption">Illustration of Image math with two or more Images where the operation is applied on a per-pixel basis - output = R1 + R2 (source: <a href="https://mgimond.github.io/Spatial/index.html">Gimond (2019)</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/map-algebra-image-constant.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption class="figure-caption">Illustration of Image math with two or more Images and a constant number where the constant number is combined with each pixel value using the specified math operator - output = 2 * + raster + 1 (source: <a href="https://mgimond.github.io/Spatial/index.html">Gimond (2019)</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Pixel values across <code>Image</code>s or pixel values and constant numbers can be combined using math operators in Google Earth Engine:</p>
+<ul>
+<li><code>add()</code></li>
+<li><code>subtract()</code></li>
+<li><code>multiply()</code></li>
+<li><code>divide()</code></li>
+</ul>
+<p><code>Image</code> math operations can also be combined with per-pixel comparison and logical operators that evaluate to true or false.</p>
+<ul>
+<li><code>lt()</code> - less than</li>
+<li><code>gt()</code> - greater than</li>
+<li><code>lte()</code> - less than or equal to</li>
+<li><code>gte()</code> - greater than or equal to</li>
+<li><code>eq()</code> - equal to</li>
+<li><code>neq()</code> - not equal to</li>
+<li><code>and()</code> - AND</li>
+</ul>
+<p>In Google Earth Engine only the intersection of unmasked pixels between input <code>Image</code>s are returned from <code>Image</code> math operations.</p>
+</section>
+<section id="spectral-indices" class="level3">
+<h3 class="anchored" data-anchor-id="spectral-indices">Spectral indices</h3>
+<p><code>Image</code> math is used to combine bands in remote sensing <code>Image</code>s that correspond to measures of spectral reflectance (ie. reflectance in different wavelengths). Mathematical per-pixel combinations of spectral reflectance measures are called spectral indices. Different land surface features have different spectral signatures (they reflect differently across wavelengths of the electromagnetic spectrum). Spectral indices use <code>Image</code> math to combine information about levels of reflectance in different wavelengths into a single value. Thus, computing spectral indices can provide more information about the condition or characteristics of a pixel than could be obtained from spectral reflectance measures in a single band.</p>
+<p>Spectral indices are commonly used to monitor vegetation (vegetation indices). The normalised difference vegetation index (NDVI) is computed using spectral reflectance in red and near infrared wavelengths.</p>
+<p>The NDVI equation is:</p>
+<p><span class="math display">\[NDVI=\frac{NIR-red}{NIR+red}\]</span></p>
+<p>NDVI values have a range of -1 to 1; a higher NDVI value indicates greater vegetation cover, greenness, or biomass within a pixel.</p>
+<p>The NDVI is based on the reflectance characteristics of green vegetation which absorbs red light and reflects near infrared electromagnetic radiation. Red light is absorbed by chlorophyll in leaves (which also explains why we see vegetation in green). Near infrared electromagnetic radiation is reflected by green vegetation as it passes through the upper layers of leaves and is scattered by mesophyll tissue and openings between cells. Some of this scattered near infrared radiation is reflected upwards and detected by remote sensors. For vegetated land covers there will be a larger difference between red and near infrared reflectance than is observed for other non-vegetated land covers.</p>
+<p>The following two functions compute the NDVI for Landsat 7 and Landsat 8. They return an <code>Image</code> with a band named <code>'nd'</code> as set by the <code>rename()</code> function and a <code>system:time_start</code> property which is set in the returned <code>Image</code>s metadata. This is important as it records what date and time the NDVI data corresponds to.</p>
+<p>Note the different band designations for Landsat 7 and Landsat 8. The near infrared band in Landsat 7 is band 4 (<code>'B4'</code>) and the red band is band 3 (<code>'B3'</code>). For Landsat 8 the near infrared band is band 5 (<code>'B5'</code>) and the red band in band 4 (<code>'B4'</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Image math - NDVI</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndviL7 <span class="op">=</span> <span class="kw">function</span>(image) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)<span class="op">.</span><span class="fu">subtract</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B3'</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">divide</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)<span class="op">.</span><span class="fu">add</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B3'</span>)))<span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  ndvi <span class="op">=</span> ndvi<span class="op">.</span><span class="fu">rename</span>(<span class="st">'nd'</span>)<span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> startDate <span class="op">=</span> image<span class="op">.</span><span class="fu">get</span>(<span class="st">'system:time_start'</span>)<span class="op">;</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ndvi<span class="op">.</span><span class="fu">set</span>({<span class="st">'system:time_start'</span><span class="op">:</span> startDate})<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndviL8 <span class="op">=</span> <span class="kw">function</span>(image) {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B5'</span>)<span class="op">.</span><span class="fu">subtract</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">divide</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B5'</span>)<span class="op">.</span><span class="fu">add</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)))<span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  ndvi <span class="op">=</span> ndvi<span class="op">.</span><span class="fu">rename</span>(<span class="st">'nd'</span>)<span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> startDate <span class="op">=</span> image<span class="op">.</span><span class="fu">get</span>(<span class="st">'system:time_start'</span>)<span class="op">;</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ndvi<span class="op">.</span><span class="fu">set</span>({<span class="st">'system:time_start'</span><span class="op">:</span> startDate})<span class="op">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, map these functions over the Landsat 7 and Landsat 8 <code>ImageCollection</code>s to return an <code>ImageCollection</code> of NDVI <code>Image</code>s. Display the first NDVI <code>Image</code> returned in the <code>l82017NDVI</code> on the map to visualise the output of computing the NDVI using Landsat data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Map NDVI functions of Landsat ImageCollections</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l2000 <span class="op">=</span> l72000<span class="op">.</span><span class="fu">map</span>(ndviL7)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l72017NDVI <span class="op">=</span> l72017<span class="op">.</span><span class="fu">map</span>(ndviL7)<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l82017NDVI <span class="op">=</span> l82017<span class="op">.</span><span class="fu">map</span>(ndviL8)<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l82017NDVI)<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">// display first Landsat 8 NDVI Image on the map</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(l82017NDVI<span class="op">.</span><span class="fu">first</span>()<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.2</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#f7fcfd'</span><span class="op">,</span><span class="st">'#e5f5f9'</span><span class="op">,</span><span class="st">'#ccece6'</span><span class="op">,</span><span class="st">'#99d8c9'</span><span class="op">,</span><span class="st">'#66c2a4'</span><span class="op">,</span><span class="st">'#41ae76'</span><span class="op">,</span><span class="st">'#238b45'</span><span class="op">,</span><span class="st">'#006d2c'</span><span class="op">,</span><span class="st">'#00441b'</span>]}<span class="op">,</span> <span class="st">'first L8 NDVI Image'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>Image</code> math or local map algebra operations are raster data transformation operations where you apply a function to input data to compute a derived variable for subsequent analysis. If your study required monitoring vegetation condition, you can apply a function to spectral reflectance data to compute per-pixel vegetation index values.</p>
+<p>There are many other spectral and vegetation indices that are used for different land surface monitoring. For example, the soil adjusted vegetation index (SAVI) is used to account for soil brightness effects when vegetation cover is low. The SAVI equation is:</p>
+<p><span class="math display">\[SAVI=\left( \frac{NIR-red}{NIR+red+L} \right) \left( 1+L \right)\]</span></p>
+<p><span class="math inline">\(L\)</span> is 0 for high vegetation cover and 1 for low vegetation covers. The following table shows the band designations for Landsat data.</p>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/landsat-bands-young.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption class="figure-caption">Landsat bands and wavelength coverage (source: <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecy.1730">Young et al (2017)</a>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<details>
+<summary>
+<b><em>Can you create functions that compute the SAVI from Landsat 7 and Landsat 8 data? Remember that band designations differ between Landsat 7 and 8.</em></b>
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Image math - SAVI</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> saviL7 <span class="op">=</span> <span class="kw">function</span>(image) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> savi <span class="op">=</span> ((image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)<span class="op">.</span><span class="fu">subtract</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B3'</span>)))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">divide</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)<span class="op">.</span><span class="fu">add</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B3'</span>))<span class="op">.</span><span class="fu">add</span>(<span class="fl">0.5</span>)))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">multiply</span>(<span class="fl">1.5</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  savi <span class="op">=</span> savi<span class="op">.</span><span class="fu">rename</span>(<span class="st">'nd'</span>)<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> startDate <span class="op">=</span> image<span class="op">.</span><span class="fu">get</span>(<span class="st">'system:time_start'</span>)<span class="op">;</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> savi<span class="op">.</span><span class="fu">set</span>({<span class="st">'system:time_start'</span><span class="op">:</span> startDate})<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> saviL8 <span class="op">=</span> <span class="kw">function</span>(image) {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> savi <span class="op">=</span> ((image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B5'</span>)<span class="op">.</span><span class="fu">subtract</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>)))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">divide</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B5'</span>)<span class="op">.</span><span class="fu">add</span>(image<span class="op">.</span><span class="fu">select</span>(<span class="st">'B4'</span>))<span class="op">.</span><span class="fu">add</span>(<span class="fl">0.5</span>)))</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">multiply</span>(<span class="fl">1.5</span>)<span class="op">;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  savi <span class="op">=</span> savi<span class="op">.</span><span class="fu">rename</span>(<span class="st">'nd'</span>)<span class="op">;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> startDate <span class="op">=</span> image<span class="op">.</span><span class="fu">get</span>(<span class="st">'system:time_start'</span>)<span class="op">;</span> </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> savi<span class="op">.</span><span class="fu">set</span>({<span class="st">'system:time_start'</span><span class="op">:</span> startDate})<span class="op">;</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">//Map SAVI functions of Landsat ImageCollections</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> saviL72000 <span class="op">=</span> l72000<span class="op">.</span><span class="fu">map</span>(saviL7)<span class="op">;</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> saviL82017 <span class="op">=</span> l82017<span class="op">.</span><span class="fu">map</span>(saviL8)<span class="op">;</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(saviL82017)<span class="op">;</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">// display first Landsat 8 SAVI Image on the map</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(saviL82017<span class="op">.</span><span class="fu">first</span>()<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.2</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#a6611a'</span><span class="op">,</span><span class="st">'#dfc27d'</span><span class="op">,</span><span class="st">'#f5f5f5'</span><span class="op">,</span><span class="st">'#80cdc1'</span><span class="op">,</span><span class="st">'#018571'</span>]}<span class="op">,</span> <span class="st">'first L8 SAVI Image'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+</details>
+<p><br></p>
+</section>
+</section>
+<section id="join-combine" class="level2">
+<h2 class="anchored" data-anchor-id="join-combine">Join / Combine</h2>
+<p>The time period for Landsat 7 observations spans 1999 to 2020. Therefore, you have Landsat 7 observations for the period 2000-2002 and 2017-2019. Landsat 8 observations start from 2013. You need to combine the Landsat 7 and Landsat 8 observations for period 2017 to 2019. To do this use the <code>merge()</code> function which merges two <code>ImageCollection</code>s into one. You can then sort by the date of <code>Image</code> capture so the <code>Image</code>s in the returned collection are in a temporal order.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// merge Landsat 7 NDVI and Landsat 8 NDVI ImageCollections and sort by time</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l2017 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(l82017NDVI<span class="op">.</span><span class="fu">merge</span>(l72017NDVI))<span class="op">.</span><span class="fu">sort</span>(<span class="st">'system:time_start'</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l2017)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Inspect the <code>ImageCollection</code> <code>l2017</code> in the <em>console</em> to see that it includes Landsat 8 and Landsat 7 <code>Image</code>s.</p>
+</section>
+<section id="summarise" class="level2">
+<h2 class="anchored" data-anchor-id="summarise">Summarise</h2>
+<p>You now have two <code>ImageCollection</code>s <code>l2000</code> and <code>l2017</code> that contain NDVI <code>Image</code>s from 2000 to 2002 and 2017 to 2019, respectively. You need to summarise the NDVI data in these two <code>ImageCollection</code>s to create a per-pixel measure of vegetation condition in each time-period.</p>
+<p>The process of combining multiple, spatially overlapping pixel measures is called <a href="https://developers.google.com/earth-engine/guides/ic_composite_mosaic" target="_blank">compositing</a>. Composite vegetation index <code>Image</code>s are often computed because spectral reflectance values for a signal time point are often noisy (e.g.&nbsp;due to cloud cover or atmospheric contamination). However, the summary of multiple measures at the same location is likely to reduce noise and provide a more accurate indication of the characteristics of that pixel.</p>
+<p>Creating composite <code>Image</code>s from <code>ImageCollection</code>s in Google Earth Engine is straightforward. You can apply the <code>median()</code>, <code>mean()</code>, <code>max()</code> functions to an <code>ImageCollection</code> to compute the per-pixel median, mean, or max value for all <code>Image</code>s in the collection. Here, use the <code>median()</code> function to create a median NDVI composite for the period 2000 to 2002 and 2017 to 2019. The median operation throws away dark pixels (cloud shadows) and bright pixels (clouds) that were not removed by the cloud masking operation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 3 year median NDVI composite</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l2000Composite <span class="op">=</span> l2000</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">median</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">clip</span>(bBox)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">// mask water</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>l2000Composite <span class="op">=</span> l2000Composite<span class="op">.</span><span class="fu">updateMask</span>(l2000Composite<span class="op">.</span><span class="fu">gt</span>(<span class="dv">0</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will spot that you also <code>clip</code>ped your median NDVI composite <code>Image</code> using the extent of the <code>Geometry</code> object <code>bBox</code>. You also masked out any pixels in your median NDVI composite with NDVI values less than or equal to zero. This is a quick way to remove water from your <code>Image</code> as water’s NDVI values are typically below 0. Both of these steps are to enhance the visualisation of your NDVI composite <code>Image</code>s on the map.</p>
+<p>The <code>clip()</code> operation is another example of spatial subsetting.</p>
+<p>Creating the mask of pixel locations with a median NDVI composite value greater than 0 <code>l2000Composite.gt(0)</code> is an example of a local raster operation using a comparison operator as opposed to an arithmetic operator (each pixel value will evaluate to true or false).</p>
+<p>Turn off the other layers on your map display using the <em>Layers</em> menu. Visualise your median NDVI composite <code>Image</code> on the map. Use the inspector to query NDVI values at different locations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 3 year median NDVI composite - 2000 - 2002</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l2000Composite)<span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(l2000Composite<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(l2000Composite<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#ffffcc'</span><span class="op">,</span><span class="st">'#d9f0a3'</span><span class="op">,</span><span class="st">'#addd8e'</span><span class="op">,</span><span class="st">'#78c679'</span><span class="op">,</span><span class="st">'#41ab5d'</span><span class="op">,</span><span class="st">'#238443'</span><span class="op">,</span><span class="st">'#005a32'</span>]}<span class="op">,</span> <span class="st">'median NDVI 2000 - 2002'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Repeat the steps for the time period 2017 to 2019.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 3 year median NDVI composite - 2017 - 2019</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l2017Composite <span class="op">=</span> l2017</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">median</span>()</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">clip</span>(bBox)<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">// mask water</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>l2017Composite <span class="op">=</span> l2017Composite<span class="op">.</span><span class="fu">updateMask</span>(l2017Composite<span class="op">.</span><span class="fu">gt</span>(<span class="dv">0</span>))<span class="op">;</span>  </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l2017Composite)<span class="op">;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(l2017Composite<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.8</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#ffffcc'</span><span class="op">,</span><span class="st">'#d9f0a3'</span><span class="op">,</span><span class="st">'#addd8e'</span><span class="op">,</span><span class="st">'#78c679'</span><span class="op">,</span><span class="st">'#41ab5d'</span><span class="op">,</span><span class="st">'#238443'</span><span class="op">,</span><span class="st">'#005a32'</span>]}<span class="op">,</span> <span class="st">'median NDVI 2017 - 2019'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let the median NDVI composites for the period 2000-2002 and 2017-2019 (<code>l2000Composite</code> and <code>l2017Composite</code>) load on your map display. Toggle them on and off using the <em>Layers</em> menu to visualise change in vegetation over that time period. You should see something similar to the video below. Where you see change in NDVI can you explain why? Look at the satellite base map in areas where you note change in NDVI to see if that can provide any clues as to what caused the change in NDVI.</p>
+<br>
+<center>
+<iframe src="https://player.vimeo.com/video/454224096" width="640" height="423" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+Change in NDVI between 2000-2002 and 2017-2019
+</p>
+</center>
+<p><br></p>
+</section>
+<section id="change-detection" class="level2">
+<h2 class="anchored" data-anchor-id="change-detection">Change Detection</h2>
+<p>You can use the median NDVI composite <code>Image</code>s for the two time periods to answer the question at the beginning of the lab: <b><em>Where has vegetation cover changed between 2000-2002 and 2017-2019?</em></b>.</p>
+<p>Using the <code>Image</code> math operations introduced earlier, you can compute a <a href="https://www.crcsi.com.au/assets/Earth-Observation/EO-Publication-Vol2D-April-2020/EO-Publication-Vol2D-144dpi.pdf" target="_blank">change detection</a> <code>Image</code> which shows the location, direction (positve NDVI change, negative NDVI change, no change), and magnitude of NDVI change between these two time periods. Temporal change detection is the operation of detecting change between two <code>Image</code>s captured on different dates.</p>
+<p>You can perform an <code>Image</code> differencing operation to compute a change <code>Image</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// change detection</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndviChange <span class="op">=</span> l2017Composite<span class="op">.</span><span class="fu">subtract</span>(l2000Composite)<span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ndviChange)<span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(ndviChange<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.2</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#d73027'</span><span class="op">,</span><span class="st">'#f46d43'</span><span class="op">,</span><span class="st">'#fdae61'</span><span class="op">,</span><span class="st">'#fee090'</span><span class="op">,</span><span class="st">'#ffffbf'</span><span class="op">,</span><span class="st">'#e0f3f8'</span><span class="op">,</span><span class="st">'#abd9e9'</span><span class="op">,</span><span class="st">'#74add1'</span><span class="op">,</span><span class="st">'#4575b4'</span>]}<span class="op">,</span> <span class="st">'change in NDVI'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see an <code>Image</code> similar to the figure below on your map visualising change in NDVI between 2000-2002 and 2017-2019. The areas in red indicate a decrease in NDVI, yellow little / no change in NDVI, and blue indicates an increase in NDVI.</p>
+<p>Change the min and max values in the visualisation parameters to highlight different features of vegetation change (i.e.&nbsp;just areas of vegetation loss).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-difference-img.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p></p><figcaption class="figure-caption">Image difference between NDVI in 2000-2002 and 2017-2019. Red indicates decrease in NDVI and blue indicates increase in NDVI.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-5.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lab 6</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
