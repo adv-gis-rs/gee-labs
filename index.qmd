@@ -6,7 +6,7 @@ title: "3301: Advanced GIS and Remote Sensing"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Advanced GIS and Remote Sensing
+# Advanced GIS and Remote Sensing {.unnumbered}
 
 ## Google Earth Engine Labs 
 

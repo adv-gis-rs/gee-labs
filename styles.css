@@ -8,3 +8,7 @@ th,
 td {
     padding: 15px;
 }
+
+.chapter-number {
+    display: none;
+}

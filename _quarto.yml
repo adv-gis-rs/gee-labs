@@ -16,6 +16,8 @@ book:
       text: Lab 5b
     - href: lab-5.qmd
       text: Lab 6
+    - href: lab-6.qmd
+      text: Lab 7
 
 bibliography: references.bib
 
@@ -23,6 +25,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    number-sections: false
   pdf:
     documentclass: scrreprt
 
