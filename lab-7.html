@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3301 - 7&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-6.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5b</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 6</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 7</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Lab 8</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#phenology" id="toc-phenology" class="nav-link active" data-scroll-target="#phenology">Phenology</a></li>
+  <li><a href="#remote-sensing-of-phenology" id="toc-remote-sensing-of-phenology" class="nav-link" data-scroll-target="#remote-sensing-of-phenology">Remote Sensing of Phenology</a></li>
+  <li><a href="#urban-park-phenology" id="toc-urban-park-phenology" class="nav-link" data-scroll-target="#urban-park-phenology">Urban Park Phenology</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data Preprocessing</a></li>
+  <li><a href="#noise-removal-and-gap-filling" id="toc-noise-removal-and-gap-filling" class="nav-link" data-scroll-target="#noise-removal-and-gap-filling">Noise Removal and Gap Filling</a></li>
+  <li><a href="#smoothing" id="toc-smoothing" class="nav-link" data-scroll-target="#smoothing">Smoothing</a></li>
+  <li><a href="#non-vegetation-mask" id="toc-non-vegetation-mask" class="nav-link" data-scroll-target="#non-vegetation-mask">Non-vegetation Mask</a></li>
+  <li><a href="#phenology-metrics" id="toc-phenology-metrics" class="nav-link" data-scroll-target="#phenology-metrics">Phenology Metrics</a></li>
+  <li><a href="#phenology-and-climate" id="toc-phenology-and-climate" class="nav-link" data-scroll-target="#phenology-and-climate">Phenology and Climate</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<!-- https://www.sciencedirect.com/science/article/pii/S0034425719305309
+
+Follow this example for SOS and GSL in urban areas:
+https://www.sciencedirect.com/science/article/pii/S0034425716300384
+
+Review of pheno methods:
+https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13870
+
+https://www.mdpi.com/2072-4292/12/17/2760/htm
+
+https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JG005636
+
+NASA ARSNET RESOURCES! -->
+<!-- :::{.callout-important}
+This lab is incomplete and in draft form!
+::: -->
+<section id="phenology" class="level3">
+<h3 class="anchored" data-anchor-id="phenology">Phenology</h3>
+<p>Phenology refers to timing of biological events, phenomena, or life cycle phases, which are often driven by climatic and environmental factors. For example, budbreak or the onset and duration of flowering of plants are phenological events.</p>
+<p>As remote sensors capture repeat observations of the same location over time, it is possible to track the dynamics of vegetation growth and the occurrence of phenological events.</p>
+<p>The ability to monitor phenology can help us understand: how year-to-year variation in weather (e.g.&nbsp;extreme heat events or drought) affects vegetation growth (e.g.&nbsp;crop yields); how ecosystems are responding to changing climates (e.g.&nbsp;changing timing and duration of growing seasons); and how human modification of landscapes affects vegetation dynamics (e.g.&nbsp;differences in observed phenology in urban areas versus proximal natural or rural areas).</p>
+</section>
+<section id="remote-sensing-of-phenology" class="level3">
+<h3 class="anchored" data-anchor-id="remote-sensing-of-phenology">Remote Sensing of Phenology</h3>
+<p>Spectral vegetation indices, mathematical combinations of surface reflectance in visible and near infrared wavelengths, capture various aspects of vegetation condition at the time of image capture. These vegetation indices (VI) are used to monitor vegetation dynamics, and, thus, phenology.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/phenology-metrics.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Phenology as represented by a temporal profile of vegetation index values.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<br>
+<details>
+<summary>
+<b><em>Would you expect the phenology profiles to differ for evergreen and deciduous forests?</em></b>
+</summary>
+<p>
+Yes, a deciduous forest’s phenology profile would have a more exaggerated hump-shape with a distinct start-of-growing season, greenup to peak greenness, and then a senescence to leaf off. An evergreen forest would have a less exaggerated greenup and senescence and would maintain higher VI values in winter.
+</p>
+</details>
+<p><br></p>
+<p>Due to the coarse spatial resolution of remote sensing data, relative to plants, it is challenging to directly observe specific phenology events such as flowering or leaf out. Often, remotely sensed data is used to indirectly estimate the timing of phenology events or to compute metrics that characterise the stages and nature of vegetation growth. These metrics are referred to as <em>land surface phenology</em> metrics <a href="https://www.sciencedirect.com/science/article/pii/S0034425719305309" class="external" target="_blank">(Zeng et al., 2020)</a> or seasonal parameters <a href="https://www.sciencedirect.com/science/article/pii/S0098300404000974" class="external" target="_blank">(Jönsson and Eklundh, 2004)</a>.</p>
+<p>Phenology metrics are computed from time-series of vegetation index values and are used to characterise the phenology at a location and for a given year. Common phenology metrics include start-of-season, end-of-season, length-of-season, time-of-peak-VI, peak VI, amplitude, area under the curve, and rates of greenup and senescence. Peak VI and area under the curve are often used as indicators of biomass.</p>
+<p>Time-series of vegetation index values are used as inputs to functions which contain rules for computing phenology metrics. For example, peak VI can be estimated by applying the <code>max()</code> function to a subset of vegetation index values between start-of and end-of-season. Start-of-season can be estimated by a search of vegetation index values for exceedance of a threshold value or the detection of a valley point in vegetation index time-series. Rate-of-greenup can be estimated by the slope between start-of-season and peak VI.</p>
+<br>
+<details>
+<summary>
+<b><em>What are advantages of using satellite remote sensing over field-based monitoring of phenology?</em></b>
+</summary>
+<p>
+</p><ul>
+<li>
+Spatial coverage - it is easier to monitor vegetation and ecosystem dynamics at spatial extents not possible to cover by field-based observations.
+</li>
+<li>
+Temporal coverage - it is costly to make repeat observations over time using field-based or in-situ methods. Satellite remote sensing provides an affordable way to monitor the same location within-seasons and over many years.
+</li>
+</ul>
+<p></p>
+</details>
+<p><br></p>
+<details>
+<summary>
+<b><em>What are advantages of using in-situ or field-based methods to monitor phenology?</em></b>
+</summary>
+<p>
+</p><ul>
+<li>
+Monitor the phenology of specific species or plants.
+</li>
+<li>
+Monitor specific phenological events which are hard to detect with satellites at coarse and moderate resolutions such as flowering or budding.
+</li>
+</ul>
+<p></p>
+</details>
+<p><br></p>
+</section>
+<section id="urban-park-phenology" class="level2">
+<h2 class="anchored" data-anchor-id="urban-park-phenology">Urban Park Phenology</h2>
+<p>In this lab you will monitor the phenology over an urban park in Perth and you will be working with Sentinel-2 satellite images. Sentinel-2 data is a European Space Agency product with a 5-day temporal resolution and a 10 m spatial resolution. You will:</p>
+<ul>
+<li>Subset Sentinel-2 images for 2020.</li>
+<li>Mask out cloudy pixels.</li>
+<li>Transform the Sentinel-2 multispectral images into NDVI images.</li>
+<li>Fill gaps caused by cloudy pixels in NDVI time-series.</li>
+<li>Use a smoothing algorithm to remove remnant noise in NDVI time-series.</li>
+<li>Estimate start-of-season and length-of-season for park vegetation.</li>
+<li>Explore relationships between phenology metrics and climate variables.</li>
+</ul>
+<p>To complete these tasks you will use various data transformation and visualisation functions that have been introduced in previous labs.</p>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>Add a header to the start of your script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 8</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next we need to import a module that provides functions for time-series and phenology analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// module with functions for phenology analysis</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> phenology <span class="op">=</span> <span class="pp">require</span>(<span class="st">'users/jmad1v07/Phenology:phenology.js'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We also need to specify our study area. Here, we’ll be working in a section of Kings Park.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> geometry <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  [[[<span class="fl">115.83102144426752</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.95262028223891</span>]<span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">115.83102144426752</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.956297928621538</span>]<span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">115.83679355806761</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.956297928621538</span>]<span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">115.83679355806761</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.95262028223891</span>]]])<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">// centre the map on the study area</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(geometry<span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">// create an empty image into which to paint the features, cast to byte.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> empty <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>()<span class="op">.</span><span class="fu">byte</span>()<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">// study area outline</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> outline <span class="op">=</span> empty<span class="op">.</span><span class="fu">paint</span>({</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">featureCollection</span><span class="op">:</span> geometry<span class="op">,</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">3</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(outline<span class="op">,</span> {<span class="dt">palette</span><span class="op">:</span> <span class="st">'000000'</span>}<span class="op">,</span> <span class="st">'study area'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
+<p>Before we can use Sentinel-2 surface reflectance data for phenology analysis, it needs to go through several data transformation and preprocessing steps. These include:</p>
+<ul>
+<li><strong>filter</strong> operations to subset the Sentinel-2 <code>ImageCollection</code> to the time-period and study area of interest. This requires implementing a non-spatial filter using <code>Image</code> metadata (date of <code>Image</code> capture) and spatial filtering based on the <code>Image</code> footprint intersecting the study area.</li>
+<li><strong>creating a new variable</strong> using <em>local operations</em> that are applied at the pixel level to combine bands representing red and near infrared reflectance into a normalised difference vegetation index (NDVI) band.</li>
+<li><strong>filter</strong> and <em>local operations</em> to compare <code>Image</code> bands to a cloud mask and mask out pixels where cloud was detected.</li>
+</ul>
+<p>To implement data preprocessing, we will need two functions. One function to generate per-<code>Image</code> cloud masks and another function to compute the NDVI.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// function to mask clouds in Sentinel 2 images</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">maskS2Clouds</span>(image) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qa <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'QA60'</span>)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cloudBitMask <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cirrusBitMask <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">11</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mask <span class="op">=</span> qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cloudBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)<span class="op">.</span><span class="fu">and</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>             qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(cirrusBitMask)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">.</span><span class="fu">divide</span>(<span class="dv">10000</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">select</span>(<span class="st">"B.*"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">copyProperties</span>(image<span class="op">,</span> [<span class="st">"system:time_start"</span>])<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">// function that adds an NDVI band per-image</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">addNDVIAndClip</span>(image) {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'B8'</span><span class="op">,</span> <span class="st">'B4'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'ndvi'</span>)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  image <span class="op">=</span> image<span class="op">.</span><span class="fu">addBands</span>(ndvi)<span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">clip</span>(geometry)<span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, import the Sentinel-2 surface reflectance <code>ImageCollection</code> and chain together the various data preprocessing operations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// import Sentinel 2 ImageCollection, cloud mask, and add NDVI band</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">"COPERNICUS/S2_SR"</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> startDate <span class="op">=</span> ee<span class="op">.</span><span class="fu">Date</span>(<span class="st">'2020-01-01'</span>)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> endDate <span class="op">=</span> ee<span class="op">.</span><span class="fu">Date</span>(<span class="st">'2021-03-01'</span>)<span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2Ndvi <span class="op">=</span> s2</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">date</span>(startDate<span class="op">,</span> endDate)) </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">lt</span>(<span class="st">'CLOUDY_PIXEL_PERCENTAGE'</span><span class="op">,</span> <span class="dv">30</span>)) </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">bounds</span>(geometry)) </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(maskS2Clouds) </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(addNDVIAndClip) </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">'ndvi'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>Print</code> the <code>s2Ndvi</code> <code>ImageCollection</code> to the console to check that it stores Sentinel-2 <code>Images</code> with an <code>ndvi</code> band.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Check the 2020 S2 NDVI collection:'</span><span class="op">,</span> s2Ndvi)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<br>
+<details>
+<summary>
+<b><em>Why is it important to remove clouds from remote sensing images before computing phenology metrics?</em></b>
+</summary>
+<p>
+If cloudy observations remain in VI time-series it will create short-run variation in greenness which could be mistaken for phenological events or bias estimates of phenological events.
+</p>
+</details>
+<p><br></p>
+</section>
+<section id="noise-removal-and-gap-filling" class="level2">
+<h2 class="anchored" data-anchor-id="noise-removal-and-gap-filling">Noise Removal and Gap Filling</h2>
+<p>Let’s explore the NDVI time-series in the study area. Run the following code to load an interactive chart generator; click on a location within the study area on the map and an NDVI time-series chart will be rendered in the <em>Console</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// draw NDVI time series chart at clicked points</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> drawChart <span class="op">=</span> <span class="kw">function</span>(point) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> clickedPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(point<span class="op">.</span><span class="at">lon</span><span class="op">,</span> point<span class="op">.</span><span class="at">lat</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> tsChart <span class="op">=</span> phenology<span class="op">.</span><span class="fu">timeSeriesChart</span>(clickedPoint<span class="op">,</span> s2Ndvi<span class="op">.</span><span class="fu">select</span>([<span class="st">'ndvi'</span>])<span class="op">,</span> <span class="st">'NDVI'</span><span class="op">,</span> <span class="st">'time'</span><span class="op">,</span> <span class="st">'NDVI'</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="st">'system:time_start'</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(tsChart)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">add</span>(ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Click anywhere within study area - NDVI time-series will appear in Console...'</span>))<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">onClick</span>(drawChart)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As you click and render time-series charts of vegetation growth there are a couple of things to look out for. First, the seasonal profile of vegetation growth with greenup beginning in late austral summer and peak greenness in austral winter should be apparent. Second, it is likely that you will see short-run variation in NDVI values that are superimposed on the dominant seasonal profile. There could also be some gaps in the time-series which correspond to cases where the cloud mask was applied. This short-run variation in NDVI values could be noise and is not caused by actual changes in vegetation condition. The source of this noise could be clouds missed by the cloud mask, other sources of atmospheric contamination, or changes in illumination. Vegetation growth is typically characterised by smooth, continuous, and sustained increases and then decreases in greenness. Functions to detect phenology metrics look for transitions from increasing to decreasing vegetation growth, or vice versa, or rates of increase or decrease in vegetation growth over time. This noise in NDVI time-series could confound detection of phenology parameters; thus, NDVI time-series are filtered to remove anomalous values.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-profile-noisy.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">NDVI time-series showing dominant seasonal profile of vegetation growth, short-run noise in NDVI time-series, and gaps due cloud masking.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>Let’s apply a function to our NDVI time-series to remove any anomalously high or low NDVI values. The approach we’ll use here is based on <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13870" class="external" target="_blank">Kong et al.&nbsp;(2021)</a> and defines a noisy spike or low NDVI value as cases where the difference between a data point and the NDVI values of its temporal neighbours is greater than one and a half times the standard deviation of the entire NDVI time-series.</p>
+<p>We can use the <code>removeSpikes()</code> function from the <code>phenology</code> module to filter out anomalous NDVI values. The <code>removeSpikes()</code> function expects to receive as arguments:</p>
+<ul>
+<li>An <code>ImageCollection</code> of VI values.</li>
+<li>A number that defines the window size of temporal neighbours for each data point.</li>
+<li>The band name.</li>
+<li>The number of standard deviations that defines a noisy value.</li>
+<li>The time property for each <code>Image</code> in the collection.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// add a timestamp band for each image  </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2NdviTs <span class="op">=</span> s2Ndvi<span class="op">.</span><span class="fu">map</span>(phenology<span class="op">.</span><span class="fu">addTimeBand</span>(<span class="st">'system:time_start'</span><span class="op">,</span> <span class="st">'timestamp'</span>))<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">// remove spikes and drop outs</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">// there can be noisy pixel values that are missed by cloud masks</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">// these noisy pixel values can affect representations of vegetation growth profiles and phenology</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">// remove noisy pixel values - anomolous values</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2RemovedSpikes <span class="op">=</span> phenology<span class="op">.</span><span class="fu">removeSpikes</span>(s2NdviTs<span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="st">'ndvi'</span><span class="op">,</span> <span class="fl">1.5</span><span class="op">,</span> <span class="st">'system:time_start'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can explore the result of removing anomalous NDVI values from our time-series. Run the following code snippet and click on the map to generate charts of NDVI time-series with spikes removed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Removed spikes NDVI chart</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> drawChart <span class="op">=</span> <span class="kw">function</span>(point) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> clickedPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(point<span class="op">.</span><span class="at">lon</span><span class="op">,</span> point<span class="op">.</span><span class="at">lat</span>)<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> tsChart <span class="op">=</span> phenology<span class="op">.</span><span class="fu">timeSeriesChart</span>(clickedPoint<span class="op">,</span> s2RemovedSpikes<span class="op">.</span><span class="fu">select</span>([<span class="st">'ndvi'</span>])<span class="op">,</span> <span class="st">'NDVI - removed spikes'</span><span class="op">,</span> <span class="st">'time'</span><span class="op">,</span> <span class="st">'NDVI'</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="st">'system:time_start'</span>)<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(tsChart)<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">onClick</span>(drawChart)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Through cloud masking and filtering anomalous NDVI values we have removed some of the noise from our time-series. However, now there are gaps in the time-series which is problematic when using these time-series to represent profiles of vegetation growth. To fill in the gaps in the NDVI time-series, we can use the <code>gapFill()</code> function from the <code>phenology</code> module. This function takes in as arguments:</p>
+<ul>
+<li>An <code>ImageCollection</code> where masked pixels in its constituent images will be filled with sensible VI values.</li>
+<li>A number specifying a date range to search for neighbouring images for each data point in the time-series. The valid VI values of these neighbouring images will be used to interpolate and fill the missing VI values.</li>
+<li>The time property for each <code>Image</code> in the collection.</li>
+<li>The name of the timestamp band in each <code>Image</code>.</li>
+</ul>
+<p>Gap fill the NDVI <code>ImageCollection</code> and explore the results of gap filling by rendering charts in the <em>Console</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// gap fill cloudy pixels using average of nearest cloud free before and after images</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2GapFilled <span class="op">=</span> phenology<span class="op">.</span><span class="fu">gapFill</span>(s2RemovedSpikes<span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="st">'system:time_start'</span><span class="op">,</span> <span class="st">'timestamp'</span>)<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">// gap filled NDVI chart</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> drawChart <span class="op">=</span> <span class="kw">function</span>(point) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> clickedPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(point<span class="op">.</span><span class="at">lon</span><span class="op">,</span> point<span class="op">.</span><span class="at">lat</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> tsChart <span class="op">=</span> phenology<span class="op">.</span><span class="fu">timeSeriesChart</span>(clickedPoint<span class="op">,</span> s2GapFilled<span class="op">.</span><span class="fu">select</span>([<span class="st">'ndvi'</span>])<span class="op">,</span> <span class="st">'NDVI - gap filled'</span><span class="op">,</span> <span class="st">'time'</span><span class="op">,</span> <span class="st">'NDVI'</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="st">'system:time_start'</span>)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(tsChart)<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">onClick</span>(drawChart)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see cases where spikes in NDVI values have been caught, removed, and gap filled.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-profile-noisy-2.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">NDVI time-series with noisy values remaining after cloud masking.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-profile-remove-spikes.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">NDVI time-series with noisy values removed.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-profile-gap-filled.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">NDVI time-series with noisy values removed and gap filled.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+</section>
+<section id="smoothing" class="level2">
+<h2 class="anchored" data-anchor-id="smoothing">Smoothing</h2>
+<p>Even after removing anomolous NDVI values and then gap filling the time-series, the NDVI profiles still do not completely represent the smooth continuous greenup and senescence that is characteristic of vegetation growth. Therefore, many phenology workflows use smoothing models to remove the short-run fluctuations in VI values and retain the dominant profile of seasonal vegetation growth. Generally, it is easier to accurately detect key phenological events such as start-of-season and length-of-season from smoothed vegetation index time-series.</p>
+<p>A range of different smoothing models exist and have been successfully applied to phenology applications. You can read <a href="https://www.sciencedirect.com/science/article/pii/S0034425712001629" class="external" target="_blank">Atkinson et al’s. (2012)</a> intercomparison of different smoothing approaches. Generally, smoothing is a form of time-series analysis where a model is specified to represent characteristics of the time-series and then fitted using observed time-series values. A key feature of smoothing is the selection of model parameters that determine the degree to which a time-series is smoothed.</p>
+<p>There is a trade-off between models that are more or less sensitive to short-run variation in VI time-series. Models that are more sensitive to short-run VI variation might preserve the signal of short-lived phenological events such as flowering, but at the cost of retaining more noise in the time-series.</p>
+<p>A simple model of a time-series is representing it as a linear model of time:</p>
+<p><span class="math display">\[y_{t} = \beta_{0} + \beta_{1}t + \epsilon_{t}\]</span></p>
+<p>The goal of model fitting is to find estimates of <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span>, <span class="math inline">\(\hat{\beta_{0}}\)</span> and <span class="math inline">\(\hat{\beta_{1}}\)</span>. You can think of this as fitting a linear regression model to generate an estimate, <span class="math inline">\(\hat{y_{t}}\)</span>, at time <span class="math inline">\(t\)</span>. Here, you would be representing your time-series with a model of a linear trend in NDVI values through time. The blue line in the figure below is a linear model of vegetation growth fitted to the black points which are a time-series of NDVI values.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/linear-model.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Fitting a linear trend model to represent the profile of vegetation growth.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<br>
+<details>
+<summary>
+<b><em>Is a linear model of time (i.e.&nbsp;linear trend model) a good way to represent the profile of vegetation growth in NDVI time-series?</em></b>
+</summary>
+<p>
+No, vegetation growth has a clear cyclical cycle of greenup, peak greenness, followed by senescence. A linear trend model can only represent vegetation growth as a linear pattern of increasing or decreasing greenness.<br>
+
+</p>
+</details>
+<p><br></p>
+<br>
+<details>
+<summary>
+<b><em>Think about specifying a model of a NDVI time-series that accurately reflects vegetation growth patterns. What features of the time-series should the model be able to represent?</em></b>
+</summary>
+<ul>
+<li>
+Non-linear increases and decreases in NDVI values.
+</li>
+<li>
+The cyclical nature of vegetation growth dynamics.
+</li>
+</ul>
+</details>
+<p><br></p>
+<p>If you are familiar with sinusoid waves, you might notice similarities between the seasonal profiles of vegetation growth and sine or cosine waves.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/sine-waves.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Representing NDVI time-series as a sinusoidal wave.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>Sinusoidal waves are described by the amplitude, frequency, and phase of the curve. Without needing to go into too much detail, which can be found <a href="https://docs.google.com/presentation/d/1J1rUtf-bkfaJwYJY-tU17kzKI4U8FnF7Q2_VWqWdaak/edit?usp=sharing" class="external" target="_blank">here</a> and <a href="https://www.asprs.org/wp-content/uploads/pers/2001journal/april/2001_apr_461-470.pdf" class="external" target="_blank">here</a>, sinusoidal waves can be expressed mathematically as a function of their amplitude <span class="math inline">\(A\)</span>, frequency <span class="math inline">\(f\)</span>, and phase <span class="math inline">\(\phi\)</span>:</p>
+<p><span class="math display">\[y_{t} = Acos(2\pi{w}t+\phi)\]</span></p>
+<p>Where <span class="math inline">\(w\)</span> is <span class="math inline">\(1/f\)</span>, which is the number of complete cycles of a sinusoidal wave. This model can be rewritten as:</p>
+<p><span class="math display">\[y_{t} = \beta_{0} + \beta_{1}t + \beta_{2}cos(2\pi{w}t) + \beta_{3}sin(2\pi{w}t) + \epsilon_{t}\]</span></p>
+<p>This is just a case of estimating another linear regression model that generates predictions, <span class="math inline">\(\hat{y_{t}}\)</span>, that represent a sinusoidal wave with a frequency, <span class="math inline">\(f\)</span>, that best fits the NDVI values in our time-series. The assumption here is that the best fitting sinusoidal wave accurately captures the signal of smooth continuous vegetation growth and does not capture short-run noise. This is often called a harmonic model of time.</p>
+<p>In the Kings Park study area, there is generally one growing season per year. So, we’ll estimate this model with <span class="math inline">\(w\)</span> set as 1 where a single sinusoidal wave will represent the growing season.</p>
+<p>We can use the <code>hants()</code> function in the <code>phenology</code> module to fit this model to NDVI time-series in each pixel and return an <code>ImageCollection</code> with smoothed NDVI values.</p>
+<p>Run the following code and compare the <code>fitted</code> and input <code>ndvi</code> values on charts by clicking in the study area. The <code>fitted</code> time-series should be a smooth curve the fits input NDVI values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// even after gap filling there is noise in the NDVI profiles</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">// the NDVI profiles do not reflect the smooth and continuous green up and senescence of veg growth</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">// smooth the gap filled time series with a harmonic model of time</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2Hants <span class="op">=</span> phenology<span class="op">.</span><span class="fu">hants</span>(s2GapFilled<span class="op">.</span><span class="fu">select</span>([<span class="st">'ndvi'</span>])<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">'ndvi'</span>)<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">// draw NDVI time series chart at clicked points</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> drawChart <span class="op">=</span> <span class="kw">function</span>(point) {</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> clickedPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(point<span class="op">.</span><span class="at">lon</span><span class="op">,</span> point<span class="op">.</span><span class="at">lat</span>)<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> tsChart <span class="op">=</span> phenology<span class="op">.</span><span class="fu">timeSeriesChart</span>(clickedPoint<span class="op">,</span> s2Hants<span class="op">.</span><span class="fu">select</span>([<span class="st">'fitted'</span><span class="op">,</span> <span class="st">'ndvi'</span>])<span class="op">,</span> <span class="st">'NDVI - smoothed'</span><span class="op">,</span> <span class="st">'time'</span><span class="op">,</span> <span class="st">'NDVI'</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="st">'system:time_start'</span>)<span class="op">;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(tsChart)<span class="op">;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">onClick</span>(drawChart)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-profile-fitted-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Time-series of NDVI values smoothed using a harmonic model of time.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+</section>
+<section id="non-vegetation-mask" class="level2">
+<h2 class="anchored" data-anchor-id="non-vegetation-mask">Non-vegetation Mask</h2>
+<p>To ensure that we are only monitoring the phenology of vegetated land cover, we will mask out non-vegetated areas by flagging pixels with NDVI time-series that do not display clear patterns of vegetation growth.</p>
+<p>The approach used here is based rules used in NASA’s Vegetation Index and Phenology (VIP) product to mask out non-vegetated pixels. For a pixel to be classed as having a valid growing season, the:</p>
+<ul>
+<li>maximum growing season NDVI should be greater than a threshold value (NDVI &gt; 0.12 is the NASA VIP default).</li>
+<li>a minimum delta NDVI (maximum NDVI - minimum NDVI) greater than a threshold (<span class="math inline">\(\Delta\)</span>NDVI &gt; 0.05 is the NASA VIP default).</li>
+<li>there should be a sustained increase in NDVI values for <span class="math inline">\(n\)</span> days (here we will require there to be at least 40 days of sustained vegetation growth).</li>
+</ul>
+<br>
+<details>
+<summary>
+<b><em>Can you explain why these rules are sensible for masking out locations where there is no vegetation growth?</em></b>
+</summary>
+<ul>
+<li>
+A maximum growing season NDVI threshold ensures that there is some green vegetation present in a pixel.
+</li>
+<li>
+A <span class="math inline">\(\Delta\)</span>NDVI greater than a thresold ensures the difference between peak greenness and low greenness is larger than small noisy fluctuations in spectral reflectance.
+</li>
+<li>
+A sustained increase in NDVI values is a characteristic of vegetation growth dynamics and will distinguish actual vegetation growth for small fluctuations in spectral reflectance that could still occur over non-vegetated pixels.
+</li>
+</ul>
+</details>
+<p><br></p>
+<p>The <code>checkSeasonsVip</code> function requires four arguments:</p>
+<ul>
+<li>An <code>ImageCollection</code> with <code>Image</code>s to check for valid pixels.</li>
+<li>The maximum growing season NDVI threshold (here 0.12).</li>
+<li>The <span class="math inline">\(\Delta\)</span>NDVI threshold (here 0.1).</li>
+<li>The time step, in days, between <code>Image</code>s in the <code>ImageCollection</code> (here 5).</li>
+<li>The required number of days of a sustained increase in NDVI for a growing season to be valid (here 40).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// check for valid seasons using the NASA VIP rules</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">// max season NDVI &gt; a threshold (default 0.12)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">// minimum season delta NDVI &gt; a threshold (default 0.05)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// sustained increase in VI values for n days</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasonMask <span class="op">=</span> phenology<span class="op">.</span><span class="fu">checkSeasonsVip</span>(s2Hants<span class="op">.</span><span class="fu">select</span>(<span class="st">'fitted'</span>)<span class="op">,</span> <span class="fl">0.12</span><span class="op">,</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">40</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will keep our valid season mask in the variable <code>seasonMask</code> and use it at the end of our workflow to mask maps of phenology metrics such as start-of-season and length-of-season.</p>
+</section>
+<section id="phenology-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="phenology-metrics">Phenology Metrics</h2>
+<p>From smoothed time-series of NDVI values, we will estimate the following phenology metrics:</p>
+<ul>
+<li>Start-of-season.</li>
+<li>End-of-season.</li>
+<li>Length-of-season.</li>
+<li>Peak greenness.</li>
+</ul>
+<p>One approach to estimating start-of-season and end-of-season is using a fixed NDVI threshold. When a sequence of increasing NDVI values exceed the fixed threshold, start-of-season is detected. End-of-season is defined in a similar way, when a sequence of decreasing NDVI values pass the fixed threshold, end-of-season is detected.</p>
+<br>
+<details>
+<summary>
+<b><em>What is a potential limitation of using fixed NDVI thresholds for detecting start-of-season and end-of-season?</em></b>
+</summary>
+<p>
+Different plant species, mixes of plant species in a pixel, or canopy coverage within a pixel will result in different NDVI time-series. Thus, a fixed NDVI threshold that works for one context is unlikely to transfer to different locations.
+</p>
+<p>
+Similarly, defining thresholds in one growing season might not be suitable for future or historical seasons due to inter-annual climate variation.
+</p>
+</details>
+<p><br></p>
+<p>To overcome the limitations of using fixed NDVI thresholds to detect phenology metrics, a range of different approaches have been proposed and used. One approach that advances upon fixed NDVI thresholds is to use local (pixel-specific) thresholds applied to a time-series of NDVI values that have been transformed into NDVI ratio values. The NDVI ratio is computed as:</p>
+<p><span class="math display">\[NDVI_{ratio} = \frac{NDVI-NDVI_{min}}{NDVI_{max}-NDVI_{min}}\]</span></p>
+<p>NDVI ratio values fall between 0 and 1. A threshold value such as 0.5 <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2486.2009.01910.x" class="external" target="_blank">(While et al., 2009 )</a> or 0.3 <a href="https://vip.arizona.edu/VIP_ATBD_UsersGuide.php" class="external" target="_blank">(Didan et al., 2018)</a> have been used. When increasing NDVI ratio values exceed this threshold, start-of-season is detected. As this threshold is applied to NDVI values transformed into the NDVI ratio, the absolute values of the threshold will vary from pixel to pixel depending on the amplitude of vegetation growth in each pixel’s time-series.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ndvi-ratio.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Detecting start-of-season and end-of-season using thresholds applied to NDVI ratio time-series.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>We can use the <code>sosRatioThreshold()</code> function to generate a start-of-season date <code>Image</code> from an <code>ImageCollection</code> of smoothed NDVI values. The <code>eosRatioThreshold()</code> function can be used to generate an end-of-season date <code>Image</code> and the <code>peakVi()</code> function can be used to generate an <code>Image</code> with bands corresponding to peak NDVI and date of peak NDVI.</p>
+<p>Run the following code to generate start-of-season, end-of-season, and peak NDVI <code>Image</code>s and use the <code>seasonMask</code> to mask pixels where there was no vegetation growing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// phenology parameters</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">// start-of-season</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sos <span class="op">=</span> phenology<span class="op">.</span><span class="fu">sosRatioThreshold</span>(s2Hants<span class="op">,</span> [<span class="st">'fitted'</span>]<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="fl">0.3</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">updateMask</span>(seasonMask)<span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(sos<span class="op">.</span><span class="fu">select</span>(<span class="st">'day'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">150</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'440154'</span><span class="op">,</span> <span class="st">'433982'</span><span class="op">,</span> <span class="st">'30678D'</span><span class="op">,</span> <span class="st">'218F8B'</span><span class="op">,</span> <span class="st">'36B677'</span><span class="op">,</span> <span class="st">'8ED542'</span><span class="op">,</span> <span class="st">'FDE725'</span>]}<span class="op">,</span> <span class="st">'start-of-season'</span>)<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">// end-of-season</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> eos <span class="op">=</span> phenology<span class="op">.</span><span class="fu">eosRatioThreshold</span>(s2Hants<span class="op">,</span> [<span class="st">'fitted'</span>]<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="fl">0.3</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">updateMask</span>(seasonMask)<span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(eos<span class="op">.</span><span class="fu">select</span>(<span class="st">'day'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">350</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'440154'</span><span class="op">,</span> <span class="st">'433982'</span><span class="op">,</span> <span class="st">'30678D'</span><span class="op">,</span> <span class="st">'218F8B'</span><span class="op">,</span> <span class="st">'36B677'</span><span class="op">,</span> <span class="st">'8ED542'</span><span class="op">,</span> <span class="st">'FDE725'</span>]}<span class="op">,</span> <span class="st">'end-of-season'</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">// peak NDVI</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> peakVi <span class="op">=</span> phenology<span class="op">.</span><span class="fu">peakVi</span>(s2Hants<span class="op">,</span> [<span class="st">'ndvi'</span>])</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">updateMask</span>(seasonMask)<span class="op">;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(peakVi<span class="op">.</span><span class="fu">select</span>(<span class="st">'fitted'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.6</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.85</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'ffffcc'</span><span class="op">,</span> <span class="st">'d9f0a3'</span><span class="op">,</span> <span class="st">'addd8e'</span><span class="op">,</span> <span class="st">'78c679'</span><span class="op">,</span> <span class="st">'41ab5d'</span><span class="op">,</span> <span class="st">'238443'</span><span class="op">,</span> <span class="st">'005a32'</span>]}<span class="op">,</span> <span class="st">'peak NDVI'</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<br>
+<details>
+<summary>
+<b><em>Length-of-season is the difference between end-of-season and start-of-season? You have used <code>Image</code> math operations in Lab 7 where you subtracted one <code>Image</code> from another. Can you use the <code>sos</code> and <code>eos</code> <code>Image</code>s to generate a length-of-season <code>Image</code>?</em></b>
+</summary>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> los <span class="op">=</span> eos<span class="op">.</span><span class="fu">subtract</span>(sos)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">updateMask</span>(seasonMask)<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(los<span class="op">.</span><span class="fu">select</span>(<span class="st">'day_from_start'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">350</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'440154'</span><span class="op">,</span> <span class="st">'433982'</span><span class="op">,</span> <span class="st">'30678D'</span><span class="op">,</span> <span class="st">'218F8B'</span><span class="op">,</span> <span class="st">'36B677'</span><span class="op">,</span> <span class="st">'8ED542'</span><span class="op">,</span> <span class="st">'FDE725'</span>]}<span class="op">,</span> <span class="st">'length-of-season'</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<p><br></p>
+<p>If you head to the <em>Inspector</em> tab, you can click on the map display and explore <code>Image</code> values at clicked locations. You can toggle the <code>sos</code>, <code>eos</code>, and <code>peakVi</code> layers on and off to see maps of the phenology metrics. You can also compare start-of-season and end-of-season at clicked locations with their NDVI time-series charts which will be generated in the <em>Console</em>.</p>
+</section>
+<section id="phenology-and-climate" class="level2">
+<h2 class="anchored" data-anchor-id="phenology-and-climate">Phenology and Climate</h2>
+<p>Now we have extracted phenology metrics from our NDVI time-series, we can use them in analysis and modelling tasks. Common analyses using phenology metrics derived from remote sensing images include assessing drivers of phenology (e.g.&nbsp;how does changes in climate or weather affect the timing of phenology events) or undertaking spatio-temporal trend analysis to characterise how ecosystems are changing over time.</p>
+<p>Here, we will undertake a simple analysis to explore the relationship between summer land surface temperatures and start-of-season dates in Kings Park. Several observational studies have detected urban climates affecting the timing of phenological events.</p>
+<p>Let’s create an <code>Image</code> of average land surface temperatures from October 2019 to the end of February 2020. Broadly, this period corresponds to just before the start-of-season. We will use the land surface temperature band included in the Landsat 8 surface reflectance product and convert it from Kelvin to Degrees Celsius.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Climate and phenology relationsips</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">// apply scaling factors</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">maskL8Sr</span>(image) {</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bit 0 - Fill</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bit 1 - Dilated Cloud</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bit 2 - Cirrus</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bit 3 - Cloud</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Bit 4 - Cloud Shadow</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qaMask <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'QA_PIXEL'</span>)<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="pp">parseInt</span>(<span class="st">'11111'</span><span class="op">,</span> <span class="dv">2</span>))<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> saturationMask <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'QA_RADSAT'</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Apply the scaling factors to the appropriate bands.</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> opticalBands <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'SR_B.'</span>)<span class="op">.</span><span class="fu">multiply</span>(<span class="fl">0.0000275</span>)<span class="op">.</span><span class="fu">add</span>(<span class="op">-</span><span class="fl">0.2</span>)<span class="op">;</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> thermalBands <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'ST_B.*'</span>)<span class="op">.</span><span class="fu">multiply</span>(<span class="fl">0.00341802</span>)<span class="op">.</span><span class="fu">add</span>(<span class="fl">149.0</span>)<span class="op">;</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Replace the original bands with the scaled ones and apply the masks.</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">addBands</span>(opticalBands<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">addBands</span>(thermalBands<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">true</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">updateMask</span>(qaMask)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">updateMask</span>(saturationMask)<span class="op">;</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lst <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">"LANDSAT/LC08/C02/T1_L2"</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">'2019-10-01'</span><span class="op">,</span> <span class="st">'2020-03-01'</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterBounds</span>(geometry)</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(maskL8Sr)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">mean</span>()</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">'ST_B10'</span>)</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">subtract</span>(<span class="fl">273.15</span>)</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">rename</span>(<span class="st">'surface_temp_C'</span>)</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">clip</span>(geometry)<span class="op">;</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lst<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">45</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'00FFFF'</span><span class="op">,</span> <span class="st">'FFFF00'</span><span class="op">,</span> <span class="st">'FF0000'</span>]}<span class="op">,</span> <span class="st">'LST (C)'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should see a map of land surface temperature for the study area.</p>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lst-kings-park.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Landsat 8 land surface temperature over Kings Park.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<p>Scatter plots can visualise bivariate relationships between two variables. We will use a scatter plot to explore if there is a relationship between land surface temperature start-of-season in our study area.</p>
+<p>First, we need to combine the start-of-season <code>Image</code> with our land surface temperature <code>Image</code>. Let’s add <code>lst</code> as a band to the <code>sos</code> <code>Image</code>. Then, we will sample 300 locations in the study area extracting the land surface temperature and start-of-season values at each location.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sosLst <span class="op">=</span> sos<span class="op">.</span><span class="fu">addBands</span>(lst)<span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> sosLstPoints <span class="op">=</span> sosLst<span class="op">.</span><span class="fu">sample</span>({</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> geometry<span class="op">,</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">seed</span><span class="op">:</span> <span class="dv">123</span><span class="op">,</span> </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">geometries</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(sosLstPoints<span class="op">,</span> {}<span class="op">,</span> <span class="st">'sample points'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, let’s generate a scatter plot to see if there is a relationship between land surface temperature and start-of-season.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// print lst v start-of-season chart on the console</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">// add a linear trendline</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lstSosChart <span class="op">=</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">byFeature</span>({</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>          <span class="dt">features</span><span class="op">:</span> sosLstPoints<span class="op">,</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>          <span class="dt">xProperty</span><span class="op">:</span> <span class="st">'surface_temp_C'</span><span class="op">,</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>          <span class="dt">yProperties</span><span class="op">:</span> [<span class="st">'day'</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setSeriesNames</span>([<span class="st">''</span>])</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setChartType</span>(<span class="st">'ScatterChart'</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setOptions</span>({</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>          <span class="dt">title</span><span class="op">:</span> <span class="st">'LST and start-of-season relationship'</span><span class="op">,</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>          <span class="dt">hAxis</span><span class="op">:</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>              {<span class="dt">title</span><span class="op">:</span> <span class="st">'Temperature (°C)'</span><span class="op">,</span> <span class="dt">titleTextStyle</span><span class="op">:</span> {<span class="dt">italic</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">bold</span><span class="op">:</span> <span class="kw">true</span>}}<span class="op">,</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>          <span class="dt">vAxis</span><span class="op">:</span> {</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">title</span><span class="op">:</span> <span class="st">'Start of season'</span><span class="op">,</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">titleTextStyle</span><span class="op">:</span> {<span class="dt">italic</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">bold</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">viewWindow</span><span class="op">:</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">150</span>}</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>          <span class="dt">pointSize</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>          <span class="dt">trendlines</span><span class="op">:</span> { <span class="dv">0</span><span class="op">:</span> {} }</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        })<span class="op">;</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lstSosChart)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lst-sos.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Relationship between land surface temperature and start-of-season date (day of year).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</center>
+<br>
+<details>
+<summary>
+<b><em>This has just been a quick demo of how to explore relationships between climatic drivers and phenology. If you were going to expand this analysis to complete a more comprehensive analysis of climate-phenology relationships, what would you need to consider?</em></b>
+</summary>
+<p>
+We should consider the vegetation species present in the case study area, and, if, temperature before the growing season is an important driver of their phenology. Other climatic drivers (e.g.&nbsp;precipitation and moisture availability or insolation) could affect phenology. The analysis could be expanded to incorporate other drivers of phenology to guard against omitted variable bias (e.g.&nbsp;(mis)attributing the effect of precipitation on phenology to surface temperatures); this could be done using multiple regression analysis. There are a few other things to explore such as the mix of vegetation species within a 10 m Sentinel-2 pixel footprint, and, if they’re likely to have similar phenology profiles.
+</p>
+</details>
+<p><br></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-6.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lab 7</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
