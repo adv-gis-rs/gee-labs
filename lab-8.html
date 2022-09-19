@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3301 - 8&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-7.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">3301</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./js-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">JavaScript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5a</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5b</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 6</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 7</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 8</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Lab 9</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#supervised-classification" id="toc-supervised-classification" class="nav-link active" data-scroll-target="#supervised-classification">Supervised Classification</a></li>
+  <li><a href="#unsupervised-classification" id="toc-unsupervised-classification" class="nav-link" data-scroll-target="#unsupervised-classification">Unsupervised Classification</a></li>
+  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">Data Import</a></li>
+  </ul></li>
+  <li><a href="#supervised-classification-1" id="toc-supervised-classification-1" class="nav-link" data-scroll-target="#supervised-classification-1">Supervised Classification</a>
+  <ul class="collapse">
+  <li><a href="#training-feature-engineering" id="toc-training-feature-engineering" class="nav-link" data-scroll-target="#training-feature-engineering">Training (Feature) Engineering</a></li>
+  <li><a href="#train" id="toc-train" class="nav-link" data-scroll-target="#train">Train</a></li>
+  <li><a href="#predict" id="toc-predict" class="nav-link" data-scroll-target="#predict">Predict</a></li>
+  <li><a href="#accuracy-assessment" id="toc-accuracy-assessment" class="nav-link" data-scroll-target="#accuracy-assessment">Accuracy Assessment</a></li>
+  </ul></li>
+  <li><a href="#unsupervised-classification-1" id="toc-unsupervised-classification-1" class="nav-link" data-scroll-target="#unsupervised-classification-1">Unsupervised Classification</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This lab will introduce a workflow to classify <code>Image</code>s in Google Earth Engine using supervised classification algorithms.</p>
+<p>Image classification is the process of classifying pixels in an <code>Image</code> into similar classes (groups or clusters of similar pixels) or categories (a label that relates to physical or land surface characteristics).</p>
+<p>You will use a supervised classification algorithm to assign each pixel a label based upon spectral reflectance values. Land cover mapping is a common image classification task. Different land cover types have different spectral signatures (i.e.&nbsp;they have different levels of reflectance in different portions of the electromagnetic spectrum); an algorithm can be trained to predict each pixel’s land cover type by learning rules that relate spectral reflectance properties to land cover types.</p>
+<p>You have a predictor dataset <span class="math inline">\(X\)</span> which contains <span class="math inline">\(p\)</span> predictor variables <span class="math inline">\(X_{1}, X_{2},..., X_{p}\)</span>; in the case of land cover classification using remotely sensed data <span class="math inline">\(p\)</span> often corresponds to wavelengths of the electromagnetic spectrum. Your goal is to train a classifier (algorithm) <span class="math inline">\(f\)</span> which relates predictor variables <span class="math inline">\(X\)</span> to an outcome <span class="math inline">\(Y\)</span>.</p>
+<p><span class="math display">\[Y = f(X)\]</span></p>
+<p>The video below presents a good overview of tools for <code>Image</code> classification in Google Earth Engine. It is quite long, so best watched after the lab to consolidate what you have learnt.</p>
+<br>
+<center>
+<iframe width="412" height="232" src="https://www.youtube.com/embed/NPplRtH2N94" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p>
+An overview of <code>Image</code> classification in Google Earth Engine.
+</p>
+</center>
+<p><br></p>
+<section id="supervised-classification" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-classification">Supervised Classification</h3>
+<p>In supervised classification, to train a classifier the target values of <span class="math inline">\(Y\)</span> need to be known. The goal is to train a classifier, <span class="math inline">\(\hat{f}\)</span>, that predicts target labels when it is given a set of input predictor variables, <span class="math inline">\(X_{1}, X_{2},..., X_{p}\)</span>. Training a classifier involves learning rules that relate values of predictor variables, <span class="math inline">\(X_{1}, X_{2},..., X_{p}\)</span>, to the known target labels of <span class="math inline">\(Y\)</span>. For each training observation <span class="math inline">\(x_{i}\)</span> there is a known <span class="math inline">\(y_{i}\)</span>. You train a classifier by finding rules that minimise a metric of classification error when predicting the known <span class="math inline">\(y_{i}\)</span>.</p>
+<p>A classification tree is one of the simplest supervised classifiers to see inside and to visualise the algorithm’s rules for making predictions. A classification tree consists of a series of yes / no splits for values of <span class="math inline">\(X_{p}\)</span>, the predictor variables (e.g.&nbsp;spectral reflectance measured in <span class="math inline">\(p\)</span> wavelengths). The leaves of a classification tree correspond to the target label (e.g.&nbsp;a land cover type). Training a decision tree classifier involves finding splits in the values of <span class="math inline">\(X_{p}\)</span> (i.e.&nbsp;learning rules) that minimise the classification error that occurs when a data point with a known target label is assigned to the wrong leaf node. When using a decision tree to predict an unknown target label, you move down the tree following the yes / no splits to arrive at a leaf node. The leaf node you end up in is the predicted target label.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/decision-tree-tso-mather.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Example classification tree showing how land cover can be predicted from spectral reflectance values (adpated from Tso and Mather (2009)).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The final step of a supervised classification workflow is to assess the accuracy of your model. You see how well your model performs in predicting <span class="math inline">\(Y\)</span> for data that was not used in training the model (test data). This gives you an indication of your model’s performance and how well it will generalise to cases where <span class="math inline">\(Y\)</span> is not known.</p>
+</section>
+<section id="unsupervised-classification" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-classification">Unsupervised Classification</h3>
+<p>In unsupervised classification, for each observation <span class="math inline">\(x_{i}\)</span> in the training data there is no observed outcome <span class="math inline">\(y_{i}\)</span>. An unsupervised classification algorithm <span class="math inline">\(f\)</span> assigns observations to clusters based upon them having similar values in the predictor variables <span class="math inline">\(X\)</span>. In the context of remote sensing image classification, an unsupervised classification algorithm would assign a pixel <span class="math inline">\(i\)</span> to a class <span class="math inline">\(j\)</span> based upon a its <span class="math inline">\(x_{i}\)</span> spectral reflectance values. Your goal, given some training data, is to train an unsupervised classification algorithm <span class="math inline">\(\hat{f}\)</span> that assigns pixels to classes so that the within-class (within-cluster) variability in pixel values is minimised. Unsupervised classifiers in Google Earth Engine are called <code>clusterers</code>; this name refers to goal of unsupervised classifiers to create clusters of similar observations. Classes (clusters) do not directly relate to ground objects, real world phenonomenon or entities, or land cover types; instead, they define clusters of similar pixels in terms of their spectral reflectance values. Often, image classes relate to interesting land surface characteristics but it is a post-processing step to formalise these relationships and assign meaningful labels to image classes.</p>
+<!-- You will not be using unsupervised classification algorithms in this lab. However, you can follow this <a href="https://developers.google.com/earth-engine/guides/clustering" target="_blank">guide</a> to see how to use them in Google Earth Engine.  -->
+</section>
+<section id="task" class="level2">
+<h2 class="anchored" data-anchor-id="task">Task</h2>
+<p>You will perform a supervised classification of a Landsat 8 <code>Image</code> to predict a pixel’s land cover type.</p>
+<p><b>Supervised classification</b></p>
+<ol type="1">
+<li>Prepare labelled training data comprising observations of Landsat 8 spectral reflectance values and a land cover type property.</li>
+<li>Train a supervised classifier to predict a pixel’s land cover type (water, built up, or vegetation).</li>
+<li>Predict each pixel’s land cover type in the Landsat 8 <code>Image</code>.</li>
+<li>Assess the accuracy of the your land cover prediction using independent test data.</li>
+</ol>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 9</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data-import" class="level3">
+<h3 class="anchored" data-anchor-id="data-import">Data Import</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Data import</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// study area</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bBox <span class="op">=</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* color: #d63000 */</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* displayProperties: [</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">      {</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        "type": "rectangle"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">      }</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    ] */</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        [[[<span class="fl">115.23492202085255</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.663337604046916</span>]<span class="op">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">115.23492202085255</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.220373273114554</span>]<span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">116.13442763608693</span><span class="op">,</span> <span class="op">-</span><span class="fl">32.220373273114554</span>]<span class="op">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>          [<span class="fl">116.13442763608693</span><span class="op">,</span> <span class="op">-</span><span class="fl">31.663337604046916</span>]]]<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">//Get Landsat 8 SR Image</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> l8SR <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">'LANDSAT/LC08/C01/T1_SR/LC08_113082_20160802'</span>)<span class="op">.</span><span class="fu">clip</span>(bBox)<span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l8SR)<span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Use these Landsat 8 bands and rescale spectral reflectance values</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">'B2'</span><span class="op">,</span> <span class="st">'B3'</span><span class="op">,</span> <span class="st">'B4'</span><span class="op">,</span> <span class="st">'B5'</span><span class="op">,</span> <span class="st">'B6'</span><span class="op">,</span> <span class="st">'B7'</span>]<span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>l8SR <span class="op">=</span> l8SR<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">.</span><span class="fu">divide</span>(<span class="dv">10000</span>)<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">/* Define the visualization parameters. The bands option allows us to specify which bands to map. Here, we choose B4 (Red), B3 (Green), B2 (Blue) to make a RGB composite image.*/</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vizParams <span class="op">=</span> {</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bands</span><span class="op">:</span> [<span class="st">'B4'</span><span class="op">,</span> <span class="st">'B3'</span><span class="op">,</span> <span class="st">'B2'</span>]<span class="op">,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">max</span><span class="op">:</span> <span class="fl">0.4</span><span class="op">,</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">// Centre the display and then map the Landsat 8 image</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(l8SR<span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(l8SR<span class="op">,</span> vizParams<span class="op">,</span> <span class="st">'RGB composite'</span>)<span class="op">;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(l8SR)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the <em>Inspector</em> tab to visualise the difference in Landsat 8 spectral reflectance across different wavelengths for different land cover types.</p>
+<br>
+<center>
+<iframe src="https://player.vimeo.com/video/457400549" width="640" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+Visualise spectral reflectance using the <em>Inspector</em> tab
+</p>
+</center>
+<p><br></p>
+</section>
+</section>
+<section id="supervised-classification-1" class="level2">
+<h2 class="anchored" data-anchor-id="supervised-classification-1">Supervised Classification</h2>
+<section id="training-feature-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="training-feature-engineering">Training (Feature) Engineering</h3>
+<p>The first task in a supervised classification workflow is to prepare the training data. This is called training or feature engineering (in machine learning predictor variables are often called features).</p>
+<p>Classifiers in Google Earth Engine require a <code>FeatureCollection</code> for training where one property in the <code>properties</code> object is the outcome variable and the other properties are the predictors.</p>
+<p>The <code>FeatureCollection</code> <code>trainingPoints</code> contains three <code>Feature</code> objects. Each <code>Feature</code> object has a multipoint <code>Geometry</code> object and a <code>properties</code> object containing the property <code>lc</code>. <code>lc</code> refers to the land cover type at each point’s location.</p>
+<p>An <code>lc</code> value of 0 corresponds to vegetated land cover, an <code>lc</code> value of 1 corresponds to built up land cover, and an <code>lc</code> value of 2 corresponds to water.</p>
+<p>These labelled training points were created through manual digitisation guided by visual inspection of the Google satellite basemap.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Training engineering</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Import points labelled with land cover type property</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingPoints <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(<span class="st">"users/jmad1v07/gee-labs/training_points"</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(trainingPoints)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(trainingPoints<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span><span class="st">'red'</span>}<span class="op">,</span> <span class="st">'training data'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+<b><em>The date of the Google satellite basemap used to guide the creation of the training data was not known. What problem could this introduce when using this training data to train a classifier to predict the land cover type of Landsat 8 pixels?</em></b>
+</summary>
+<p>
+<br> Land cover might have changed between the date of capture of the Google satellite basemap and the date of the Landsat 8 <code>Image</code> you wish to classify. This means that the labelled training data may not accurately reflect the land cover type at the time the Landsat 8 <code>Image</code> was captured.
+</p>
+</details>
+<p><br></p>
+<details>
+<summary>
+<b><em>Explore the red points on the map that represent the location of the labelled training points. You should see clusters of points in Perth CBD and Kings Park. What problem could this clustering of training data present?</em></b>
+</summary>
+<p>
+<br> Training data observations which are close to each other in space might have spatial correlation among their data values. This spatial correlation reduces the effective number of independent training data observations. This can be problematic as non-parametric classifiers, such as CART, require large numbers of training data observations to characterise the relationships between predictor variables and outcome categories.
+</p>
+</details>
+<p><br></p>
+<p>You now need to find the Landsat 8 spectral reflectance values that intersect with each of the point locations.</p>
+<p>There is a convenient <code>sampleRegions()</code> function in Google Earth Engine that helps with feature engineering. The <code>sampleRegions()</code> function samples the pixels of an input <code>Image</code> (<code>l8SR</code> here) using the <code>Geometry</code> objects specified as the <code>collection</code> argument (<code>trainingPoints</code> here). This function extracts the values in each band of <code>l8SR</code> that intersect with each point’s location.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Sample spectral reflectance at training points</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingData <span class="op">=</span> l8SR<span class="op">.</span><span class="fu">sampleRegions</span>({</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> trainingPoints<span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">properties</span><span class="op">:</span> [<span class="st">'lc'</span>]<span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(trainingData)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Inspect the <code>FeatureCollection</code> <code>trainingData</code> in the <em>console</em>. You should see it contains 129 <code>Feature</code> objects and each <code>Feature</code> has a <code>properties</code> object containing an <code>lc</code> property which corresponds to a land cover type and properties <code>B2</code> through to <code>B7</code> which correspond to spectral reflectance measurements.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/training-data.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">FeatureCollection storing training data to train a supervised classifier to predict land cover type.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can now use <code>trainingData</code> to train a classifier to predict land cover type based on Landsat 8 spectral reflectance data values.</p>
+</section>
+<section id="train" class="level3">
+<h3 class="anchored" data-anchor-id="train">Train</h3>
+<p>You are going to use <code>trainingData</code> to train a classification and regression tree (CART) model to predict a pixel’s land cover type based on its spectral reflectance values.</p>
+<p>The first step is to create a CART object using the <code>ee.Classifier.smileCart()</code> constructor function. You then use the <code>train()</code> function to train the CART classifier. You pass your labelled training data <code>trainingData</code> into the <code>train()</code> function and it will learn the rules that best relate spectral reflectance values in your training data to the observed land cover type specified by the <code>lc</code> property.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Train a CART classifier with default parameters.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainedCART <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileCart</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">train</span>(trainingData<span class="op">,</span> <span class="st">'lc'</span><span class="op">,</span> bands)<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(trainedCART)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The video below presents a short demonstration of how CART classifiers work. You can also read Chapter 8 of <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/" class="external" target="_blank">James et al., (2013)</a> to understand the process of how CART classifier rules are trained via minimising an error function.</p>
+<p><br></p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p17C9q2M00Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p>
+Overview of CART classifiers
+</p>
+</center>
+<p><br></p>
+</section>
+<section id="predict" class="level3">
+<h3 class="anchored" data-anchor-id="predict">Predict</h3>
+<p>Now you can use your trained CART classifier object to predict each Landsat 8 pixel’s land cover. To classify an <code>Image</code> in Google Earth Engine using a trained classifier use the <code>classify()</code> function. You pass your trained classifier into the <code>classify()</code> function as an argument; this function will apply the algorithm defined in your trained classifier (<code>trainedCART</code> here) to each pixel’s spectral reflectance values to predict land cover type.</p>
+<p>Display your predicted land cover <code>Image</code> on the map. Visually inspect your map of predicted land cover. How good a job has your trained classifier <code>trainedCART</code> done at predicting the land cover type of the Landsat 8 pixels?</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Classify (predict land cover type) l8SR using trained CART classifier</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lcImage <span class="op">=</span> l8SR</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">select</span>(bands)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">classify</span>(trainedCART)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lcImage)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">//Make a palette for mapping</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lulcColor <span class="op">=</span> [</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">'00FF00'</span><span class="op">,</span> <span class="co">// vegetation</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">'000000'</span><span class="op">,</span> <span class="co">// built up</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">'0000FF'</span><span class="op">,</span> <span class="co">// water</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lcImage<span class="op">,</span> {<span class="dt">palette</span><span class="op">:</span> lulcColor<span class="op">,</span> <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2</span>}<span class="op">,</span> <span class="st">'supervised classification'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/predicted-land-cover.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Predicted land cover type using the trained CART classifier</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Use the <em>Layers</em> tab to toggle on and off the Landsat 8 RGB composite, the predicted land cover map, and the Google satellite basemaps. Zoom in on a few locations and explore the difference between the land covers captured by the Google satellite basemaps and the Landsat 8 data.</p>
+<p>You should see that in many cases a single Landsat 8 pixel is comprised of multiple land cover types (e.g.&nbsp;a pixel could include trees, a grass lawn, and roofs). This is a mixed pixel problem; it is one example of how spatial data often simplifies reality. Here, a mix of land cover types with different spectral signatures will be represented by a single spectral reflectance value per-band and per-pixel or by a single land cover type label.</p>
+<br>
+<center>
+<iframe src="https://player.vimeo.com/video/457375669" width="640" height="354" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
+</iframe>
+<p>
+Visualise mixed pixels
+</p>
+</center>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/mixed-pixels.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Mixed pixels - a pixel is assigned a single land cover type category yet it contains a mix of land cover types</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<details>
+<summary>
+<b><em>How could you reduce the mixed pixel problem that is visible when predicting land cover over urban Perth using Landsat 8 data?</em></b>
+</summary>
+<p>
+</p><ul>
+<li>
+You could use finer spatial resolution data that would be able to resolve the different land cover objects present within a single Landsat pixel.
+</li>
+<li>
+You could use a fuzzy classification system where a pixel can be a member of more than one land cover type.
+</li>
+</ul>
+<p></p>
+</details>
+<p><br></p>
+<p>The classifier you have just trained predicts whether a pixel is one of three land cover types (vegetation, built up, or water). In reality, there are far more than three land cover types present within the area covered by the Landsat 8 <code>Image</code>. An example of this is shown in the below figure where beach between City Beach and Scarborough in Perth is classified as built up land cover. Therefore, through limiting the possible land cover types we are introducing error into predicted land cover maps (i.e.&nbsp;there is a discrepancy between predicted land cover and reality).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/beach-as-built-up.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Beach (sandy land cover) classified as built up.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<details>
+<summary>
+<b><em>How could you train a classifier that predicts whether a pixel belongs to more land cover types than vegetation, built up, or water?</em></b>
+</summary>
+<p>
+</p><p><br> Ensure that your labelled training data covers the range of land cover types within the area of interest and that you have a sufficient number of training data observations per-land cover type in order to characterise each land cover type accurately.</p>
+<p></p>
+</details>
+<p><br></p>
+</section>
+<section id="accuracy-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy-assessment">Accuracy Assessment</h3>
+<p>Before using your trained classifier to predict the land cover type of new pixels (i.e.&nbsp;pixels that you don’t already know the land cover type) you need to know how accuracte the classifier’s predictions are. You do this by assessing the classifier’s accuracy; typically this is done by comparing predictions to observations on unseen data - data that has not been used to train the model. This will give you an indication of how well your classifier will generalise and work on new data.</p>
+<p>First, you need some test data that contains labels of observed land cover types. Then you can use your trained classifier to predict the land cover type at each of these locations. Finally, you compare the predicted versus the observed land cover types to assess the accuracy of your trained classifier.</p>
+<p>Import the the <code>FeatureCollection</code> <code>test_points</code> into the variable <code>testPoints</code>. This contains labelled points with an observed land cover type property. The process of predicting the land cover type at each of these test points is similar to the feature engineering process described above. Use the <code>sampleRegions()</code> function to extract the spectral reflectance measures for each of these points. Then use the trained classifier <code>trainedCART</code> to predict the land cover type at each test point based on its spectral reflectance values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Accuracy Assessment</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testPoints <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(<span class="st">'users/jmad1v07/gee-labs/test_points'</span>)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(testPoints<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span><span class="st">'yellow'</span>}<span class="op">,</span> <span class="st">'test points'</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Sample spectral reflectance at test points</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testData <span class="op">=</span> l8SR<span class="op">.</span><span class="fu">sampleRegions</span>({</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> testPoints<span class="op">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">properties</span><span class="op">:</span> [<span class="st">'lc'</span>]<span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(testData)<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Classify the test data.</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testClassified <span class="op">=</span> testData<span class="op">.</span><span class="fu">classify</span>(trainedCART)<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(testClassified)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the predicted versus observed land cover types for the test data points you can generate an error matrix. This an <span class="math inline">\(n\)</span> x <span class="math inline">\(n\)</span> matrix where <span class="math inline">\(n\)</span> is the number of land cover types. In Google Earth Engine error matrices, the columns (1-axis) represent the predicted data and the rows (0-axis) represent the observed test data. The diagonal of the matrix represents pixels that were correctly classified (i.e.&nbsp;the classifier correctly predicted the observed land cover type in the test data). This code flips (transposes) the matrix for display purposes here so observed data are in the columns and predicted data are in the rows.</p>
+<p>You can use the <code>errorMatrix()</code> function in Google Earth Engine to generate an error matrix from a <code>FeatureCollection</code>. The first argument to the <code>errorMatrix()</code> function is the observed land cover type (<code>lc</code> here) and the second argument is the predicted land cover type (<code>classification</code> here).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Get an error matrix</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> errorMat <span class="op">=</span> testClassified<span class="op">.</span><span class="fu">errorMatrix</span>(<span class="st">'lc'</span><span class="op">,</span> <span class="st">'classification'</span>)<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'error matrix: '</span><span class="op">,</span> errorMat<span class="op">.</span><span class="fu">array</span>()<span class="op">.</span><span class="fu">matrixTranspose</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/error-matrix.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Error matrix and accuracy assessment indicators.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The sum of the diagonal elements is the number of correctly classified pixels. The overall accuracy of the classifier can be computed as:</p>
+<p><span class="math display">\[accuracy=\frac{Correctly Classified Points}{Total Number of Points}\]</span></p>
+<p>This indicator of classification accuracy can be interpreted as <span class="math inline">\(x\)</span>% of an image is correctly classified. It does not give any indication of the spatial variability in classification accuracy or if certain land cover types are classified more accurately than others.</p>
+<p>There are helpful functions in Google Earth Engine that you can apply to error matrices to compute accuracy assessment statistics. You can apply the <code>accuracy()</code> function to your error matrix to compute the overall accuracy and you can apply the <code>kappa()</code> function to compute the kappa statistic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'overall accuracy: '</span><span class="op">,</span> errorMat<span class="op">.</span><span class="fu">accuracy</span>())<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'kappa: '</span><span class="op">,</span> errorMat<span class="op">.</span><span class="fu">kappa</span>())<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'producers accuracy: '</span><span class="op">,</span> errorMat<span class="op">.</span><span class="fu">producersAccuracy</span>())<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'users accuracy:'</span><span class="op">,</span> errorMat<span class="op">.</span><span class="fu">consumersAccuracy</span>())<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the error matrix you can compute producer’s and user’s accuracy that give an indication of the accuracy of classification for individual land cover types.</p>
+<p>The producer’s accuracy is computed by dividing the entry in cell (<span class="math inline">\(i\)</span>, <span class="math inline">\(i\)</span>) of the error matrix by the sum of column <span class="math inline">\(i\)</span>. The producer’s accuracy is a measure of omission error and informs on the number of test pixels in a given land cover type that were correctly classified. Here, all of the vegetation (class 0) pixels in the test dataset were correctly classified as vegetation by <code>trainedCART</code>. Eight of the test data points labelled as built up were classified as vegetation; therefore, built up land cover has a producer’s accuracy of 78%.</p>
+<p>The user’s accuracy is computed by dividing the entry in cell (<span class="math inline">\(i\)</span>, <span class="math inline">\(i\)</span>) of the error matrix by the sum of row <span class="math inline">\(i\)</span>. The user’s accuracy is a measure of commission error (i.e.&nbsp;erroneously labelling a pixel a given land cover type). Of the 34 test data points that were predicted as being of vegetation land cover type, eight were observed as being built up. Thus, vegetation land cover has a user’s accuracy of 76%.</p>
+</section>
+</section>
+<section id="unsupervised-classification-1" class="level2">
+<h2 class="anchored" data-anchor-id="unsupervised-classification-1">Unsupervised Classification</h2>
+<p>Training unuspervised classification algorithms involves learning rules to classify a dataset into groups (classes) without requiring a label to be known or assigned to each group. The goal when training an unsupervised classification algorithm is to find splits in the data that ensure observations within each group are similar.</p>
+<p>A common unsupervised classification algorithm is <span class="math inline">\(K\)</span>-means clustering and the only input you need to provide to the classifier is the number of classes that you wish to cluster your dataset into.</p>
+<p>We will demonstrate how to use unsupervised classification to cluster the Landsat 8 <code>Image</code> assigning all pixels to groups based on similar spectral reflectance values.</p>
+<p>To train the the <span class="math inline">\(K\)</span>-means clustering algorithm, we will generate a sample of pixel spectral reflectance values from the Landsat 8 <code>Image</code>. Here, we will generate a sample of 1000 points within the Landsat 8 scene.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Unsupervised classification</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Make the training dataset.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainingKMeans <span class="op">=</span> l8SR<span class="op">.</span><span class="fu">sample</span>({</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> bBox<span class="op">,</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">1000</span><span class="op">,</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">seed</span><span class="op">:</span> <span class="dv">123</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we will train a <span class="math inline">\(K\)</span>-means clusterer with five classes and then use trained algorithm to classify the Landsat 8 <code>Image</code> pixels into one of the five classes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Instantiate the clusterer and train it.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clusterer <span class="op">=</span> ee<span class="op">.</span><span class="at">Clusterer</span><span class="op">.</span><span class="fu">wekaKMeans</span>(<span class="dv">5</span>)<span class="op">.</span><span class="fu">train</span>(trainingKMeans)<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Cluster the input using the trained clusterer.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clusteredL8SR <span class="op">=</span> l8SR<span class="op">.</span><span class="fu">cluster</span>(clusterer)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, we can display the result on the map by assigning a colour to each class.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Display the clusters with random colors.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(clusteredL8SR<span class="op">.</span><span class="fu">randomVisualizer</span>()<span class="op">,</span> {}<span class="op">,</span> <span class="st">'clusters'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Compare the classified maps generated using supervised and unsupervised classifiers. Has the unsupervised classifer split pixels into classes that correspond to different land cover types?</p>
+<p><br></p>
+<details>
+<summary>
+<b><em>What is an advantage offered by unsupervised classification algorithms?</em></b>
+</summary>
+<p>
+They are a tool that we can use to extract and visualise patterns within large and complex datasets. They can also be used for data reduction exercises to reduce the size of the dataset.
+</p>
+</details>
+<p><br></p>
+<details>
+<summary>
+<b><em>What are some limits of using unsupervised classification algorithms for land cover mapping?</em></b>
+</summary>
+<p>
+The clusters learnt by the algorithm might not relate to actual land cover classes. In some cases it can be unclear how many clusters to split the dataset up into.
+</p>
+</details>
+<p><br></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-7.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lab 8</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

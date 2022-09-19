@@ -188,6 +188,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./lab-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 8</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 9</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -205,8 +210,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#create-new-variables" id="toc-create-new-variables" class="nav-link" data-scroll-target="#create-new-variables">Create new variables</a>
   <ul class="collapse">
-  <li><a href="#image-math-and-local-map-algebra-operations" id="toc-image-math-and-local-map-algebra-operations" class="nav-link" data-scroll-target="#image-math-and-local-map-algebra-operations"><code>Image</code> math and local map algebra operations</a></li>
-  <li><a href="#spectral-indices" id="toc-spectral-indices" class="nav-link" data-scroll-target="#spectral-indices">Spectral indices</a></li>
+  <li><a href="#image-math-and-local-map-algebra-operations" id="toc-image-math-and-local-map-algebra-operations" class="nav-link" data-scroll-target="#image-math-and-local-map-algebra-operations"><code>Image</code> Math and Local Map Algebra Operations</a></li>
+  <li><a href="#spectral-indices" id="toc-spectral-indices" class="nav-link" data-scroll-target="#spectral-indices">Spectral Indices</a></li>
   </ul></li>
   <li><a href="#join-combine" id="toc-join-combine" class="nav-link" data-scroll-target="#join-combine">Join / Combine</a></li>
   <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
@@ -625,7 +630,7 @@ cloud shadow NOT present in <code>pixelQA</code>
 <section id="create-new-variables" class="level2">
 <h2 class="anchored" data-anchor-id="create-new-variables">Create new variables</h2>
 <section id="image-math-and-local-map-algebra-operations" class="level3">
-<h3 class="anchored" data-anchor-id="image-math-and-local-map-algebra-operations"><code>Image</code> math and local map algebra operations</h3>
+<h3 class="anchored" data-anchor-id="image-math-and-local-map-algebra-operations"><code>Image</code> Math and Local Map Algebra Operations</h3>
 <p><code>Image</code> math operations are applied to <code>Image</code>s on a per-pixel basis. The output from an <code>Image</code> math operation is a raster where each pixel’s value is the result of the <code>Image</code> math operation. The input to the <code>Image</code> math operation is either:</p>
 <ol type="1">
 <li>two or more <code>Image</code>s where the operation is applied on a per-pixel basis.</li>
@@ -671,7 +676,7 @@ cloud shadow NOT present in <code>pixelQA</code>
 <p>In Google Earth Engine only the intersection of unmasked pixels between input <code>Image</code>s are returned from <code>Image</code> math operations.</p>
 </section>
 <section id="spectral-indices" class="level3">
-<h3 class="anchored" data-anchor-id="spectral-indices">Spectral indices</h3>
+<h3 class="anchored" data-anchor-id="spectral-indices">Spectral Indices</h3>
 <p><code>Image</code> math is used to combine bands in remote sensing <code>Image</code>s that correspond to measures of spectral reflectance (ie. reflectance in different wavelengths). Mathematical per-pixel combinations of spectral reflectance measures are called spectral indices. Different land surface features have different spectral signatures (they reflect differently across wavelengths of the electromagnetic spectrum). Spectral indices use <code>Image</code> math to combine information about levels of reflectance in different wavelengths into a single value. Thus, computing spectral indices can provide more information about the condition or characteristics of a pixel than could be obtained from spectral reflectance measures in a single band.</p>
 <p>Spectral indices are commonly used to monitor vegetation (vegetation indices). The normalised difference vegetation index (NDVI) is computed using spectral reflectance in red and near infrared wavelengths.</p>
 <p>The NDVI equation is:</p>
