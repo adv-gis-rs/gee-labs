@@ -192,6 +192,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./lab-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 9</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 10</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -244,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Create a new script in your <em>labs-gee</em> repository called <em>lab4a</em>. Enter the following comment header to the script.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 4a</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 5a</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -260,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You write a series of JavaScript statements that identify geospatial data, and operations to perform on this data, that run on Google servers and the results to be returned from this processing.</li>
 <li>Your browser sends these statements to the Google servers.</li>
 <li>The Google servers process your message, access data you requested, and perform the operations outlined in your script.</li>
-<li>Results your program requests back from the Google servers are returned to your browser and displayed (e.g.&nbsp;a map is drawn in your browser display, results are printed to the console, a file is made available to download).</li>
+<li>Results your program requests back from the Google servers are returned to your browser and displayed (e.g.&nbsp;a map is drawn in your browser display, results are printed to the <em>Console</em>, a file is made available to download).</li>
 </ol>
 <!-- This differs from a desktop GIS (e.g. QGIS) where all the data and processing occurs locally on your machine's hardware. Google Earth Engine is a distributed system which means the program runs by calling functions running on different computers connected via a network (e.g. your Google Earth Engine programs will call functions running locally in your browser and also functions running on Google servers with data shared between these functions over the internet). Google Earth Engine has a clear client-server architecture where your browser is the client requesting services from Google Earth Engine, the server, which offers a range of services and processes and responds to client requests.  -->
 <!-- There are several advantages to this mode of computing. It is more efficient to just download the result of processing geospatial data than to download all the raw data and process and store it locally. For example, if you wanted to compute the area of forest in Australia using a land cover map you can perform this analysis in the cloud and download one number (the area of forest). Contrast this with having to download a land cover map for all of Australia, process the data, and then run the analysis to calculate the area of forest on your local machine. Also, more geospatial datasets are coming online and they getting larger; it is often not feasible to process all this "big data" locally.   -->

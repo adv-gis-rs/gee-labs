@@ -193,6 +193,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./lab-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 9</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 10</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -572,7 +577,7 @@ print(l8ImColl);
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lstTreeJoin <span class="op">=</span> innerJoin<span class="op">.</span><span class="fu">apply</span>(perthUniBuildingTree<span class="op">,</span> perthUniBuildingLST<span class="op">,</span> osmFilter)<span class="op">;</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'joined:'</span><span class="op">,</span> lstTreeJoin)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The matching <code>Feature</code>s from <code>perthUniBuildingTree</code> and <code>perthUniBuildingLST</code> are stored in a <code>primary</code> and <code>secondary</code> dictionary object of the output from the join. Execute the following helper function to add the name:value pairs in <code>secondary</code> to the <code>properties</code> in the <code>primary</code> dictionary. This puts all your name:value pairs in one <code>properties</code> dictionary and makes it easy for you to query, summarise, and visualise this data. You can inspect the tidied <code>FeatureCollection</code> in the <em>console</em> to see the output from this function.</p>
+<p>The matching <code>Feature</code>s from <code>perthUniBuildingTree</code> and <code>perthUniBuildingLST</code> are stored in a <code>primary</code> and <code>secondary</code> dictionary object of the output from the join. Execute the following helper function to add the name:value pairs in <code>secondary</code> to the <code>properties</code> in the <code>primary</code> dictionary. This puts all your name:value pairs in one <code>properties</code> dictionary and makes it easy for you to query, summarise, and visualise this data. You can inspect the tidied <code>FeatureCollection</code> in the <em>Console</em> to see the output from this function.</p>
 <p><em>Not necessary, but it might be a good activity to consolidate understanding: work through the function in the below code snippet and describe what each line is doing.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// tidy up properties of output from join</span></span>
@@ -612,7 +617,7 @@ print(l8ImColl);
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(campusSummaryStats)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you inspect the <code>print()</code> of <code>campusSummaryStats</code> in the <em>console</em> you will see that it returned a dictionary object which contains a list of dictionary objects. This is an unfriendly data structure for storing and querying the data it contains.</p>
+<p>If you inspect the <code>print()</code> of <code>campusSummaryStats</code> in the <em>Console</em> you will see that it returned a dictionary object which contains a list of dictionary objects. This is an unfriendly data structure for storing and querying the data it contains.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -658,15 +663,15 @@ print(l8ImColl);
 </div>
 </div>
 </div>
-<p>Let’s look at the results. You should have <code>print()</code>ed <code>tidyCampusStats</code> onto the <em>console</em>. The <code>properties</code> object for each <code>Feature</code> stores the average area of tree canopy cover and LST within a 50 m buffer of buildings on each university campus. The figure above shows that, on average, buildings on Curtin University’s Bentley Campus have an LST of 307.47 K. Look at the values reported for the other university campuses.</p>
+<p>Let’s look at the results. You should have <code>print()</code>ed <code>tidyCampusStats</code> onto the <em>Console</em>. The <code>properties</code> object for each <code>Feature</code> stores the average area of tree canopy cover and LST within a 50 m buffer of buildings on each university campus. The figure above shows that, on average, buildings on Curtin University’s Bentley Campus have an LST of 307.47 K. Look at the values reported for the other university campuses.</p>
 </section>
 <section id="visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation">Visualisation</h2>
-<p>To make comparisons between campuses in terms of their greenness and coolness, you can look up the values in the <em>console</em> for the <code>properties</code> object storing the results of the group by and summarise operations. However, this is not a visually friendly way to inspect your data, identify patterns, or detect relationships between variables. Google Earth Engine provides a range of tools to generate <a href="https://developers.google.com/earth-engine/guides/charts" target="_blank">interactive charts</a> from spatial data.</p>
-<p>Chart objects can be rendered in the <em>console</em> to visualise your data. The <code>ui.Chart.feature.byFeature()</code> function creates a chart from a set of <code>Feature</code>s in a <code>FeatureCollection</code> plotting each <code>Feature</code> on the X-axis and the value for a <code>Feature</code>’s property on the Y-axis.</p>
+<p>To make comparisons between campuses in terms of their greenness and coolness, you can look up the values in the <em>Console</em> for the <code>properties</code> object storing the results of the group by and summarise operations. However, this is not a visually friendly way to inspect your data, identify patterns, or detect relationships between variables. Google Earth Engine provides a range of tools to generate <a href="https://developers.google.com/earth-engine/guides/charts" target="_blank">interactive charts</a> from spatial data.</p>
+<p>Chart objects can be rendered in the <em>Console</em> to visualise your data. The <code>ui.Chart.feature.byFeature()</code> function creates a chart from a set of <code>Feature</code>s in a <code>FeatureCollection</code> plotting each <code>Feature</code> on the X-axis and the value for a <code>Feature</code>’s property on the Y-axis.</p>
 <p>The first argument to the <code>ui.Chart.feature.byFeature()</code> function is the <code>FeatureCollection</code> - <code>tidyCampusStats</code>. The second argument to <code>ui.Chart.feature.byFeature()</code> is the label property for <code>Feature</code>s plotted on the X-axis - <code>'uni_name'</code>. The final argument is a list object of properties whose values are plotted on the Y-axis - <code>['treeAreaSqM']</code>.</p>
 <p>Use the <code>.setChartType()</code> method to specify the type of chart to create. View possible charts in this <a href="https://developers.google.com/chart/interactive/docs/gallery" target="_blank">gallery</a>. A dictionary of name:value pairs is passed into the <code>setOptions()</code> method to control various style elements of the chart (e.g.&nbsp;chart title, axis title).</p>
-<p>To render your chart in the <em>console</em> use the <code>print()</code> function.</p>
+<p>To render your chart in the <em>Console</em> use the <code>print()</code> function.</p>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Make a chart by feature</span></span>
