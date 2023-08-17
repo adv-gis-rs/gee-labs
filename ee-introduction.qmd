@@ -8,11 +8,11 @@ This lab introduces spatial data models for representing geographic entities and
 
 ### Setup
 
-Create a new script in your *labs-gee* repository called *lab4a*. Enter the following comment header to the script. 
+Create a new script in your *labs-gee* repository called *ee-introduction.js*. Enter the following comment header to the script. 
 
 ```{js, echo=TRUE, eval=FALSE}
 /*
-Lab 4a
+EE Introduction
 Author: Test
 Date: XX-XX-XXXX
 
@@ -24,14 +24,14 @@ Date: XX-XX-XXXX
 
 In the preliminary lab you have been writing JavaScript programs that are executed in your browser and run on the hardware in your local machine (i.e. any data in variables you declare resides in your computer's memory and the functions you call run on your computer's CPU). 
 
-However, your machine has limited storage, memory, and processing power. Google Earth Engine allows you to access cloud servers comprising more powerful computers and access to larger datasets. You still write a Google Earth Engine program in JavaScript using the code editor in your browser; however, the servers storing and processing the geospatial data in your program are remotely located in the cloud. 
+However, your machine has limited storage, memory, and processing power. Google Earth Engine allows you to access cloud servers comprising more powerful computers and access to larger datasets. You still write a Google Earth Engine program in JavaScript using the code editor in your browser; however, the servers storing and processing the geospatial data in your program are located in the cloud. 
 
 The execution of a Google Earth Engine program is as follows:
 
-1. You write a series of JavaScript statements that identify geospatial data, and operations to perform on this data, that run on Google servers and the results to be returned from this processing.
+1. You write a series of JavaScript statements that identify geospatial data and operations to perform on this data.
 2. Your browser sends these statements to the Google servers.
 3. The Google servers process your message, access data you requested, and perform the operations outlined in your script.
-4. Results your program requests back from the Google servers are returned to your browser and displayed (e.g. a map is drawn in your browser display, results are printed to the console, a file is made available to download).
+4. Results your program requests back from the Google servers are returned to your browser and displayed (e.g. a map is drawn in your browser display, results are printed to the *Console*, a file is made available to download).
 
 <!-- This differs from a desktop GIS (e.g. QGIS) where all the data and processing occurs locally on your machine's hardware. Google Earth Engine is a distributed system which means the program runs by calling functions running on different computers connected via a network (e.g. your Google Earth Engine programs will call functions running locally in your browser and also functions running on Google servers with data shared between these functions over the internet). Google Earth Engine has a clear client-server architecture where your browser is the client requesting services from Google Earth Engine, the server, which offers a range of services and processes and responds to client requests.  -->
 
@@ -62,7 +62,7 @@ The vector data model represents geographic phenomena or entities as geometric f
 * lines (i.e. two or more points connected by a line) 
 * polygons (i.e. three or more points connected by a non-intersecting line which "closes" the polygon) 
 
-Along with coordinates that represent the position of the geometry, vector data also stores non-spatial attribute information which describe characteristics of the geographic phenomenon or entity represented by the geometry feature.
+Along with coordinates that represent the position of the geometry, vector data also stores non-spatial attribute information.
 
 The figure below demonstrates how geographic entities in Perth can be represented using the vector data model. The blue line feature broadly captures the shape of the river; however, it is a simplification as it does not provide information about how the river's width varies across space. The red point feature is used to represent the location of Perth; this might be an appropriate way to represent Perth's location on a zoomed out map but it does not capture Perth's actual extent. 
 
@@ -137,7 +137,7 @@ Data structures are used to implement data models in a computer system. GEE has 
 
 Raster data in GEE are represented as `Image` objects. 
 
-To create an `Image` object that stores raster data on the GEE server use the `ee.Image()` constructor. You pass arguments into the parentheses of the `ee.Image()` constructor to specify what raster data should be represented by the `Image` object. If you pass a number into `ee.Image()` you will get a constant image where each pixel value is the number passed in. 
+To create an `Image` object that stores raster data on the Google Earth Engine server use the `ee.Image()` constructor. You pass arguments into the `ee.Image()` constructor to specify what raster data should be represented by the `Image` object. If you pass a number into `ee.Image()` you will get a constant image where each pixel value is the number passed in. 
 
 Add the following code to your GEE script. This will create an image object where each pixel has the value 5 which can be referred to using the variable `img5`. Click on the *Inspector* tab and then click at locations on the map. You should see the value 5 printed in the *Inspector*.
 
@@ -232,7 +232,7 @@ Map.addLayer(locationKP, {color: 'FF0000'}, 'Kings Park');
 
 ```
 
-If you explore the metadata for `locationKP` in the *Console* you will see the object has a `type` field which indicates the object is of `Point` type and a `coordinates` field which contains the the coordinates for the point as an array object. The value of the `coordinates` field is an ordered x y pair.
+If you explore the metadata for `locationKP` in the *Console* you will see the object has a `type` field which indicates the object is of `Point` type and a `coordinates` field which contains the the coordinates for the point. The value of the `coordinates` field is an ordered x y pair.
 
 You can create LineString objects in a similar way. Here, you can pass the coordinates as an array into the `ee.Geometry.LineString()` constructor. As noted in the <a href="https://tools.ietf.org/html/rfc7946" target="_blank">GeoJSON spec</a>, coordinates for LineString objects are an array of ordered x y pairs. 
 
@@ -256,7 +256,7 @@ print(mayDr);
 Map.addLayer(mayDr, {color: '00FF00'}, 'May Drive');
 ```
 
-`Geometry` objects in Google Earth Engine are by default geodesic (i.e. edges are the shortest path on spherical surface) as opposed to planar (edges follow the shortest path on a 2D surface). You can read more about the difference between geodesic and planar geometries <a href="https://developers.google.com/earth-engine/geometries_planar_geodesic" target="_blank">here</a>.
+`Geometry` objects in Google Earth Engine are by default geodesic (i.e. edges are the shortest path on a spherical surface) as opposed to planar (edges follow the shortest path on a 2D surface). You can read more about the difference between geodesic and planar geometries <a href="https://developers.google.com/earth-engine/geometries_planar_geodesic" target="_blank">here</a>.
 
 <center>
 
@@ -278,7 +278,7 @@ knitr::include_graphics("img/geometry-tools.png")
 
 </center>
 
-The following video illustrates how to use the *Geometry Tools* to create a Polygon object representing Kings Park and how to use variable storing the geometry object in your script. 
+The following video illustrates how to use the *Geometry Tools* to create a Polygon object representing Kings Park and how to use the variable storing the geometry object in your script. 
 
 Some things to note:
 
@@ -297,11 +297,11 @@ Some things to note:
 
 ### Features
 
-`Geometry` objects describe the positional information of vector data; however, there is also a need to represent attribute information about geographic phenomena or entities represented by `Geometry` objects. Vector data in Google Earth Engine which contains geometry data (representing location and shape of geographic phenomenon or entities) and attribute data are <a href="https://tools.ietf.org/html/rfc7946#page-11" target="_blank">GeoJSON `Feature` objects</a>.
+`Geometry` objects describe the positional information of vector data; however, there is also a need to represent attribute information. Vector data in Google Earth Engine which contains geometry data (representing location and shape) and attribute data are <a href="https://tools.ietf.org/html/rfc7946#page-11" target="_blank">GeoJSON `Feature` objects</a>.
 
-A `Feature` object is of type Feature with a `geometry` property which contains a `Geometry` object or `null` and a `properties` property which stores a dictionary object of name:value pairs of attribute information associated with the geographic feature represented by the `Geometry` object. 
+A `Feature` object is of type Feature with a `geometry` property which contains a `Geometry` object or `null` and a `properties` property which stores a dictionary object of name:value pairs of attribute information associated with the geographic feature. 
 
-Execute the code block below to convert the `Geometry` object representing Kings Park to a `Feature` object with a `properties` property which with a name attribute. Inspect the `Feature` object in the *Console*.
+Execute the code block below to convert the `Geometry` object representing Kings Park to a `Feature` object with a `properties` property with a name attribute. Inspect the `Feature` object in the *Console*.
 
 ```{js, echo=TRUE, eval=FALSE}
 // Create a Feature from the Geometry.

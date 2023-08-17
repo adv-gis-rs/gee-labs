@@ -58,7 +58,7 @@ Create a new script in your *labs-gee* repository called *lab6*. Enter the follo
 
 ```{js, echo=TRUE, eval=FALSE}
 /*
-Lab 6
+Lab 7
 Author: Test
 Date: XX-XX-XXXX
 
@@ -331,7 +331,7 @@ The concept of masking pixel values based on a cloud mask can be considered spat
 
 ## Create new variables
 
-### `Image` math and local map algebra operations
+### `Image` Math and Local Map Algebra Operations
 
 `Image` math operations are applied to `Image`s on a per-pixel basis. The output from an `Image` math operation is a raster where each pixel's value is the result of the `Image` math operation. The input to the `Image` math operation is either:
 
@@ -367,7 +367,7 @@ Pixel values across `Image`s or pixel values and constant numbers can be combine
 
 In Google Earth Engine only the intersection of unmasked pixels between input `Image`s are returned from `Image` math operations. 
 
-### Spectral indices
+### Spectral Indices
 
 `Image` math is used to combine bands in remote sensing `Image`s that correspond to measures of spectral reflectance (ie. reflectance in different wavelengths). Mathematical per-pixel combinations of spectral reflectance measures are called spectral indices. Different land surface features have different spectral signatures (they reflect differently across wavelengths of the electromagnetic spectrum). Spectral indices use `Image` math to combine information about levels of reflectance in different wavelengths into a single value. Thus, computing spectral indices can provide more information about the condition or characteristics of a pixel than could be obtained from spectral reflectance measures in a single band. 
 
@@ -490,7 +490,7 @@ print(l2017);
 ```
 
 
-Inspect the `ImageCollection` `l2017` in the *console* to see that it includes Landsat 8 and Landsat 7 `Image`s. 
+Inspect the `ImageCollection` `l2017` in the *Console* to see that it includes Landsat 8 and Landsat 7 `Image`s. 
 
 ## Summarise 
 

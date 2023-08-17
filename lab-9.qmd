@@ -1,509 +1,477 @@
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-
 ## Introduction
 
-In the previous two labs you used non-parametric models $f$ that relate predictor variables $X$ to a response variable $Y$. This was in the context of prediction tasks where given $x$ inputs, a trained model $\hat{f}$ will predict a response $\hat{y}$. 
+In Lab 9 you implemented a workflow to train and test a machine learning model to perform a classification task. A classification problem is when the outcome variable is qualitative (i.e. it can take on a value of one of $K$ classes or categories). If the outcome variable is numerical and continuous this is termed a regression problem. This lab will introduce a workflow to train, test, and interpret a machine learning model for regression tasks. 
 
-$$\hat{y}=\hat{f}(x)$$
-Non-parametric models do not make any prior assumptions about the functional form of the relationship between $X$ and $Y$ (i.e. there is no requirement that $f$ is linear, quadratic, or another form of model). For example, when you trained a classification tree model in lab 7 you did not make prior assumptions about the functional form of the relationship between $X$ (spectral reflectance values) and $Y$ (land cover categories). During the process of training a non-parametric model the data informs the estimation of $f$ and its model of the relationship between $X$ and $Y$.
+You will use a range of predictor variables to train a model that predicts summer land surface temperature (LST) across a study area in Perth.
 
-Parametric models are another group of statistical models that relate values of $X$ predictors to an outcome $Y$; if you have estimated a linear regression model before you have used a parametric model. Parametric models consist of a finite number of parameters to estimate. To use the example of a linear regression model; $f$ consists of $p + 1$ parameters - *slope* coefficients $\beta_{1}, \beta_{2},...,\beta_{p}$ for each of the $X_{1}, X_{2},...,X_{p}$ predictors and an *intercept* parameter $\beta_{0}$. 
+### Predicting Land Surface Temperatures
 
-The process of training a parametric model involves estimating parameter values that minimise a loss function. The loss function is a measure of the difference between the observed response variable $y$ and the predicted response $\hat{y}$. In linear regression, the estimated parameter values minimise the least squares criterion. This involves estimating values for $\beta_{0}, \beta_{1},...,\beta_{p}$ that minimise the residual sum of squares (RSS). Mathematically, this involves finding the values of $\beta_{0}, \beta_{1},...,\beta_{p}$ that result in lowest sum of squared differences between observed $y$ and $\hat{y}$ for all $i$ data training data points. For a simple linear regression with one predictor $X_{1}$:
-
-$$  RSS\left(\hat\beta_0, \hat\beta_1\right) = \sum_{i=1}^n\left[y_i - \left(\hat\beta_0 + \hat\beta_1 x_i\right)\right]^2 $$
-
-Graphically, this can be conceptualised as identifying parameters that define a line fitted through the data points that minimises the vertical distance between the line and all training data points. For a linear regression model with one predictor this can be visualised as:
+Exposure to warmer temperatures can have adverse impacts on various indicators of well-being (see below figure from <a href="https://science.sciencemag.org/content/353/6304/aad9837.abstract" target="_blank">Carleton and Hsiang (2016)</a>). 
 
 <br>
 
-```{r lin-reg, fig.align = 'center', out.width = "80%", fig.cap = "Least squares fit for a linear regression model with one predictor variable (source: James et al. (2013)).", echo = FALSE}
-knitr::include_graphics("img/linear-regression-1-predictor-james-et-al-2013.png")
+```{r carleton-science, fig.align = 'center', out.width = "80%", fig.cap = "Climate impacts on indicators of well-being (source: Carleton and Hsiang (2016)).", echo = FALSE}
+knitr::include_graphics("img/carleton-hsiang-science-2016.jpg")
 
 ```
 
 <br>
 
-If you have more than one predictor variable, the fitted model with parameters that minimise the difference between observed $y$ and predicted $\hat{y}$ is illustrated below. 
+Populations in urban areas are exposed to warmer temperatures compared to populations; the urban heat island (UHI) effect. Land cover affects the energy balance, and, thus, temperature in urban areas; for example, trees can provide a cooling affect via evapotranspiration or shade. The ability to predict how different configurations of urban land cover affects temperature is important for planners seeking to develop urban areas in ways that minimise heat exposure. The Low Carbon Living CRC has produced a useful <a href="http://www.lowcarbonlivingcrc.com.au/sites/all/files/publications_file_attachments/rp2024_guide_to_urban_cooling_strategies_2017_web.pdf" target="_blank">Guide to Urban Cooling Strategies</a> demonstrating how different urban land cover types affect temperature. 
 
-<br>
+In this lab you will use a range of spatial layers that represent the built environment to train and test a machine learning model that predicts urban LST. This model could be used for scenario analyses where the effect of different urban developments, which result in different land covers, on LST can be assessed. 
 
-```{r multi-lin-reg, fig.align = 'center', out.width = "80%", fig.cap = "Least squares fit for a multiple linear regression model with more than one predictor variable (source: James et al. (2013)).", echo = FALSE}
-knitr::include_graphics("img/multi-linear-regression-james-et-al-2013.png")
+### Random Forests
+
+As in lab 9, your goal will be to train a model $f$ which relates predictor variables $X$ to an outcome $Y$. 
+
+$$Y = f(X)$$
+
+However, here $Y$ is LST which is a continuous variable. Therefore, the model $\hat{f}$ that you train will be in regression mode. This will still be a supervised learning task where you have observations of LST, $Y$, and predictor variables, $X$, which you use train a model $\hat{f}$ that learns rules that relate $X$ to predicted LST values, $\hat{Y}$.  
+
+The model you will be using is a Random Forests model. A Random Forests model comprises an ensemble of decision (regression) tree models. In regression mode, the final prediction is the average of the predictions from all the regression trees in the ensemble. 
+
+#### Regression Trees
+
+First, let's go through the process of training a single regression tree. A single regression tree divides the predictor space - the range of values the $p$ predictor variables can take - into $J$ distinct and non-overlapping regions $R_{1}, R_{2},...R_{J}$. If an observation ends up in region $R_{j}$ it takes on the response value assigned to that region. This is the mean of all response values for that region in the training data. When training a regression tree, your task is to determine the rules that best divide the predictor space into $J$ regions by minimising an error or loss function. 
+
+First, you find the predictor variable $X_{j}$ and cutpoint value $s$ that splits the training data such that the residual sum of squares (RSS) of response variable $Y$ in the two regions generated by the split is minimised. For any $j$ and $s$ in your training data you can define two regions:
+
+$$R_{1}(j,s) = \{X|X_{j} < s\}  \: and \: R_{2}(j,s) = \{X|X_{j} ≥ s\}$$ 
+
+and you seek $X_{j}$ and $s$ that minimises the sum of the RSS for the two regions $R_{1}$ and $R_{2}$:
+
+$$ \sum_{i: x_{i} \in R_{1}(j,s)}(y_{i} - \hat{y}_{R1})^2 + \sum_{i: x_{i} \in R_{2}(j,s)}(y_{i} - \hat{y}_{R2})^2 $$
+
+$\hat{y}_{R1}$ is the mean of the response variable $Y$ in the region $R_{1}$ and $\hat{y}_{R2}$ is the mean of the response variable $Y$ in the region $R_{2}$.
+
+You recursively repeat this process for the data in each of the subsequent splits until a stopping criterion is reached (e.g. minimum number of training observations in a final leaf node or the maximum number of leaf nodes reached). The set of splits along predictor variables $X$ and cutpoints $s$ are the learned decision rules that determine how your model predicts $\hat{y}_i$ for a set of known predictor variables $x_{i}$.     
+
+The figure below illustrates the process of creating a regression tree by recursively splitting the training data into regions that minimise the RSS between the observed response value and average of the response values in a given region $R_{(j,s)}$. 
+
+```{r dec-tree-james-et-al, fig.align = 'center', out.width = "80%", fig.cap = "Top left is the outcome of recursively splitting training data that consists of two predictors variables $X_{1}$ and $X_{2}$, top right is the same splits in the data represented as a tree, and the bottom panel shows a prediction surface with predicted values on the Y-axis (source: James et al. (2013)).", echo = FALSE}
+knitr::include_graphics("img/james-et-al-dec-tree.png")
 
 ```
 
-<br>
+#### Random Forests
 
-If there is a relationship between $Y$ and $X$ which is captured by $f$ such that:
+A Random Forests model is an ensemble of regression trees generated by taking **bootstrap samples** (sampling with replacement) from the training data and fitting a regression tree to each sample. One issue with a single regression tree is that is has high variance; if you train a model $\hat{f}$ using different training datasets and you get different $\hat{f}$'s then that method has high variance. If you train a regression tree with sample 1, $X_{1}$, and then train a regression tree with sample 2, $X_{2}$, where both samples are drawn from the same population, small differences in the samples could result in different rules that characterise your trained regression trees $\hat{f}_1$ and $\hat{f}_2$. This will result in different predictions for the same input data. 
 
-$$Y = f(X) + \epsilon$$
+Bootstrap aggregation (bagging) is a method to reduce the variance in predictions. You draw $B$ training samples from your training data and train a regression tree $\hat{f}_{b}$ for each $1, 2,...B$ training samples. For each $x_{i}$ your prediction is the average prediction returned from all $\hat{f}_b(x)$. 
 
-and you assume $f$ is a linear regression model with a slope and intercept parameter and one predictor variable $X_{1}$ you can rewrite the above equation as:
+$$ \hat{y}_{bag}(x) = \frac{1} {B} \sum_{b=1}^B \hat{f}_b(x)$$
 
-$$Y = \beta_0 + \beta_1 X_{1} + \epsilon$$
-
-You don't know the true values of $\beta_0$ and $\beta_1$ but you can estimate them from your training data:
-
-$$\hat{y} = \hat\beta_0 + \hat\beta_1 x + \hat\epsilon$$
-where:
-
-* $\hat\beta_0$ is the estimated intercept parameter (the value at which the line of best fit intersects with the Y-axis). $\hat\beta_0$ represents the mean value of $Y$ when $X = 0$.
-* $\hat\beta_1$ is the estimated slope coefficient; the slope coefficient $\hat\beta_1$ represents the change in $Y$ for a one unit change in $X$.
-* $\hat\epsilon$ is the residual which is an estimate of the model's mean zero random error term $\epsilon$; $\hat\epsilon$ is computed as the difference between observed $y$ and predicted $\hat{y}$. 
-
-If your predictor variable $X$ is temporal (i.e. years, months) then the line of best fit and the slope coefficient $\beta$ represent trends in $Y$ over time. The sign on the slope coefficient indicates the direction of the trend (positive - increasing over time - or negative - decreasing over time). The value of the slope coefficient indicates the rate of change in $Y$ over time. 
-
-This lab will introduce tools for training parametric models in Google Earth Engine. You will use these models to detect trends in urban vegetation and land surface temperature (LST) across a study area in urban Perth. You will also learn techniques for inference (i.e. identifying if trends you observe are statistically significant), assessing model fit, and evaluating the strengths and weaknesses of a given parametric model for a particular application. 
-
-### Data
-
-You will use 30 years of annual greenest pixel Landsat data to estimate temporal trends in urban vegetation. This data is derived from Landsat 5, Landsat 7, and Landsat 8 top of atmosphere (TOA) reflectance data. The records for the data in Google Earth Engine data catalog are <a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_ANNUAL_GREENEST_TOA" target="_blank">here</a>; also see <a href="https://www.sciencedirect.com/science/article/abs/pii/S0034425709000169" target="_blank">Chander et al. (2009)</a>. 
-
-For the LST data you will use the MODIS MYD11A2 product (<a href="https://www.sciencedirect.com/science/article/pii/S003442571300285X?casa_token=iYMc72sMa4sAAAAA:z41SIlkBRjhKbvyygsUML9LHM_omiYLlna6yJT_DAF1NTfg8YlmWwefAyQjYe13dGdOEf2qHjg" target="_blank">Wan (2014)</a>). This data has a 1 km spatial resolution with an 8 day temporal resolution with observations from the year 2000. The reference for this data on the Google Earth Engine data catalog is <a href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MYD11A2#bands" target="_blank">here</a>.
-
-### Setup
+This video provides an overview of bootstrap aggregation (bagging).
 
 <br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5Lu1eTiX7qM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+
+When you generate bagged training samples some of your initial training dataset are not used to train a given regression tree $\hat{f}_b$. You can use these held-out data to compute the prediction error for a each regression tree by comparing predictions $\hat{y}_i$ for these data points to observed values $y_{i}$. This is termed the **out-of-bag** error. You can combine the out-of-bag error computed for each $i$ observation in your training data to compute an overall out-of-bag mean square error (MSE) estimate for your bagged model. 
+
+Random Forests build on bagged tree models by decorrelating the decision trees within the ensemble. If there was one strong predictor variable in your training dataset, each time you train a regression tree in using a bagged training sample you would expect this variable to be dominant in determining the first split in your tree. This would result in your regression trees having a similar structure and possibly missing relationships between other predictor variables and the response. Therefore, when training a Random Forests model at each split only $m$ out of $p$ predictor variables are considered. This decorrelates the regression trees in the Random Forests ensemble reducing the variance in predictions and capturing more information about the relationships between the predictors and the response variable. 
+
+Chapter 8 and Chapter 2 (section 2.2.2) of <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf" target="_blank">James et al. (2013)</a> provide a clear and detailed explanation of Random Forests models. 
+
+This video also provides an overview of the process of training a Random Forests model.
+
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o7iDkcpOr_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+
+Random Forests models are used for a variety of prediction tasks involving spatial data. Some of the advantages of random forests models are:
+
+* Tree based models can easily handle qualitative and quantitative predictor variables.
+* Random Forests models are relatively robust to being trained with large numbers of predictor variables 
+* Random Forests models handle (multiple) interactions between predictor variables (when the relationship between predictors and response is complex)
+* Random Forests models can handle non-linear relationships between predictor variables and response variables
+* Random Forests models generally have good predictive performance
+* Random Forests models are relatively quick to train
+
+Disadvantages of Random Forests models include:
+
+* Black box - it is difficult to see inside the model and visualise the relationships between predictors and response (how do you visualise > 100 regression trees?)
+* Random Forests are not suited to inference problems - how does $Y$ change as a function of $X$. The model $f$ cannot be a black box in inference tasks as you are interested in $f$'s form
+
+This <a href="https://christophm.github.io/interpretable-ml-book/" target="_blank">free and open book (Interpetable Machine Learning)</a> includes some accessible discussion of limits to non-parametric machine learning models, such as Random Forests, and approaches to interpret them.
+
+## Setup
 
 ```{js, echo=TRUE, eval=FALSE}
 /*
-Lab 9
+Lab 10
 Author: Test
 Date: XX-XX-XXXX
 
 */
 
-
 ```
 
-<br>
 
-### Data Import - Landsat NDVI
+## Data Import
 
-First, to visualise change in urban land cover between 1990 and 2019 import the following two Landsat TOA `Image`s. `l1990` is a Landsat 5 multispectral composite `Image` from 1990 and `l2019` is a Landsat 8 multispectral `Image` from 2019. 
+Import an `Image` `lab8Data` which contains a band `lst`; this is the response or outcome variable. `lst` is the average Landsat 8 LST for Perth's summer months (December, January, and February) for the years 2014 to 2019 and was computed using the method in <a href="https://ieeexplore.ieee.org/document/6784508" target="_blank">Jiménez-Muñoz et al. (2014)</a>. 
 
-Visualise the two `Image`s as RGB composites on the map display; switch between the two `Image`s and you should be able to see the effects of urban development since 1990.
+This `Image` also contains a range of land cover related predictor variables as bands; you will train a model to predict LST using these bands. These predictor variables include:
 
-<br>
+`mb_cat16` - the [ABS Mesh Block](https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Mesh%20Blocks%20(MB)~10012){.external target="blank"} land use category for the Mesh Block with the largest intersection with a Landsat 8 pixel. The values correspond to land use categories:
 
-```{js, echo=TRUE, eval=FALSE}
-// Study area
-var bBox = 
-    /* color: #0b4a8b */
-    /* shown: false */
-    /* displayProperties: [
-      {
-        "type": "rectangle"
-      }
-    ] */
-    ee.Geometry.Polygon(
-        [[[115.71190972343935, -31.726395823091245],
-          [115.71190972343935, -31.935245757597972],
-          [116.07308526054872, -31.935245757597972],
-          [116.07308526054872, -31.726395823091245]]], null, false);
-Map.centerObject(bBox, 11);     
-Map.addLayer(bBox, {}, 'study area');
+1. Parkland
+2. Transport
+3. Residential
+4. Water
+5. Education
+6. Commercial
+7. Hospital / Medical
+8. Industrial
+9. Other
 
-// 1990 Landsat TOA Greenest
-var l1990 = ee.Image('users/jmad1v07/gee-labs/landsat5-1990-toa');
+`mb_road_length` - the length in metres of all OpenStreetMap roads that are returned from the intersection of Open Street Map roads and the Mesh Block.
 
-// 2019 Landsat TOA Greenest
-var l2019 = ee.Image('users/jmad1v07/gee-labs/landsat8-2019-toa');
+`building_count` - count of buildings whose footprint intersects with a Landsat 8 pixel footprint. Building data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
 
-// Visualise 1990 and 2019 Landsat RGB Images
-// RGB visualisation parameters
-var trueColorVis = {
-  min: 0,
-  max: 0.4,
-  gamma: 1.2,
-};
+`building_area` - sum of building footprint area (in square metres) whose footprint intersects with a Landsat 8 pixel footprint. Building data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
 
-// 1990
-Map.addLayer(l1990, trueColorVis, 'L5 1990');
+`median_eave_height` - for all buildings that intersect with a Landsat 8 pixel, the mean of the relative height of the eave elevation to the ground elevation and is calculated by taking the median eave elevation minus the minimum
+ground elevation. Building data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
 
-// 2019
-Map.addLayer(l2019, trueColorVis, 'L8 2019');
+`max_building_height` - for all buildings that intersect with a Landsat 8 pixel, the mean relative height of the roof elevation to the ground elevation and is calculated by taking the maximum roof elevation minus the minimum
+ground elevation. Building data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
 
-```
+`swim_pool_count` - count of swimming pools at buildings that intersect with a Landsat 8 pixel footprint. Swimming pool data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
+
+`solar_panel_count` - count of buildings that intersect with a Landsat 8 pixel footprint and have solar panels. Solar panel data is derived from the [Geoscape Buildings](https://geoscape.com.au/data/buildings/){.external target="_blank"} product.
+
+`tree_pct` - percentage of a Landsat 8 pixel covered by tree canopy. Defined as vegetation greater than 3 m in height and derived from the Urban Monitor product [(Caccetta, 2012)](https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf){.external target="_blank"}.
+
+`shrub_pct` - percentage of a Landsat 8 pixel covered by shrub. Defined as vegetation greater than 0.5 m and less than 3 m in height and derived from the Urban Monitor product [(Caccetta, 2012)](https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf){.external target="_blank"}.
+
+`grass_pct` - percentage of a Landsat 8 pixel covered by grass. Defined as vegetation less than 0.5 m in height and derived from the Urban Monitor product [(Caccetta, 2012)](https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf){.external target="_blank"}.
+
+Import `lab8Data` and visualise its `Image` bands on the map display. Visually inspect the relationship between different land cover types and LST. Do they conform to your expectations? For example, use the **Layers** to turn off all layers except `LST` and `building_area`; can you see the relationship between large buildings and surface temperature?
+
 
 <br>
-
-<br>
-
-```{r l1990, fig.align = 'center', out.width = "80%", fig.cap = "Landsat 5 TOA RGB composite `Image` - 1990.", echo = FALSE}
-knitr::include_graphics("img/l5-1990-toa-rgb.png")
-
-```
-
-<br>
-
-```{r l2019, fig.align = 'center', out.width = "80%", fig.cap = "Landsat 8 TOA RGB composite `Image` - 2019.", echo = FALSE}
-knitr::include_graphics("img/l8-2019-toa-rgb.png")
-
-```
-
-<br>
-
-Next, import an `ImageCollection` storing `Images` that contain the greenest NDVI value for each pixel-year combination from 1990 to 2020 derived from Landsat 5, Landsat 7, and Landsat 8 data. Inspect this data's properties in the *console*; there should be 31 `Image`s.
-
-<br>
-
-```{js, echo=TRUE, eval=FALSE}
-//1990 - 2020 Landsat TOA Greenest Image Collection
-var landsatNDVI = ee.ImageCollection('users/jmad1v07/gee-labs/landsat-toa-perth');
-print(landsatNDVI);
-
-
-```
-
-<br>
-
-Before estimating linear regression models to identify temporal trends in the data you can visually inspect trends in NDVI at each pixel. The following code allows you to click on any pixel in the map display and a chart displaying NDVI values for each year and a line of best fit will be rendered on the *console*. 
-
-<br>
-
-```{js, echo=TRUE, eval=FALSE}
-// Visually explore trends in NDVI
-function curve(coords){
-  var geometry = ee.Geometry.Point(coords.lon, coords.lat);
-  var chart = ui.Chart.image.seriesByRegion(landsatNDVI, geometry, ee.Reducer.mean(), 'ndvi', 30, 'system:time_start')
-    .setChartType('ScatterChart')
-    .setOptions({
-      title: 'NDVI',
-      lineWidth: 1,
-      pointSize: 3,
-      trendlines: {0: {
-        color: '#000000'
-      }},
-      hAxis: {
-        title: 'Date'
-      },
-      vAxis: {
-        title: 'NDVI'
-      },
-      series: {
-      0: {
-        color: '#238b45'},
-        }
-    });
-
-  print(chart);
-}
-Map.add(ui.Label('Click in study area to make an NDVI chart...'));
-Map.onClick(curve);
-
-```
-
-<br>
-
 <center>
-
-<iframe src="https://player.vimeo.com/video/462315277" width="640" height="319" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p>Generate charts visualising NDVI trends over time.</p>
-
+<iframe src="https://player.vimeo.com/video/460028055" width="640" height="284" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p>Visualisation of warmer LST over Sir Charles Gairdner Hospital.</p>
 </center>
 <br>
 
-### Data Import - MODIS LST
-
-First, you need to import the MODIS MYD11A2 product `ImageCollection` which stores 8 day temporal resolution LST data. You will need to filter this data for Perth's summer months (January and February) and for pixels that intersect with the study region `bBox`. You do this using the `ee.Filter.calendarRange()` and `filterBounds()` functions. 
-
-Next, you need to reduce this `ImageCollection` so that it stores an `Image` for each year where each pixel's value is the median LST for all observations within a year. You also give each `Image` a band named `year` which is an `Image` where each pixel's value is the year. This `year` band will become the predictor variable when training regression models to identify trends in LST over time. You will notice that you multiply LST values by 0.02 - LST values in the MYD11A2 product need to be rescaled by 0.02 to recover values in Kelvin. 
-
-<br>
 
 ```{js, echo=TRUE, eval=FALSE}
-// MODIS LST
-var modisSummerLST = ee.ImageCollection("MODIS/006/MYD11A2")
-  .filter(ee.Filter.calendarRange(1, 2, 'month')) 
-  .filterBounds(bBox);
-print(modisSummerLST);
+// Data import
 
-// Compute annual average MODIS LST
-// year list
-var years = ee.List.sequence(2003, 2020, 1);
-print(years);
+// mb_cat16 - ABS Mesh Block land use
+// mb_road_length - length of OSM roads (m) in an ABS Mesh Block
+// lst - Landsat 8 LST (K) Dec-Feb average for years 2014 - 2019
+// building_count - count of building footprints intersecting Landsat 8 pixel
+// building_area - area of building footprints intersecting Landsat 8 pixel
+// median_eave_height - median eave height of buildings intersecting Landsat 8 pixel
+// max_building_height - max building height of buildings intersecting Landsat 8 pixel
+// swim_pool_count - count of swimming pools at properties intersecting Landsat 8 pixel
+// solar_panel_count - count of solar panels at properties intersecting Landsat 8 pixel
+// tree_pct - % tree cover of Landsat 8 pixel
+// shrub_pct - % shrub cover of Landsat 8 pixel
+// grass_pct - % grass cover of Landsat 8 pixel
+var lab8Data = ee.Image('users/jmad1v07/gee-labs/lab-8-data');
+lab8Data = lab8Data.rename(['mb_cat16', 'mb_road_length', 'lst', 'building_count', 'building_area', 'median_eave_height', 'max_building_height', 'swim_pool_count', 'solar_panel_count', 'tree_pct', 'shrub_pct', 'grass_pct']);
+print(lab8Data);
 
-// Jan and Feb median Image composite
-modisSummerLST = ee.ImageCollection.fromImages(
-  years.map(function(year) {
-  var modisSummerMedian = modisSummerLST.filter(ee.Filter.calendarRange(year, year, 'year'))
-      .select('LST_Day_1km')
-      .median()
-      .multiply(0.02);
-  return ee.Image.constant(year).float()
-          .addBands(modisSummerMedian).rename(['year', 'modis_lst'])
-          .clip(bBox);
-  }));
-print('MODIS Summer LST:', modisSummerLST);
+// create study area from lab8Data
+var bBox = lab8Data.geometry();
+Map.centerObject(bBox, 13);
+Map.addLayer(bBox);
+
+// Visualise LST
+Map.addLayer(lab8Data.select('lst'), {min:295, max:315, palette:['0000FF', '00FFFF', 'FFFF00', 'FF0000']}, 'LST');
+
+// Visualise Building Count
+Map.addLayer(lab8Data.select('building_count'), {min:0, max:8, palette:['#ffffd4','#fee391','#fec44f','#fe9929','#d95f0e','#993404']}, 'Building Count');
+
+// Visualise Building Area
+Map.addLayer(lab8Data.select('building_area'), {min:0, max:10000, palette:['#ffffd4','#fee391','#fec44f','#fe9929','#d95f0e','#993404']}, 'Building Area');
+
+// Visualise Tree Cover
+Map.addLayer(lab8Data.select('tree_pct'), {min:0, max:100, palette:['#edf8e9','#c7e9c0','#a1d99b','#74c476','#31a354','#006d2c']}, 'Tree %');
 
 ```
 
-<br>
+## Training (Feature) Engineering
 
-## Training Linear Regression Models
+The first task in a supervised classification workflow is to prepare the training data. You have already imported and visualised the outcome variable (`lst`) and a range of predictor variables. 
 
-There are numerous functions that can be called in Google Earth Engine to estimate linear regression models. Here, you will use the reducer `linearFit()` method. This method can be called on an `ImageCollection` where each `Image` has two bands; the first band is the predictor variable and the second band is the response variable. If you inspect either `landsatNDVI` or `modisSummerLST` you should see that the first band is named `year`. This is the predictor variable as you are seeking to identify temporal trends in either NDVI or LST over time.
+There are some additional variables in Google Earth Engine that you can add to your training data. There is often a relationship between elevation or distance from water bodies and temperature (e.g. cooling winds coming off the ocean). 
 
-A call to `linearFit()` returns an `Image` with two bands named `scale` and `offset`. The `scale` band is an `Image` of slope coefficients for each pixel indicating the sign (positive / negative) and rate of change in NDVI or LST. The `offset` band is an `Image` of intercept values for each pixel. 
-
-You can map the `scale` band to visualise temporal trends in NDVI or LST on the map display. There is a guide to linear regression models in Google Earth Engine <a href="https://developers.google.com/earth-engine/guides/reducers_regression" target="_blank">here</a>.
-
-<br>
+There are a range of elevation datasets pre-loaded into Google Earth Engine; here, you will import the [DEM-H: Australian SRTM Hydrologically Enforced Digital Elevation Model](https://developers.google.com/earth-engine/datasets/catalog/AU_GA_DEM_1SEC_v10_DEM-H){.external target="_blank"} where each pixel value represents elevation in metres. 
 
 ```{js, echo=TRUE, eval=FALSE}
-// Linear regression - trend analysis
-// NDVI trends
-var lRegNDVI = landsatNDVI.reduce(ee.Reducer.linearFit());
-print('NDVI regression', lRegNDVI);
-Map.addLayer(lRegNDVI.select('scale'), {min: -0.025, max: 0.025, palette:['#d73027','#fc8d59','#fee08b','#ffffbf','#d9ef8b','#91cf60','#1a9850']}, 'NDVI Trend');
+// Training engineering
 
-// LST trends
-var lRegLST = modisSummerLST.reduce(ee.Reducer.linearFit());
-print('LST regression', lRegLST);
-Map.addLayer(lRegLST.select('scale'), {min: -0.2, max: 0.2, palette:['#2166ac', '#67a9cf', '#d1e5f0', '#f7f7f7', '#fddbc7', '#ef8a62', '#b2182b']}, 'LST Trend');
+// import elevation data
+var dem = ee.Image('AU/GA/DEM_1SEC/v10/DEM-H').clip(bBox);
+Map.addLayer(dem, {min: 0, max: 50, palette:['#8c510a','#d8b365','#f6e8c3','#c7eae5','#5ab4ac','#01665e']}, 'DEM');
 
 ```
 
-<br>
+To compute the distance to water you will use the [JRC Global Surface Water Mapping Layers v1.2](https://developers.google.com/earth-engine/datasets/catalog/JRC_GSW1_2_GlobalSurfaceWater){.external target="_blank"} data. The `seasonality` band pixel values represent the number of months in a year a location was covered by surface water; using the relational operator `eq()` identify all pixels that are permanently water (i.e. `seasonality.eq(12)` where 12 represents the number months in a year that a pixel is water).
 
-Look at areas on the map where there have been increasing or decreasing trends in NDVI. Do they correspond to observable changes in land cover that you could see in the two RGB composite `Image`s for 1990 and 2019? 
+To compute the distance from each location in the study area `bBox` to a water body use the `fastDistanceTransform()` function. The `fastDistanceTransform()` function returns the squared number of pixels between a location and the nearest non-zero pixel in the input `Image` (`jrcWater` here where pixel values of one represent permanent water). To convert the return value from `fastDistanceTransform()` to metres use the square root function `sqrt()` and the multiply the pixel number by the pixel dimension `multiply(ee.Image.pixelArea().sqrt())`.
 
-<br>
+```{js, echo=TRUE, eval=FALSE}
+// water distance
+var jrcWater = ee.Image('JRC/GSW1_2/GlobalSurfaceWater')
+  .select('seasonality')
+  .eq(12)
+  .clip(bBox);
 
-```{r ndvi-trends, fig.align = 'center', out.width = "80%", fig.cap = "NDVI trends.", echo = FALSE}
-knitr::include_graphics("img/ndvi-trends.png")
+var waterDist = jrcWater.fastDistanceTransform(1000)
+  .sqrt()
+  .clip(bBox)
+  .multiply(ee.Image.pixelArea().sqrt())
+  .rename(['water_distance']);
+Map.addLayer(waterDist, {min: 0, max: 3000, palette:['#253494', '#2c7fb8', '#41b6c4', '#7fcdbb', '#c7e9b4', '#ffffcc']}, 'distance to water (m)');
 
 ```
 
-<br>
+You need to add `dem` and `waterDist` as bands to the training data. You can use the `addBands()` function for this. 
 
+```{js, echo=TRUE, eval=FALSE}
+// add water distance and dem to training data
+lab8Data = lab8Data.addBands(dem).addBands(waterDist);
+
+```
+
+Having prepared and inspected the outcome and predictor data you need to create samples to train and test the model. First, mask out water bodies from the `dem` and `waterDist` bands. 
+
+You will generate test and training samples by performing a stratified random sample where each of the Mesh Block land use categories are strata. You can use the `stratifiedSample()` function in Google Earth Engine to randomly sample a pre-specified number of points from strata (groups) in an `Image`. You need to convert the band `mb_cat16` to integer data type prior to using it as a strata argument in the `stratifiedSample()` function. The `seed` argument to the `stratifiedSample()` function ensures that you draw the same random sample each time you execute your code; this is important to ensure your results are reproducible. 
+
+<br>
 <details>
-  <summary><b>*There are only 18 years of MODIS LST data. What is a risk of using a relatively short time-series for trend detection?*</b></summary>
-  <p><br>
-  The trend you estimate is sensitive to outliers or noise; for example, an anomalously high LST value late in the time-series could pull your trend upwards. Also, there might long-run cycles in your time-series that could be conflated with a trend when a short time-series is used.
+  <summary><b>*Why did you take a stratified random sample as opposed to a random sample?*</b></summary>
+  <p>
+  <br>
+  By sampling from each of the Mesh Block land use categories you ensure that your training data is drawn from the range of land cover types / contexts present in the study area. This ensures that land cover types that might cover a small area are included in model training; these locations might be missed in a normal random sampling procedure.   
   </p>
 </details>
 <br>
 
-```{r lst-trends, fig.align = 'center', out.width = "80%", fig.cap = "LST trends.", echo = FALSE}
-knitr::include_graphics("img/lst-trends.png")
-
-```
-
-<br>
-
-## Model Fit
-
-Generate charts of NDVI values over time for areas where your linear regression model has estimated increasing or decreasing trends (use the click function to print charts in the *console*). 
-
-<details>
-  <summary><b>*How good a job do you think a linear regression model is doing at identifying and representing temporal trends in NDVI?*</b></summary>
-  <p><br>
-  There are some locations where the trend in NDVI is clearly not linear. In such locations a linear model might not be appropriate for trend detection. You could identify trends using more flexible models that can account for non-linear relationships between $X$ and $Y$ (e.g. using a quadratic model with $X^{2}$ as a predictor) or use algorithms that can detect abrupt changes in time-series (e.g. <a href="https://emapr.github.io/LT-GEE/" target="_blank">LandTrendr</a>).
- 
-   ```{r abrupt-ndvi-change, fig.align = 'center', out.width = "70%", fig.cap = "Abrupt - non-linear change in NDVI", echo = FALSE}
-knitr::include_graphics("img/abrupt-change-ndvi.png")
-
-```
-  </p>
-</details>
-<br>
-
-
-
-Beyond visually inspecting how well the model (a linear model here) fits the data, you can compute statistics that quantify model fit. 
-
-### Residual Standard Error
-
-The residual standard error (RSE; sometimes called standard error of the regression) is an estimate the standard deviation of the error term $\epsilon$. It is computed as:
-
-$$ RSE = \sqrt{\frac{1}{n-p-1} \sum^n_{i=1}(y_i - \hat y_i)^2} $$
-The RSE is a measure of, on average, how much a prediction $\hat{y}_i$ deviates from the true value $y_{i}$ for a model $\hat{f}(X)$. If the RSE is small then it indicates the model fits the data well; conversely, if the RSE is large then it indicates the model does not fit the data well. 
-
-You can compute the RSE for each location where you estimated a trend in NDVI. Areas with higher RSE values are mapped in deeper red shades; compare these locations on the map to charts visualising trends in NDVI at that location in the *console*. At locations with higher RSE values you should observe greater spread in observed NDVI values around the estimated trend line.
-
-<br>
-
 ```{js, echo=TRUE, eval=FALSE}
-// RSE
-var n = landsatNDVI.size();
-print('number of observations:', n);
+//mask water from elevation and water distance layers
+var mask = lab8Data.select('lst').gt(0);
+lab8Data = lab8Data.updateMask(mask);
 
-var rse = landsatNDVI.map(function(image) {
-  var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
-  var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
-  return residualSquared;
-}).sum()
-  .multiply(ee.Number(1).divide(n.subtract(2)))
-  .sqrt();
+var mb_cat16_int = lab8Data.select('mb_cat16').toInt().rename('mb_cat16_int');
+lab8Data = lab8Data.addBands(mb_cat16_int);
+
+var training = lab8Data.stratifiedSample({
+  numPoints: 300, 
+  classBand: 'mb_cat16_int', 
+  region: bBox,
+  seed: 0,
+  scale: 30
   
-Map.addLayer(rse, {min: 0, max: 0.2, palette:['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15']}, 'RSE');
+});
+print(training);
 
+var test = lab8Data.stratifiedSample({
+  numPoints: 100, 
+  classBand: 'mb_cat16_int', 
+  region: bBox,
+  seed: 1,
+  scale: 30
+  
+});
+print(test);
 ```
 
 <br>
-
-### $R^{2}$ statistic
-
-The RSE statistic provides a measure of the absolute fit of the model. However, as it is in units of $Y$ it is not always clear what constitutes a good fit. The $R^{2}$ is another statistic used to measure the fit of the model; it represents a value between 0 and 1 which indicates the proportion of the variance in $Y$ explained by $f(X)$. It can be interpreted independent of the units of $Y$. 
-
-The $R^{2}$ is computed as: 
-
-$$ R^{2} = 1-\frac{RSS}{TSS} $$
-
-where RSS is the residual sum of squares:
-
-$$ RSS = \sum^n_{i=1}(y_i - \hat y_i)^2 $$
-and TSS is the total sum of squares:
-
-$$ TSS = \sum^n_{i=1}(y_i - \bar y)^2 $$
-The TSS is a measure of the variance in $Y$; it is the sum of the squared deviations of observations $y_{i}$ from the sample mean $\bar y$. The RSS is the amount of variation in $Y$ not explained by the trained model $\hat{f}(X)$. Thus, the formula for the $R^{2}$ indicates the amount of variance in $Y$ (TSS) that is explained by the trained model $\hat{f}(X)$. The higher the value of the $R^{2}$ the more variation in $Y$ is explained by the model and the better it fits the data. 
-
-You can estimate the $R^{2}$ for each trend in NDVI that you estimated as:
-
+<details>
+  <summary><b>*What could be one problem with how the `training` and `test` samples were generated?*</b></summary>
+  <p>
+  <br>
+  A separate stratified random sample was generated for the test data. There is a chance that locations included in the training sample could also be in the test sample. Also, by stratifying the sample using Mesh Block land use categories it is likely that test and training samples are drawn from locations close to each other. This might result in training and test sample data being spatially correlated and not fully independent observations. There is an example <a href="https://developers.google.com/earth-engine/guides/classification#accuracy-assessment" target="_blank">here</a> of how you can use a spatial filter to remove test data points that are geographically close to training data.
+  </p>
+</details>
 <br>
+
+## Model Training
+
+Using the training data that you have just prepared, train a Random Forests model that will predict LST. First, create a list of bands naming the outcome variable (`lst`) and the predictor variables in the training data `training`.
 
 ```{js, echo=TRUE, eval=FALSE}
-// R Squared
-var rss = landsatNDVI.map(function(image) {
-  var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
-  var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
-  return residualSquared;
-}).sum();
+// Model Training
 
-var meanY = landsatNDVI.select('ndvi').mean();
-
-var tss = landsatNDVI.map(function(image) {
-  var devSquared = image.select('ndvi').subtract(meanY).pow(2);
-  return devSquared;
-}).sum();
-
-var rSquared = ee.Image.constant(1).subtract(rss.divide(tss));
-Map.addLayer(rSquared, {min: 0, max: 1, palette:['#f2f0f7','#cbc9e2','#9e9ac8','#756bb1','#54278f']}, 'R Squared');
+// bands to use in training the model
+var bands = ['mb_cat16', 'mb_road_length', 'building_count', 'building_area', 'median_eave_height', 'max_building_height', 'swim_pool_count', 'solar_panel_count', 'tree_pct', 'shrub_pct', 'grass_pct', 'elevation', 'water_distance'];
 
 ```
 
-<br>
+You need to create a Random Forests model object of the `ee.Classifier.smileRandomForest` class and set the `numberOfTrees` and `seed` arguments. The `numberOfTrees` argument specifies the number of regression trees to include in ensemble. The `seed` is used to initialise a pseudo-random number generator; setting the seed ensures that the same bootstrap samples are drawn within the Random Forests algorithm each time you execute your code. This ensures your results are reproducible. 
 
-Areas in darker purple shades have a higher $R^{2}$ value. Compare these locations to charts visualising the trend in NDVI for those pixels in the *console*. There should be less scatter in observed NDVI values around the trend line.
+Google Earth Engine implements the [smile Random Forests](http://haifengl.github.io/api/java/smile/regression/RandomForest.html#importance){.external target="_blank"} model.
 
-## Confidence Intervals
+You need to set the output mode of the Random Forests model as `REGRESSION`. LST is a continuous numeric variable so you are using the Random Forests for a regression task here. 
 
-The values that you estimated for the parameters indicate the size and sign of the effect of the predictor on the response; here, the sign and rate of change in trends of $Y$ over time. The RSE and $R^{2}$ measure how well the model you trained fits the data. However, these statistics do not indicate whether the trends you have observed are statistically significant. A trend is statistically significant if the probability of observing that trend is very small when the null hypothesis of no trend is true. A hypothesis test can be performed to determine if an estimated parameter value (i.e. the trend over time) is statistically significant. 
-
-In the context of testing for statistically significant trends, you pose two hypotheses: 
-
-$$H_{0}: \beta_{1} = 0$$
-
-$H_{0}$ is the null hypothesis where the trend is equal to zero. The alternative hypothesis $H_{1}$ is that the trend is not equal to zero.
-
-$$H_{1}: \beta_{1} \neq 0$$
-
-You perform a hypothesis test to test for statistical significance; based upon your data is there evidence "beyond reasonable doubt" that the null hypothesis of no trend is false? When performing a hypothesis test you need to decide a *significance level* $\alpha$; this is the <b>Type I error</b> which is the probability of falsely rejecting the null hypothesis when it is true that you are willing to accept. Commonly a 5% significance level is used ($\alpha = 0.05$).    
-
-You can test for statistical significance by computing confidence intervals for a parameter estimate. A confidence interval is a range which has a $1 - \alpha$ probability of containing the true value of the parameter you are estimating. If the confidence interval surrounding $\hat\beta_1$ (your trend estimate) contains 0 then you cannot reject the null hypothesis $H_{0}: \beta_{1} = 0$ at a significance level $\alpha$.
-
-You can compute the sampling standard deviation (standard error) of your estimated parameter value. This gives an indication of the variability (or uncertainty) in your estimate of the trend. You can compute the standard error of your trend estimate as:
-
-$$\hat\sigma_{\beta_1}=\sqrt\frac{\hat\sigma_{\epsilon}^{2}}{\sum^n_{i=1}(x_i - \bar x)^2}$$ 
-where the the denominator is the variance of $X_{1}$ and the numerator $\hat\sigma_{\epsilon}^{2}$ is the variance of the residuals:
-
-$$ \hat\sigma_{\epsilon}^{2}=\frac{1}{n-p-1} \sum^n_{i=1}(y_i - \hat y_i)^2$$
-The smaller the value of $\hat\sigma_{\epsilon}^{2}$ the smaller the standard error $\hat\sigma_{\beta_1}$ of your trend estimate. This makes sense, if the the variance in the residuals is small it indicates your model is fitting the data well. If the variance of $X_{1}$ is large, the standard error $\hat\sigma_{\beta_1}$ of your trend estimate $\beta_1$ will be smaller; if values of your predictor $x$ are more spread out you have more leverage to estimate a slope. 
-
-You can compute the standard error $\hat\sigma_{\epsilon}^{2}$ for each of your estimates pixel-wise NDVI trends as:
-
-<br>
+Finally, once you have set up the parameters for your Random Forests model (i.e. `numberOfTrees`) and set it to regression mode you are ready to train the model using your training data. 
 
 ```{js, echo=TRUE, eval=FALSE}
-// Confidence Intervals
-// variance of residuals
-var varE = landsatNDVI.map(function(image) {
-  var yHat = image.select('year').multiply(lRegNDVI.select('scale')).add(lRegNDVI.select('offset'));
-  var residualSquared = image.select('ndvi').subtract(yHat).pow(2);
-  return residualSquared;
-}).sum()
-  .multiply(ee.Number(1).divide(n.subtract(2)));
-
-//variance of X
-var meanX = landsatNDVI.select('year').mean();
-
-var varX = landsatNDVI.map(function(image) {
-  var devSquared = image.select('year').subtract(meanX).pow(2);
-  return devSquared;
-}).sum();
-
-// standard error of trend estimate
-var seB = varE.divide(varX).sqrt();
-
+// Train a random forests classifier
+var randomForest = ee.Classifier.smileRandomForest({
+  numberOfTrees: 100,
+  seed: 0})
+  .setOutputMode('REGRESSION')
+  .train({
+    features: training,
+    classProperty: 'lst',
+    inputProperties: bands
+  });
+    
 ```
 
-<br>
+## Model Interpretation
 
-The standard error of your estimated trend $\hat\sigma_{\beta_1}$ is a measure of the uncertainty in your estimate (if you took repeat samples how much your estimate would change from sample to sample). Confidence intervals indicate how close the true trend is likely to be to your estimated trend. You can compute confidence intervals using the standard error of your estimated trend $\hat\sigma_{\beta_1}$. You can approximate the 95 % confidence interval as:
+Compared to a single classification or regression tree or the results from estimating a linear regression model interpreting Random Forests models is more challenging. As the Random Forests model is an ensemble of many regression trees it is difficult to visualise the relationships between predictors and response (think about the difference between looking at a single regression tree versus 100 regression trees). There is often a trade-off between the prediction accuracy provided by a Random Forests model and ease of interpreting the model.  
 
-$$[\hat\beta_{k} \pm 2 \cdot \hat\sigma_{\beta_1}]$$
-Execute the following code to compute the 95 % confidence intervals for each of your trends. 
+You can call the `explain()` function on your trained Random Forests model `randomForest` to obtain some model diagnostics. The dictionary object returned by `explain()` includes an `outOfBagErrorEstimate` property. This reports on the root mean square error (RMSE) between observed and predicted LST for training data that was not included in a given regression tree due to the bootstrap resampling process (remember from the introduction that each regression tree in a Random Forests model is trained using a different sample of the training data - for each tree, some training data observations were not used in the training process). 
 
-<br>
+Print the dictionary returned by `explain()` to the *Console*. 
 
 ```{js, echo=TRUE, eval=FALSE}
-// compute confidence intervals
-var ciLow = lRegNDVI.select('scale').subtract(seB.multiply(2));
-var ciHigh = lRegNDVI.select('scale').add(seB.multiply(2));
+// Model interpretation
+var explainRF = randomForest.explain();
+print('Explain:', explainRF);
 
 ```
 
-As stated above, the confidence intervals are the range that will contain the unknown true value of the trend with a 95 % probability. If your confidence intervals contain 0 then you cannot reject the null hypothesis that the trend you estimated is equal to 0. 
+Your `explainRF` dictionary object should be similar to the below figure. This Random Forests model has an out-of-bag error estimate of 1.09 Kelvin (RMSE between predicted and observed LST for all data points not included in a given regression tree within the Random Forests ensemble).
 
-To identify statistically significant trends (i.e. locations where you can reject the null hypothesis of the trend being equal to 0) find all locations where the upper and lower confidence intervals were greater than or less than 0. 
 
-<br>
+```{r oob, fig.align = 'center', out.width = "70%", fig.cap = "Printing the dictionary returned by explain() to the console.", echo = FALSE}
+knitr::include_graphics("img/out-of-bag.png")
+
+```
+
+You will also see a property in `expainRF` called `importance`. This is a measure of variable importance in terms of each variable's contribution to prediction accuracy. The variable importance measure represents the amount the error function (RSS) was reduced due to splits in a regression tree over a predictor variable and summed over all $B$ trees in the ensemble. A larger variable importance measure indicates that a predictor variable is more important for prediction accuracy.
+
+The [smile Random Forests model](http://haifengl.github.io/api/java/smile/regression/RandomForest.html#importance){.external target="_blank"} documentation defines the variable importance measure as *"Every time a split of a node is made on variable the impurity criterion for the two descendent nodes is less than the parent node. Adding up the decreases for each individual variable over all trees in the forest gives a fast measure of variable importance that is often very consistent with the permutation importance measure."*
+
+You can extract the `importance` property from `explainRF` to a `Feature` object and then plot each variable's importance score as a column chart. Inspect your chart in the *Console*. 
 
 ```{js, echo=TRUE, eval=FALSE}
-// locations where confidence intervals do not include 0
-var statSigPositive = ciLow.gt(0).and(ciHigh.gt(0));
-var statSigNegative = ciLow.lt(0).and(ciHigh.lt(0));
+var variableImportance = ee.Feature(null, ee.Dictionary(explainRF).get('importance'));
+ 
+var chartVarImp =
+ui.Chart.feature.byProperty(variableImportance)
+  .setChartType('ColumnChart')
+  .setOptions({
+    title: 'Random Forest Variable Importance',
+    legend: {position: 'none'},
+    hAxis: {title: 'Bands'},
+    vAxis: {title: 'Importance'}
+});
 
-// locations with statistically significant trends
-var statSig = statSigPositive.add(statSigNegative).gt(0);
-
-```
-
-<br>
-
-Finally, you want to mask out all trends in NDVI that are not statistically significant. This will allow you to map only statistically significant trends in NDVI at the $\alpha = 0.05$ significance level.
-
-```{js, echo=TRUE, eval=FALSE}
-// mask not significant trends
-var sigTrends = lRegNDVI.select('scale').updateMask(statSig);
-Map.addLayer(sigTrends, {min: -0.025, max: 0.025, palette:['#d73027','#fc8d59','#fee08b','#ffffbf','#d9ef8b','#91cf60','#1a9850']}, 'Stat. Significant NDVI Trend');
+print(chartVarImp);
 
 ```
 
-<br>
-
-Turn off all other layers and set the basemap to satellite. You should see a map like the below figure showing only the locations of statistically significant trends in NDVI.
-
-<br>
-
-```{r sig-trends-ndvi, fig.align = 'center', out.width = "80%", fig.cap = "Statistically significant trends in NDVI 1990-2020.", echo = FALSE}
-knitr::include_graphics("img/sig-trends-ndvi.png")
+```{r var-imp, fig.align = 'center', out.width = "80%", fig.cap = "Variable importance chart for predictors of LST.", echo = FALSE}
+knitr::include_graphics("img/variable-importance.png")
 
 ```
 
 <br>
 
 <details>
-  <summary><b>*You have just performed a large number of significance tests (one in each pixel). What problem occurs due to this approach of multiple hypothesis testing?*</b></summary>
-  <p><br>
-  You are performing multiple hypothesis tests where each test has a 0.05 (5 %) probability of a false positive (rejecting the null hypothesis when it is true). By chance you will expect some significant results when performing multiple hypothesis tests; this number of false positives could be large when performing a large number of hypothesis tests such as in each pixel of a satellite `Image`. One approach to addressing this issue is to use the <a href="https://en.wikipedia.org/wiki/Bonferroni_correction" target="_blank">Bonferroni correction</a> where your significance level becomes $0.05 / m$ if your original significance level was $\alpha = 0.05$ and you perfom $m$ hypothesis tests.
+  <summary><b>*Can you explain why some predictors have higher variable importance scores?*</b></summary>
+  <p>
+  <br>
+  Water distance, tree cover, road length, and elevation had high variable importance scores. Locations close to water (coastal or riverside locations) might be cooled by winds blowing off water bodies. Tree cover can cool via evapotranspiration or shade. Locations with higher altitude are cooler; however, the variation in elevation in this study area might not explain much variation in temperature. It is likely that the elevation variable is picking up that Kings Park is higher, cooler, and more vegetated. Roads are open surfaces (i.e. exposed to incoming solar radiation) that can absorb heat. It is plausible that locations with greater road coverage are warmer - can you check your display of `lst` on the map to see if roads are warmer?
   </p>
 </details>
 <br>
+
+<details>
+  <summary><b>*Can you identify a limitation to interpreting models using variable importance plots?*</b></summary>
+  <p>
+  <br>
+  Variable importance plots are useful for informing on variables that are important for prediction accuracy. However, they do not provide any information on the relationship between predictors and outcome variables. Models such as linear regression models are better suited to inference problems such as these. However, there are tools you can use to explore relationships between predictors and outcome variables in Random Forests models such as <a href="https://christophm.github.io/interpretable-ml-book/pdp.html" target="_blank">partial dependence plots</a>. 
+  </p>
+</details>
+<br>
+
+A final model interpretation activity is predicting LST for all locations in the `lab8Data` `Image`, the data set you used to generate your `training` sample. You can visualise the prediction of LST on the map and compare it to observed LST.
+
+```{js, echo=TRUE, eval=FALSE}
+// Predict LST
+var predLST = lab8Data.classify(randomForest);
+Map.addLayer(predLST, {min: 295, max: 310, palette:['0000FF', '00FFFF', 'FFFF00', 'FF0000']}, 'predicted LST');
+
+```
+
+Your predicted LST should look similar to the figure below. 
+
+```{r pred-lst, fig.align = 'center', out.width = "80%", fig.cap = "Predicted LST.", echo = FALSE}
+knitr::include_graphics("img/pred-lst.png")
+
+```
+
+## Model Testing
+
+Your goal in this lab was to train a Random Forests model that could predict LST based on a suite of land cover indicators. As was stated at the beginning of the lab, such a model could be useful for urban planning providing a tool to predict LST under different land cover / development scenarios and identify where and how temperature exposure could be reduced. However, before a model can be used for such purposes it needs to be tested to assess how well it generalises to data that was not used in model training. 
+
+There are a range of [error statistics](https://bradleyboehmke.github.io/HOML/process.html#model-eval){.external target="_blank"} (e.g. RMSE, mean square error (MSE)) you can compute to assess how well your model generalises to unseen data; these statistics measure the discrepancy between an observed and predicted outcome for data points the model has not seen before. The following code demonstrates how to compute the RMSE for your predictions of LST for the `test` dataset.
+
+First, you need to use your trained model `randomForest` to predict LST values for your `test` data points. Inspect the data in the *Console* to confirm that each `Feature` in `test` has a predicted LST value stored in the new `classification` property. How well does the predicted LST match the observed LST?
+
+```{js, echo=TRUE, eval=FALSE}
+// Model Validation
+var predTestLST = test.classify(randomForest);
+print(predTestLST);
+
+```
+
+Next, you can use your predicted and observed LST values to compute the RMSE for your model's prediction of LST on unseen test data. The RMSE is computed as:
+
+$$RMSE = \sqrt{\frac{1}{n} \sum^n_{i=1}(y_i - \hat y_i)^2}$$
+
+For each data point $i$ in your `test` dataset, you compute the squared difference between observed LST $y_{i}$ and predicted LST $\hat{y}_i$. Then you compute the mean of the squared differences between $y_{i}$ and $\hat{y}_i$ in your `test` data. Finally, you take the square root of the mean of the squared differences so you can interpret your error metric in units of the response variable (K or Kelvin here).
+
+The following code block will compute the the RMSE using you `test` data. First, you declare a function that computes the squared difference between observed and predicted LST for each `test` `Feature`. Then you call the `reduceColumns()` function which reduces (aggregates) all the values in a specified property of `Feature`s in a `FeatureCollection`; to compute RMSE use the mean function applied to the column `diff_squared`. Finally, apply the square root function `sqrt()` to the output of the call to `reduceColumns()`. 
+
+You should see your RMSE value printed to the *Console*. 
+
+```{js, echo=TRUE, eval=FALSE}
+var squaredDiff = function(feature) {
+  var lstObs = ee.Number(feature.get('lst'));
+  var lstPred = ee.Number(feature.get('classification'));
+  var diff = lstObs.subtract(lstPred);
+  return feature.set('diff_squared', diff.pow(2));
+};
+
+// Calculate RMSE
+var rmse = ee.Number(predTestLST.map(squaredDiff)
+  .reduceColumns(ee.Reducer.mean(), ['diff_squared'])
+  .get('mean')
+).sqrt();
+print('RMSE: ', rmse);
+
+```
+
+What was the RMSE for Random Forests model when evaluated against `test` data? How can you interpret this error statistic? Is your model accurate enough, when applied to unseen data, to be useful for urban development and land use planning scenario analysis? 
+
+Things to consider are: how large is your model's prediction error relative to variation in LST you could expect to observe between different land cover types? How does your model compare to other similar non-parametric machine learning models in the literature (and are these models evaluated using independent test data)?, and how does your model compare to predictions of temperature that could be derived from other methods (e.g. energy balance models)? 
+
+<a href="https://www.sciencedirect.com/science/article/pii/S0301479720303583?casa_token=9ogBbT84VxMAAAAA:p78GJM9PYcZ7O6yHnG9ab0AU8EKl5OsVqMB7khunl1PrmouJzhN7wqN_z7CdSZgiFVLzO6liNw#mmc1" target="_blank">Hu et al. (2020)</a> present a tree based model that predicts LST based on a range of land cover related datasets. How did they validate their models performance?
+
+See <a href="https://www.sciencedirect.com/science/article/abs/pii/S1618866716301297" target="_blank">Thom et al. (2016)</a> for an example of a study validating the SOLWEIG energy balance model for urban temperature predictions in Adelaide. 

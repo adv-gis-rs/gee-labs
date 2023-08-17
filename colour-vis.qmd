@@ -4,17 +4,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-This lab will introduce tools for spatial data visualisation in Google Earth Engine. Data visualisation is the activity of relating observations and variation in your data to visual objects and properties on a display. How you relate your data values to display objects will determine what insights you can derive from your data, what patterns and relationships it will reveal, and what messages you can convey from your data. 
+This lab will introduce tools for spatial data visualisation in Google Earth Engine. Data visualisation is the activity of relating observations and variation in your data to visual objects and properties on a display. How you relate your data values to display objects will determine what insights you can derive from your data and what patterns and relationships it will reveal.
 
 This lab will focus on the use of colour to represent features or patterns in geospatial data but you should also be aware of other visual properties of your map display that can be adjusted; for example, you don't want to use a line width so thick that it obscures variation in polygons represented by colour fill values. 
 
 ### Setup
 
-Create a new script in your *labs-gee* repository called *lab4b*. Enter the following comment header to the script. 
+Create a new script in your *labs-gee* repository called *color-data-vis*. Enter the following comment header to the script. 
 
 ```{js, echo=TRUE, eval=FALSE}
 /*
-Lab 4b
+Colour and Data Visualisation
 Author: Test
 Date: XX-XX-XXXX
 
@@ -130,7 +130,7 @@ par(mar = c(0, 3, 0, 0))
 RColorBrewer::display.brewer.all()
 ```
 
-Be aware of context and how the relationship between objects on a map display can affect how they are perceived by human eyes. For example, thin geometric features are not easily detected when represented in blue hues, the perceived hue of an object changes with background colour (blue features are hard to detect on black backgrounds, yellow is hard to detect on white backgrounds), and the perceived chroma of an object is related to feature size. <a href="https://www.crcsi.com.au/assets/Consultancy-Reports-and-Case-Studies/Earth-Observation-reports-updated-Feb-2019/Vol2A-high-res-84MB.pdf" target="_blank">Excursus 5.2 (CRCSI, 2017; p. 75)</a> highlights how color composition can obscure or misrepresent variation in spatial data. 
+<!-- Be aware of context and how the relationship between objects on a map display can affect how they are perceived by human eyes. For example, thin geometric features are not easily detected when represented in blue hues, the perceived hue of an object changes with background colour (blue features are hard to detect on black backgrounds, yellow is hard to detect on white backgrounds), and the perceived chroma of an object is related to feature size. <a href="https://www.crcsi.com.au/assets/Consultancy-Reports-and-Case-Studies/Earth-Observation-reports-updated-Feb-2019/Vol2A-high-res-84MB.pdf" target="_blank">Excursus 5.2 (CRCSI, 2017; p. 75)</a> highlights how color composition can obscure or misrepresent variation in spatial data.  -->
 
 <br>
 <details>

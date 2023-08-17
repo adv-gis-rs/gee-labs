@@ -10,14 +10,21 @@ book:
       text: Home
     - href: js-introduction.qmd
       text: JavaScript
-    - href: lab-4a.qmd
-      text: Lab 5a
-    - href: lab-4b.qmd
-      text: Lab 5b
-    - href: lab-5.qmd
-      text: Lab 6
-    - href: lab-6.qmd
-      text: Lab 7
+    - href: ee-introduction.qmd
+      text: GEE Introduction
+    - href: colour-vis.qmd
+      text: Color and Data Visualisation
+    # - href: vector.qmd
+    #   text: Vector Data Operations
+    # - href: raster-image.qmd
+    #   text: Raster Data Operations
+    # - href: lab-7.qmd
+    #   text: Lab 8
+    # - href: lab-8.qmd
+    #   text: Lab 9
+    # - href: lab-9.qmd
+    #   text: Lab 10
+
 
 bibliography: references.bib
 

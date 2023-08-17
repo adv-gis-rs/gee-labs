@@ -364,7 +364,7 @@ print('joined:', lstTreeJoin);
 
 ```
 
-The matching `Feature`s from `perthUniBuildingTree` and `perthUniBuildingLST` are stored in a `primary` and `secondary` dictionary object of the output from the join. Execute the following helper function to add the name:value pairs in `secondary` to the `properties` in the `primary` dictionary. This puts all your name:value pairs in one `properties` dictionary and makes it easy for you to query, summarise, and visualise this data. You can inspect the tidied `FeatureCollection` in the *console* to see the output from this function. 
+The matching `Feature`s from `perthUniBuildingTree` and `perthUniBuildingLST` are stored in a `primary` and `secondary` dictionary object of the output from the join. Execute the following helper function to add the name:value pairs in `secondary` to the `properties` in the `primary` dictionary. This puts all your name:value pairs in one `properties` dictionary and makes it easy for you to query, summarise, and visualise this data. You can inspect the tidied `FeatureCollection` in the *Console* to see the output from this function. 
 
 *Not necessary, but it might be a good activity to consolidate understanding: work through the function in the below code snippet and describe what each line is doing.* 
 
@@ -414,7 +414,7 @@ print(campusSummaryStats);
 
 ```
 
-If you inspect the `print()` of `campusSummaryStats` in the *console* you will see that it returned a dictionary object which contains a list of dictionary objects. This is an unfriendly data structure for storing and querying the data it contains. 
+If you inspect the `print()` of `campusSummaryStats` in the *Console* you will see that it returned a dictionary object which contains a list of dictionary objects. This is an unfriendly data structure for storing and querying the data it contains. 
 
 ```{r unfriendly-data-structure, fig.align = 'center', out.width = "85%", fig.cap = "Structure of data returned by grouped reduceColumns().", echo = FALSE}
 knitr::include_graphics("img/unfriendly-data-structure.png")
@@ -455,19 +455,19 @@ knitr::include_graphics("img/tidy-data-structure.png")
 
 ```
 
-Let's look at the results. You should have `print()`ed `tidyCampusStats` onto the *console*. The `properties` object for each `Feature` stores the average area of tree canopy cover and LST within a 50 m buffer of buildings on each university campus. The figure above shows that, on average, buildings on Curtin University's Bentley Campus have an LST of 307.47 K. Look at the values reported for the other university campuses.
+Let's look at the results. You should have `print()`ed `tidyCampusStats` onto the *Console*. The `properties` object for each `Feature` stores the average area of tree canopy cover and LST within a 50 m buffer of buildings on each university campus. The figure above shows that, on average, buildings on Curtin University's Bentley Campus have an LST of 307.47 K. Look at the values reported for the other university campuses.
 
 ## Visualisation
 
-To make comparisons between campuses in terms of their greenness and coolness, you can look up the values in the *console* for the `properties` object storing the results of the group by and summarise operations. However, this is not a visually friendly way to inspect your data, identify patterns, or detect relationships between variables. Google Earth Engine provides a range of tools to generate <a href="https://developers.google.com/earth-engine/guides/charts" target="_blank">interactive charts</a> from spatial data. 
+To make comparisons between campuses in terms of their greenness and coolness, you can look up the values in the *Console* for the `properties` object storing the results of the group by and summarise operations. However, this is not a visually friendly way to inspect your data, identify patterns, or detect relationships between variables. Google Earth Engine provides a range of tools to generate <a href="https://developers.google.com/earth-engine/guides/charts" target="_blank">interactive charts</a> from spatial data. 
 
-Chart objects can be rendered in the *console* to visualise your data. The `ui.Chart.feature.byFeature()` function creates a chart from a set of `Feature`s in a `FeatureCollection` plotting each `Feature` on the X-axis and the value for a `Feature`'s property on the Y-axis. 
+Chart objects can be rendered in the *Console* to visualise your data. The `ui.Chart.feature.byFeature()` function creates a chart from a set of `Feature`s in a `FeatureCollection` plotting each `Feature` on the X-axis and the value for a `Feature`'s property on the Y-axis. 
 
 The first argument to the `ui.Chart.feature.byFeature()` function is the `FeatureCollection` - `tidyCampusStats`. The second argument to `ui.Chart.feature.byFeature()` is the label property for `Feature`s plotted on the X-axis - `'uni_name'`. The final argument is a list object of properties whose values are plotted on the Y-axis - `['treeAreaSqM']`. 
 
 Use the `.setChartType()` method to specify the type of chart to create. View possible charts in this <a href="https://developers.google.com/chart/interactive/docs/gallery" target="_blank">gallery</a>. A dictionary of name:value pairs is passed into the `setOptions()` method to control various style elements of the chart (e.g. chart title, axis title). 
 
-To render your chart in the *console* use the `print()` function.
+To render your chart in the *Console* use the `print()` function.
 
 <br>
 

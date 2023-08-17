@@ -10,7 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Google Earth Engine Labs 
 
-These labs introduce Google Earth Engine as a tool for geospatial data analysis. Geospatial data analysis can be broken down into a workflow comprising four stages (that are often iterative):
+These labs introduce Google Earth Engine as a tool for geospatial data analysis. 
+
+<!--
+Geospatial data analysis can be broken down into a workflow comprising four stages (that are often iterative):
 
 * Data (variables to represent spatial concepts, phenomena, or entities - data collection, data entry, data download, and data import)
 * Transform (transforming data so it can can be used for geospatial data analysis - summarising, combining, filtering)
@@ -47,6 +50,7 @@ A series of questions are posed throughout the lab as demonstrated below; these 
   <p><br>Answer.</p>
 </details>
 <br>
+-->
 
 ### Sign Up
 

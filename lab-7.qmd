@@ -1,406 +1,651 @@
+<!-- https://www.sciencedirect.com/science/article/pii/S0034425719305309
+
+Follow this example for SOS and GSL in urban areas:
+https://www.sciencedirect.com/science/article/pii/S0034425716300384
+
+Review of pheno methods:
+https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13870
+
+https://www.mdpi.com/2072-4292/12/17/2760/htm
+
+https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JG005636
+
+NASA ARSNET RESOURCES! -->
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-
 ## Introduction
 
-This lab will introduce a workflow to classify `Image`s in Google Earth Engine using supervised classification algorithms.
+<!-- :::{.callout-important}
+This lab is incomplete and in draft form!
+::: -->
 
-Image classification is the process of classifying pixels in an `Image` into similar classes (groups or clusters of similar pixels) or categories (a label that relates to physical or land surface characteristics).
+### Phenology
 
-You will use a supervised classification algorithm to assign each pixel a category label based upon pixel values for one or more predictor variables. Land cover mapping is a common image classification task. Different land cover types have different spectral signatures (i.e. they have different levels of reflectance in different portions of the electromagnetic spectrum); an algorithm can be trained to predict each pixel's land cover type based upon values of predictor variables (i.e. spectral reflectance data). 
+Phenology refers to timing of biological events, phenomena, or life cycle phases, which are often driven by climatic and environmental factors. For example, budbreak or the onset and duration of flowering of plants are phenological events.
 
-An algorithm is a set of rules or instructions that a computer follows to solve a problem or perform a task. Algorithms can take many forms and different algorithms are suited to different classification tasks. 
+As remote sensors capture repeat observations of the same location over time, it is possible to track the dynamics of vegetation growth and the occurrence of phenological events.
 
-You have a predictor dataset $X$ which contains $p$ predictor variables $X_{1}, X_{2},..., X_{p}$; in the case of land cover classification using remotely sensed data $p$ often corresponds to wavelengths of the electromagnetic spectrum. Your goal is to train a classifier (algorithm) $f$ which relates predictor variables $X$ to an outcome $Y$. 
+The ability to monitor phenology can help us understand: how year-to-year variation in weather (e.g. extreme heat events or drought) affects vegetation growth (e.g. crop yields); how ecosystems are responding to changing climates (e.g. changing timing and duration of growing seasons); and how human modification of landscapes affects vegetation dynamics (e.g. differences in observed phenology in urban areas versus proximal natural or rural areas).
 
-$$Y = f(X)$$
+### Remote Sensing of Phenology
 
-The video below presents a good overview of tools for `Image` classification in Google Earth Engine. It is quite long, so best watched after the lab to consolidate what you have learnt. 
+Spectral vegetation indices, mathematical combinations of surface reflectance in visible and near infrared wavelengths, capture various aspects of vegetation condition at the time of image capture. These vegetation indices (VI) are used to monitor vegetation dynamics, and, thus, phenology.
 
-<br>
 <center>
-<iframe width="412" height="232" src="https://www.youtube.com/embed/NPplRtH2N94" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>An overview of `Image` classification in Google Earth Engine.</p>
-</center>
-<br>
 
-### Supervised Classification
-
-In supervised classification, the values of $Y$ are known and typically correspond to geographic phenomena or entities of interest (e.g. the range of land cover types in an `Image`). In the case of land cover classification, the classifier $f$ will predict a pixel $i$'s land cover type $y_{i}$ based on the values of $x_{i}$.  
-
-A classification tree is one of the simplest supervised classifiers to see inside and visualise the algorithm's rules and the process it follows to make predictions. A classification tree consists of a series of yes / no splits for values of $X$, the predictor variables (e.g. spectral reflectance measured in $p$ wavelengths). The leaves of a classification tree correspond to an outcome category or label (e.g. a land cover type). For a pixel with measures of spectral reflectance but an unknown land cover type, you move down the tree following the yes / no splits to arrive at a leaf node. The leaf node you end up in is the predicted land cover for that pixel.
-
-<br>
-
-```{r dec-tree, fig.align = 'center', out.width = "80%", fig.cap = "Example classification tree showing how land cover can be predicted from spectral reflectance values (adpated from Tso and Mather (2009)).", echo = FALSE}
-knitr::include_graphics("img/decision-tree-tso-mather.png")
+```{r im_1, fig.align = 'center', out.width = "90%", fig.cap = "Phenology as represented by a temporal profile of vegetation index values.", echo = FALSE}
+knitr::include_graphics("img/phenology-metrics.png")
 
 ```
 
-<br>
-
-Your goal is to train a classifier $\hat{f}$ that predicts a pixel's land cover type, $\hat{y}_i$, using pixel spectral reflectance data. Training a classifier involves identifying the rules that best relate values of predictor variables to an outcome category. To train the classifier you give it some labelled training data; labelled training data are observations where there are values for the predictor variables, $X_{1}, X_{2},..., X_{p}$, and a label of the outcome category $Y$. That is, for each training observation $x_{i}$ there is a known $y_{i}$. You train a classifier by finding rules that minimise a metric of classification error when predicting the known$y_{i}$ in the training data. The process of preparing the training data is called training or feature engineering.
-
-Your final step is to assess the accuracy of your model. You see how well your model performs in predicting $Y$ for data that was not used in training the model (test or validation data). 
-
-### Unsupervised Classification
-
-In unsupervised classification, for each observation $x_{i}$ in the training data there is no observed outcome $y_{i}$. An unsupervised classification algorithm $f$ assigns observations to clusters based upon them having similar values in the predictor variables $X$. In the context of remote sensing `Image` classification, an unsupervised classification algorithm would assign a pixel $i$ to a class $j$ based upon a its $x_{i}$ spectral reflectance values. Your goal, given some training data, is to train an unsupervised classification algorithm $\hat{f}$ that assigns pixels to classes so that the within-class (within-cluster) variability in pixel values is minimised. Unsupervised classifiers in Google Earth Engine are called `clusterers`; this name refers to goal of unsupervised classifiers to create clusters of similar observations. Classes (clusters) do not directly relate to ground objects, real world phenonomenon or entities, or land cover types; instead, they define clusters of similar pixels in terms of their spectral reflectance values. Often, `Image` classes relate to interesting land surface characteristics but it is a post-processing step to formalise these relationships and assign meaningful labels to `Image` classes. You will not be using unsupervised classification algorithms in this lab. However, you can follow this <a href="https://developers.google.com/earth-engine/guides/clustering" target="_blank">guide</a> to see how to use them in Google Earth Engine. 
-
-### Task
-
-You will perform a supervised classification of a Landsat 8 `Image` to predict a pixel's land cover type.
-
-<b>Supervised classification</b>
-
-1. Prepare labelled training data comprising observations of Landsat 8 spectral reflectance values and a land cover type property.
-2. Train a supervised classifier to predict a pixel's land cover type (water, built up, or vegetation).
-3. Predict each pixel's land cover type in the Landsat 8 `Image`.
-4. Assess the accuracy of the your land cover prediction using independent test data. 
-
-### Setup
+</center>
 
 <br>
+<details>
+  <summary><b>*Would you expect the phenology profiles to differ for evergreen and deciduous forests?*</b></summary>
+  <p>
+    Yes, a deciduous forest's phenology profile would have a more exaggerated hump-shape with a distinct start-of-growing season, greenup to peak greenness, and then a senescence to leaf off. An evergreen forest would have a less exaggerated greenup and senescence and would maintain higher VI values in winter.
+  </p>
+</details>
+<br>
+
+Due to the coarse spatial resolution of remote sensing data, relative to plants, it is challenging to directly observe specific phenology events such as flowering or leaf out. Often, remotely sensed data is used to indirectly estimate the timing of phenology events or to compute metrics that characterise the stages and nature of vegetation growth. These metrics are referred to as *land surface phenology* metrics [(Zeng et al., 2020)](https://www.sciencedirect.com/science/article/pii/S0034425719305309){.external target="_blank"} or seasonal parameters [(Jönsson and Eklundh, 2004)](https://www.sciencedirect.com/science/article/pii/S0098300404000974){.external target="_blank"}.
+
+Phenology metrics are computed from time-series of vegetation index values and are used to characterise the phenology at a location and for a given year. Common phenology metrics include start-of-season, end-of-season, length-of-season, time-of-peak-VI, peak VI, amplitude, area under the curve, and rates of greenup and senescence. Peak VI and area under the curve are often used as indicators of biomass. 
+
+ Time-series of vegetation index values are used as inputs to functions which contain rules for computing phenology metrics. For example, peak VI can be estimated by applying the `max()` function to a subset of vegetation index values between start-of and end-of-season. Start-of-season can be estimated by a search of vegetation index values for exceedance of a threshold value or the detection of a valley point in vegetation index time-series. Rate-of-greenup can be estimated by the slope between start-of-season and peak VI.
+
+<br>
+<details>
+  <summary><b>*What are advantages of using satellite remote sensing over field-based monitoring of phenology?*</b></summary>
+  <p>
+    <ul>
+      <li>Spatial coverage - it is easier to monitor vegetation and ecosystem dynamics at spatial extents not possible to cover by field-based observations.</li>
+      <li>Temporal coverage - it is costly to make repeat observations over time using field-based or in-situ methods. Satellite remote sensing provides an affordable way to monitor the same location within-seasons and over many years.</li>
+    </ul>
+  </p>
+</details>
+<br>
+
+<details>
+  <summary><b>*What are advantages of using in-situ or field-based methods to monitor phenology?*</b></summary>
+  <p>
+    <ul>
+      <li>Monitor the phenology of specific species or plants.</li>
+      <li>Monitor specific phenological events which are hard to detect with satellites at coarse and moderate resolutions such as flowering or budding.</li>
+    </ul>
+  </p>
+</details>
+<br>
+
+## Urban Park Phenology
+
+In this lab you will monitor the phenology over an urban park in Perth and you will be working with Sentinel-2 satellite images. Sentinel-2 data is a European Space Agency product with a 5-day temporal resolution and a 10 m spatial resolution. You will:
+
+* Subset Sentinel-2 images for 2020.
+* Mask out cloudy pixels.
+* Transform the Sentinel-2 multispectral images into NDVI images.
+* Fill gaps caused by cloudy pixels in NDVI time-series.
+* Use a smoothing algorithm to remove remnant noise in NDVI time-series.
+* Estimate start-of-season and length-of-season for park vegetation.
+* Explore relationships between phenology metrics and climate variables.
+
+To complete these tasks you will use various data transformation and visualisation functions that have been introduced in previous labs. 
+
+## Setup
+
+Add a header to the start of your script.
 
 ```{js, echo=TRUE, eval=FALSE}
 /*
-Lab 7
+Lab 8
 Author: Test
 Date: XX-XX-XXXX
 
 */
+```
+
+Next we need to import a module that provides functions for time-series and phenology analysis.
+
+```{js, echo=TRUE, eval=FALSE}
+// module with functions for phenology analysis
+var phenology = require('users/jmad1v07/Phenology:phenology.js');
 
 ```
 
-<br>
-
-### Data Import
+We also need to specify our study area. Here, we'll be working in a section of Kings Park.
 
 ```{js, echo=TRUE, eval=FALSE}
-// Data import
+var geometry = ee.Geometry.Polygon(
+  [[[115.83102144426752, -31.95262028223891],
+    [115.83102144426752, -31.956297928621538],
+    [115.83679355806761, -31.956297928621538],
+    [115.83679355806761, -31.95262028223891]]]);
 
-// study area
-var bBox = 
-    /* color: #d63000 */
-    /* displayProperties: [
-      {
-        "type": "rectangle"
-      }
-    ] */
-    ee.Geometry.Polygon(
-        [[[115.23492202085255, -31.663337604046916],
-          [115.23492202085255, -32.220373273114554],
-          [116.13442763608693, -32.220373273114554],
-          [116.13442763608693, -31.663337604046916]]], null, false);
+// centre the map on the study area
+Map.centerObject(geometry, 16);
 
-//Get Landsat 8 SR Image
-var l8SR = ee.Image('LANDSAT/LC08/C01/T1_SR/LC08_113082_20160802').clip(bBox);
-print(l8SR);
+// create an empty image into which to paint the features, cast to byte.
+var empty = ee.Image().byte();
 
-// Use these Landsat 8 bands and rescale spectral reflectance values
-var bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
-l8SR = l8SR.select(bands).divide(10000);
-
-/* Define the visualization parameters. The bands option allows us to specify which bands to map. Here, we choose B4 (Red), B3 (Green), B2 (Blue) to make a RGB composite image.*/ 
-var vizParams = {
-  bands: ['B4', 'B3', 'B2'],
-  min: 0,
-  max: 0.4,
-};
-
-// Centre the display and then map the Landsat 8 image
-Map.centerObject(l8SR, 10);
-Map.addLayer(l8SR, vizParams, 'RGB composite');
-print(l8SR);
-
-```
-
-<br>
-
-Use the *Inspector* tab to visualise the difference in Landsat 8 spectral reflectance across different wavelengths for different land cover types.
-
-<br>
-<center>
-<iframe src="https://player.vimeo.com/video/457400549" width="640" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p>Visualise spectral reflectance using the *Inspector* tab</p>
-</center>
-<br>
-
-## Supervised Classification
-
-### Training (Feature) Engineering
-
-The first task in a supervised classification workflow is to prepare the training data. This is termed training or feature engineering (in machine learning predictor variables are often called features). 
-
-Classifiers in Google Earth Engine require a `FeatureCollection` for training where one property in the `properties` object is the outcome variable and the other properties are the predictors. 
-
-The `FeatureCollection` `trainingPoints` contains three `Feature` objects. Each `Feature` object has a multipoint `Geometry` object and a `properties` object containing the property `lc`. `lc` refers to the land cover type at each point's location. 
-
-An `lc` value of 0 corresponds to vegetated land cover, an `lc` value of 1 corresponds to built up land cover, and an `lc` value of 2 corresponds to water.
-
-These labelled training points were created through manual digitisation guided by visual inspection of the Google satellite basemap.  
-
-<br>
-
-```{js, echo=TRUE, eval=FALSE}
-// Training engineering
-// Import points labelled with land cover type property
-var trainingPoints = ee.FeatureCollection("users/jmad1v07/gee-labs/training_points");
-print(trainingPoints);
-Map.addLayer(trainingPoints, {color:'red'}, 'training data');
-
-```
-
-<br>
-
-<details>
-  <summary><b>*The date of the Google satellite basemap used to guide the creation of the training data was not known. What problem could this introduce when using this training data to train a classifier to predict the land cover type of Landsat 8 pixels?*</b></summary>
-  <p>
-    <br>
-    Land cover might have changed between the date of capture of the Google satellite basemap and the date of the Landsat 8 `Image` you wish to classify. This means that the labelled training data may not accurately reflect the land cover type at the time the Landsat 8 `Image` was captured.
-  </p>
-</details>
-<br>
-
-<br>
-
-<details>
-  <summary><b>*Explore the red points on the map that represent the location of the labelled training points. You should see clusters of points in Perth CBD and Kings Park. What problem could this clustering of training data present?*</b></summary>
-  <p>
-    <br>
-    Training data observations which are close to each other in space might have spatial correlation among their data values. This spatial correlation reduces the effective number of independent training data observations. This can be problematic as non-parametric classifiers, such as CART, require large numbers of training data observations to characterise the relationships between predictor variables and outcome categories. 
-  </p>
-</details>
-<br>
-
-You now need to find the Landsat 8 spectral reflectance values that intersect with each of the point locations.
-
-There is a convenient `sampleRegions()` function in Google Earth Engine that helps with training engineering. The `sampleRegions()` function samples the pixels of an input `Image` (`l8SR` here) using the `Geometry` objects specified as the `collection` argument (`trainingPoints` here). This function extracts the values in each band of `l8SR` that intersect with each point's location.  
-
-<br>
-
-```{js, echo=TRUE, eval=FALSE}
-// Sample spectral reflectance at training points
-var trainingData = l8SR.sampleRegions({
-  collection: trainingPoints,
-  properties: ['lc'],
-  scale: 30
+// study area outline
+var outline = empty.paint({
+  featureCollection: geometry,
+  color: 1,
+  width: 3
 });
-print(trainingData);
-
+Map.addLayer(outline, {palette: '000000'}, 'study area');
 ```
 
-<br>
+## Data Preprocessing
 
-Inspect the `FeatureCollection` `trainingData` in the *console*. You should see it contains 129 `Feature` objects and each `Feature` has a `properties` object containing an `lc` property which corresponds to a land cover type and properties `B2` through to `B7` which correspond to spectral reflectance measurements. 
+Before we can use Sentinel-2 surface reflectance data for phenology analysis, it needs to go through several data transformation and preprocessing steps. These include:
 
-<br>
+* **filter** operations to subset the Sentinel-2 `ImageCollection` to the time-period and study area of interest. This requires implementing a non-spatial filter using `Image` metadata (date of `Image` capture) and spatial filtering based on the `Image` footprint intersecting the study area.
+* **creating a new variable** using *local operations* that are applied at the pixel level to combine bands representing red and near infrared reflectance into a normalised difference vegetation index (NDVI) band.
+* **filter** and *local operations* to compare `Image` bands to a cloud mask and mask out pixels where cloud was detected. 
 
-```{r training-data, fig.align = 'center', out.width = "50%", fig.cap = "`FeatureCollection` storing training data to train a supervised classifier to predict land cover type.", echo = FALSE}
-knitr::include_graphics("img/training-data.png")
-
-```
-
-<br>
-
-You can now use `trainingData` to train a classifier to predict land cover type based on Landsat 8 spectral reflectance data values.
-
-### Train classifier
-
-You are going to use `trainingData` to train a classification and regression tree (CART) model to predict a pixel's land cover type based on its spectral reflectance values. 
-
-The first step is to create a CART object using the `ee.Classifier.smileCart()` constructor function. You then use the `train()` function to train the CART classifier. You pass your labelled training data `trainingData` into the `train()` function and it will learn the rules that best relate spectral reflectance values in your training data to the observed land cover type specified by the `lc` property.
-
-<br>
+To implement data preprocessing, we will need two functions. One function to generate per-`Image` cloud masks and another function to compute the NDVI. 
 
 ```{js, echo=TRUE, eval=FALSE}
-// Train a CART classifier with default parameters.
-var trainedCART = ee.Classifier.smileCart()
-  .train(trainingData, 'lc', bands);
-print(trainedCART);
+// function to mask clouds in Sentinel 2 images
+function maskS2Clouds(image) {
+  var qa = image.select('QA60');
+  var cloudBitMask = 1 << 10;
+  var cirrusBitMask = 1 << 11;
+  var mask = qa.bitwiseAnd(cloudBitMask).eq(0).and(
+             qa.bitwiseAnd(cirrusBitMask).eq(0));
+  return image.updateMask(mask).divide(10000)
+      .select("B.*")
+      .copyProperties(image, ["system:time_start"]);
+}
 
+// function that adds an NDVI band per-image
+function addNDVIAndClip(image) {
+  var ndvi = image.normalizedDifference(['B8', 'B4']).rename('ndvi');
+  image = image.addBands(ndvi);
+  return image.clip(geometry);
+}
 ```
 
-<br>
-
-The video below presents a short demonstration of how CART classifiers work. You can also read Chapter 8 of <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/" target="_blank">James et al. (2013)</a> to understand the process of how CART classifier rules are trained via minimising an error function.
-
-<br>
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p17C9q2M00Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Overview of CART classifiers</p>
-
-</center>
-
-<br>
-
-### Predict land cover type
-
-Now you can use your trained CART classifier object to predict each Landsat 8 pixel's land cover. To classify an `Image` in Google Earth Engine using a trained classifier use the `classify()` function. You pass your trained classifier into the `classify()` function as an argument; this function will apply the algorithm defined in your trained classifier (`trainedCART` here) to each pixel's spectral reflectance values to predict land cover type. 
-
-Display your predicted land cover `Image` on the map. Visually inspect your map of predicted land cover. How good a job has your trained classifier `trainedCART` done at predicting the land cover type of the Landsat 8 pixels?
-
-<br>
+Finally, import the Sentinel-2 surface reflectance `ImageCollection` and chain together the various data preprocessing operations.
 
 ```{js, echo=TRUE, eval=FALSE}
-// Classify (predict land cover type) l8SR using trained CART classifier
-var lcImage = l8SR
-  .select(bands)
-  .classify(trainedCART);
-print(lcImage);
+// import Sentinel 2 ImageCollection, cloud mask, and add NDVI band
+var s2 = ee.ImageCollection("COPERNICUS/S2_SR");
 
-//Make a palette for mapping
-var lulcColor = [
-  '00FF00', // vegetation
-  '000000', // built up
-  '0000FF', // water
-];
+var startDate = ee.Date('2020-01-01');
+var endDate = ee.Date('2021-03-01');
 
-Map.addLayer(lcImage, {palette: lulcColor, min: 0, max: 2}, 'supervised classification');
+var s2Ndvi = s2
+  .filter(ee.Filter.date(startDate, endDate)) 
+  .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 30)) 
+  .filter(ee.Filter.bounds(geometry)) 
+  .map(maskS2Clouds) 
+  .map(addNDVIAndClip) 
+  .select('ndvi');
+```
 
+`Print` the `s2Ndvi` `ImageCollection` to the *Console* to check that it stores Sentinel-2 `Images` with an `ndvi` band.  
+
+```{js, echo=TRUE, eval=FALSE}
+print('Check the 2020 S2 NDVI collection:', s2Ndvi);
 ```
 
 <br>
-
-```{r predicted-land-cover, fig.align = 'center', out.width = "80%", fig.cap = "Predicted land cover type using the trained CART classifier", echo = FALSE}
-knitr::include_graphics("img/predicted-land-cover.png")
-
-```
-
-<br>
-
-Use the <b>Layers</b> tab to toggle on and off the Landsat 8 RGB composite, the predicted land cover map, and the Google satellite basemaps. Zoom in on a few locations and explore the difference between the land covers captured by the Google satellite basemaps and the Landsat 8 data. 
-
-You should see that in many cases a single Landsat 8 pixel is comprised of multiple land cover types (e.g. a pixel could include trees, a grass garden, paved surface, and roofs). This is a mixed pixel problem; it is one example of how spatial data often simplifies reality. Here, a mix of land cover types with different spectral signatures will be represented by a single spectral reflectance value per-band and per-pixel or by a single land cover type label. 
-
-<br>
-<center>
-
-<iframe src="https://player.vimeo.com/video/457375669" width="640" height="354" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p>Visualise mixed pixels</p>
-
-</center>
-<br>
-
-```{r mixed-pixels, fig.align = 'center', out.width = "80%", fig.cap = "Mixed pixels - a pixel is assigned a single land cover type category yet it contains a mix of land cover types", echo = FALSE}
-knitr::include_graphics("img/mixed-pixels.png")
-
-```
-
-<br>
-
 <details>
-  <summary><b>*How could you reduce the mixed pixel problem that is visible when predicting land cover over urban Perth using Landsat 8 data?*</b></summary>
+  <summary><b>*Why is it important to remove clouds from remote sensing images before computing phenology metrics?*</b></summary>
   <p>
-    <ul>
-    <li> You could use finer spatial resolution data that would be able to resolve the different land cover objects present within a single Landsat pixel.</li> 
-    <li> You could use a fuzzy classification system where a pixel can be a member of more than one land cover type. </li>
-    </ul>
-    
+    If cloudy observations remain in VI time-series it will create short-run variation in greenness which could be mistaken for phenological events or bias estimates of phenological events.
   </p>
 </details>
 <br>
 
-The classifier you have just trained predicts whether a pixel is one of three land cover types (vegetation, built up, or water). In reality, there are far more than three land cover types present within the area covered by the Landsat 8 `Image`. An example of this is shown in the below figure where beach between City Beach and Scarborough in Perth is classified as built up land cover. Therefore, through limiting the possible land cover types a pixel could be classified as we are introducing error into predicted land cover maps (i.e. there is a discrepancy between predicted land cover and reality).
+## Noise Removal and Gap Filling
 
-<br>
+Let's explore the NDVI time-series in the study area. Run the following code to load an interactive chart generator; click on a location within the study area on the map and an NDVI time-series chart will be rendered in the *Console*.
 
-```{r beach-built-up, fig.align = 'center', out.width = "80%", fig.cap = "Beach (sandy land cover) classified as built up.", echo = FALSE}
-knitr::include_graphics("img/beach-as-built-up.png")
+```{js, echo=TRUE, eval=FALSE}
+// draw NDVI time series chart at clicked points
+var drawChart = function(point) {
+    var clickedPoint = ee.Geometry.Point(point.lon, point.lat);
+    
+    var tsChart = phenology.timeSeriesChart(clickedPoint, s2Ndvi.select(['ndvi']), 'NDVI', 'time', 'NDVI', 10, 'system:time_start');
+    print(tsChart);
+    
+  };
+Map.add(ui.Label('Click anywhere within study area - NDVI time-series will appear in Console...'));
+Map.onClick(drawChart);
+```
+
+As you click and render time-series charts of vegetation growth there are a couple of things to look out for. First, the seasonal profile of vegetation growth with greenup beginning in late austral summer and peak greenness in austral winter should be apparent. Second, it is likely that you will see short-run variation in NDVI values that are superimposed on the dominant seasonal profile. There could also be some gaps in the time-series which correspond to cases where the cloud mask was applied. This short-run variation in NDVI values could be noise and is not caused by actual changes in vegetation condition. The source of this noise could be clouds missed by the cloud mask, other sources of atmospheric contamination, or changes in illumination. Vegetation growth is typically characterised by smooth, continuous, and sustained increases and then decreases in greenness. Functions to detect phenology metrics look for transitions from increasing to decreasing vegetation growth, or vice versa, or rates of increase or decrease in vegetation growth over time. This noise in NDVI time-series could confound detection of phenology parameters; thus, NDVI time-series are filtered to remove anomalous values. 
+
+<center>
+
+```{r xfig-1, fig.align = 'center', out.width = "90%", fig.cap = "NDVI time-series showing dominant seasonal profile of vegetation growth, short-run noise in NDVI time-series, and gaps due cloud masking.", echo = FALSE}
+knitr::include_graphics("img/ndvi-profile-noisy.png")
 
 ```
 
-<br>
+</center>
 
-<details>
-  <summary><b>*How could you train a classifier that predicts whether a pixel belongs to more land cover types than vegetation, built up, or water?*</b></summary>
-  <p>
-  <br>
-  Ensure that your labelled training data covers the range of land cover types within the area of interest and that you have a sufficient number of training data observations per-land cover type in order to characterise each land cover type accurately. 
+Let's apply a function to our NDVI time-series to remove any anomalously high or low NDVI values. The approach we'll use here is based on [Kong et al. (2021)](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13870){.external target="_blank"} and defines a noisy spike or low NDVI value as cases where the difference between a data point and the NDVI values of its temporal neighbours is greater than one and a half times the standard deviation of the entire NDVI time-series. 
+
+We can use the `removeSpikes()` function from the `phenology` module to filter out anomalous NDVI values. The `removeSpikes()` function expects to receive as arguments:
+
+* An `ImageCollection` of VI values.
+* A number that defines the window size of temporal neighbours for each data point.
+* The band name.
+* The number of standard deviations that defines a noisy value. 
+* The time property for each `Image` in the collection.   
+
+```{js, echo=TRUE, eval=FALSE}
+// add a timestamp band for each image  
+var s2NdviTs = s2Ndvi.map(phenology.addTimeBand('system:time_start', 'timestamp'));
+
+// remove spikes and drop outs
+// there can be noisy pixel values that are missed by cloud masks
+// these noisy pixel values can affect representations of vegetation growth profiles and phenology
+// remove noisy pixel values - anomolous values
+var s2RemovedSpikes = phenology.removeSpikes(s2NdviTs, 15, 'ndvi', 1.5, 'system:time_start');
+```
+
+We can explore the result of removing anomalous NDVI values from our time-series. Run the following code snippet and click on the map to generate charts of NDVI time-series with spikes removed.
+
+```{js, echo=TRUE, eval=FALSE}
+// Removed spikes NDVI chart
+var drawChart = function(point) {
+    var clickedPoint = ee.Geometry.Point(point.lon, point.lat);
     
+    var tsChart = phenology.timeSeriesChart(clickedPoint, s2RemovedSpikes.select(['ndvi']), 'NDVI - removed spikes', 'time', 'NDVI', 10, 'system:time_start');
+    print(tsChart);
+    
+  };
+Map.onClick(drawChart);
+```
+
+Through cloud masking and filtering anomalous NDVI values we have removed some of the noise from our time-series. However, now there are gaps in the time-series which is problematic when using these time-series to represent profiles of vegetation growth. To fill in the gaps in the NDVI time-series, we can use the `gapFill()` function from the `phenology` module. This function takes in as arguments:
+
+* An `ImageCollection` where masked pixels in its constituent images will be filled with sensible VI values.
+* A number specifying a date range to search for neighbouring images for each data point in the time-series. The valid VI values of these neighbouring images will be used to interpolate and fill the missing VI values. 
+* The time property for each `Image` in the collection.
+* The name of the timestamp band in each `Image`. 
+
+Gap fill the NDVI `ImageCollection` and explore the results of gap filling by rendering charts in the *Console*.
+
+```{js, echo=TRUE, eval=FALSE}
+// gap fill cloudy pixels using average of nearest cloud free before and after images
+var s2GapFilled = phenology.gapFill(s2RemovedSpikes, 30, 'system:time_start', 'timestamp');
+
+// gap filled NDVI chart
+var drawChart = function(point) {
+    var clickedPoint = ee.Geometry.Point(point.lon, point.lat);
+    
+    var tsChart = phenology.timeSeriesChart(clickedPoint, s2GapFilled.select(['ndvi']), 'NDVI - gap filled', 'time', 'NDVI', 10, 'system:time_start');
+    print(tsChart);
+    
+  };
+Map.onClick(drawChart);
+```
+
+You should see cases where spikes in NDVI values have been caught, removed, and gap filled.
+
+<center>
+
+```{r xfig-2, fig.align = 'center', out.width = "90%", fig.cap = "NDVI time-series with noisy values remaining after cloud masking.", echo = FALSE}
+knitr::include_graphics("img/ndvi-profile-noisy-2.png")
+
+```
+
+</center>
+
+<center>
+
+```{r xfig-3, fig.align = 'center', out.width = "90%", fig.cap = "NDVI time-series with noisy values removed.", echo = FALSE}
+knitr::include_graphics("img/ndvi-profile-remove-spikes.png")
+
+```
+
+</center>
+
+<center>
+
+```{r xfig-4, fig.align = 'center', out.width = "90%", fig.cap = "NDVI time-series with noisy values removed and gap filled.", echo = FALSE}
+knitr::include_graphics("img/ndvi-profile-gap-filled.png")
+
+```
+
+</center>
+
+## Smoothing
+
+Even after removing anomolous NDVI values and then gap filling the time-series, the NDVI profiles still do not completely represent the smooth continuous greenup and senescence that is characteristic of vegetation growth. Therefore, many phenology workflows use smoothing models to remove the short-run fluctuations in VI values and retain the dominant profile of seasonal vegetation growth. Generally, it is easier to accurately detect key phenological events such as start-of-season and length-of-season from smoothed vegetation index time-series. 
+
+A range of different smoothing models exist and have been successfully applied to phenology applications. You can read [Atkinson et al's. (2012)](https://www.sciencedirect.com/science/article/pii/S0034425712001629){.external target="_blank"} intercomparison of different smoothing approaches. Generally, smoothing is a form of time-series analysis where a model is specified to represent characteristics of the time-series and then fitted using observed time-series values. A key feature of smoothing is the selection of model parameters that determine the degree to which a time-series is smoothed. 
+
+There is a trade-off between models that are more or less sensitive to short-run variation in VI time-series. Models that are more sensitive to short-run VI variation might preserve the signal of short-lived phenological events such as flowering, but at the cost of retaining more noise in the time-series. 
+
+A simple model of a time-series is representing it as a linear model of time:
+
+$$y_{t} = \beta_{0} + \beta_{1}t + \epsilon_{t}$$
+
+The goal of model fitting is to find estimates of $\beta_{0}$ and $\beta_{1}$, $\hat{\beta_{0}}$ and $\hat{\beta_{1}}$. You can think of this as fitting a linear regression model to generate an estimate, $\hat{y_{t}}$, at time $t$. Here, you would be representing your time-series with a model of a linear trend in NDVI values through time. The blue line in the figure below is a linear model of vegetation growth fitted to the black points which are a time-series of NDVI values.
+
+<center>
+
+```{r im_2, fig.align = 'center', out.width = "90%", fig.cap = "Fitting a linear trend model to represent the profile of vegetation growth.", echo = FALSE}
+knitr::include_graphics("img/linear-model.png")
+
+```
+
+</center>
+
+<br>
+<details>
+  <summary><b>*Is a linear model of time (i.e. linear trend model) a good way to represent the profile of vegetation growth in NDVI time-series?*</b></summary>
+  <p>
+    No, vegetation growth has a clear cyclical cycle of greenup, peak greenness, followed by senescence. A linear trend model can only represent vegetation growth as a linear pattern of increasing or decreasing greenness.  
   </p>
 </details>
 <br>
 
-### Accuracy Assessment
-
-Before using your trained classifier to predict the land cover type of new pixels (i.e. pixels that you don't already know the land cover type) you need to know how accuracte the classifier's predictions are. You do this by assessing the classifier's accuracy; typically this is done by comparing predictions to observations on unseen data - data that has not been used to train the model. This will give you an indication of how well your classifier will generalise and work on new data. 
-
-First, you need some test data that contains labels of observed land cover types. Then you can use your trained classifier to predict the land cover type at each of these locations. Finally, you compare the predicted versus the observed land cover types to assess the accuracy of your trained classifier. 
-
-Import the the `FeatureCollection` `test_points` into the variable `testPoints`. This contains labelled points with an observed land cover type property. The process of predicting the land cover type at each of these test points is similar to the feature engineering process described above. Use the `sampleRegions()` function to extract the spectral reflectance measures for each of these points. Then use the trained classifier `trainedCART` to predict the land cover type at each test point based on its spectral reflectance values.
-
+<br>
+<details>
+  <summary><b>*Think about specifying a model of a NDVI time-series that accurately reflects vegetation growth patterns. What features of the time-series should the model be able to represent?*</b></summary>
+  <ul>
+    <li>Non-linear increases and decreases in NDVI values.</li>  
+    <li>The cyclical nature of vegetation growth dynamics.</li> 
+  </ul>
+</details>
 <br>
 
-```{js, echo=TRUE, eval=FALSE}
-// Accuracy Assessment
-var testPoints = ee.FeatureCollection('users/jmad1v07/gee-labs/test_points');
-Map.addLayer(testPoints, {color:'yellow'}, 'test points');
+If you are familiar with sinusoid waves, you might notice similarities between the seasonal profiles of vegetation growth and sine or cosine waves. 
 
-// Sample spectral reflectance at test points
-var testData = l8SR.sampleRegions({
-  collection: testPoints,
-  properties: ['lc'],
-  scale: 30
+<center>
+
+```{r im_3, fig.align = 'center', out.width = "90%", fig.cap = "Representing NDVI time-series as a sinusoidal wave.", echo = FALSE}
+knitr::include_graphics("img/sine-waves.png")
+
+```
+
+</center>
+
+Sinusoidal waves are described by the amplitude, frequency, and phase of the curve. Without needing to go into too much detail, which can be found [here](https://docs.google.com/presentation/d/1J1rUtf-bkfaJwYJY-tU17kzKI4U8FnF7Q2_VWqWdaak/edit?usp=sharing){.external target="_blank"} and [here](https://www.asprs.org/wp-content/uploads/pers/2001journal/april/2001_apr_461-470.pdf){.external target="_blank"}, sinusoidal waves can be expressed mathematically as a function of their amplitude $A$, frequency $f$, and phase $\phi$:
+
+$$y_{t} = Acos(2\pi{w}t+\phi)$$
+
+Where $w$ is $1/f$, which is the number of complete cycles of a sinusoidal wave. This model can be rewritten as:
+
+$$y_{t} = \beta_{0} + \beta_{1}t + \beta_{2}cos(2\pi{w}t) + \beta_{3}sin(2\pi{w}t) + \epsilon_{t}$$
+
+This is just a case of estimating another linear regression model that generates predictions, $\hat{y_{t}}$, that represent a sinusoidal wave with a frequency, $f$, that best fits the NDVI values in our time-series. The assumption here is that the best fitting sinusoidal wave accurately captures the signal of smooth continuous vegetation growth and does not capture short-run noise. This is often called a harmonic model of time. 
+
+In the Kings Park study area, there is generally one growing season per year. So, we'll estimate this model with $w$ set as 1 where a single sinusoidal wave will represent the growing season. 
+
+We can use the `hants()` function in the `phenology` module to fit this model to NDVI time-series in each pixel and return an `ImageCollection` with smoothed NDVI values.
+
+Run the following code and compare the `fitted` and input `ndvi` values on charts by clicking in the study area. The `fitted` time-series should be a smooth curve the fits input NDVI values. 
+
+```{js, echo=TRUE, eval=FALSE}
+// even after gap filling there is noise in the NDVI profiles
+// the NDVI profiles do not reflect the smooth and continuous green up and senescence of veg growth
+// smooth the gap filled time series with a harmonic model of time
+var s2Hants = phenology.hants(s2GapFilled.select(['ndvi']), 1, 'ndvi');
+
+// draw NDVI time series chart at clicked points
+var drawChart = function(point) {
+    var clickedPoint = ee.Geometry.Point(point.lon, point.lat);
+    
+    var tsChart = phenology.timeSeriesChart(clickedPoint, s2Hants.select(['fitted', 'ndvi']), 'NDVI - smoothed', 'time', 'NDVI', 10, 'system:time_start');
+    print(tsChart);
+    
+  };
+Map.onClick(drawChart);
+```
+
+<center>
+
+```{r sin_fig, fig.align = 'center', out.width = "90%", fig.cap = "Time-series of NDVI values smoothed using a harmonic model of time.", echo = FALSE}
+knitr::include_graphics("img/ndvi-profile-fitted-1.png")
+
+```
+
+</center>
+
+## Non-vegetation Mask
+
+To ensure that we are only monitoring the phenology of vegetated land cover, we will mask out non-vegetated areas by flagging pixels with NDVI time-series that do not display clear patterns of vegetation growth.
+
+The approach used here is based rules used in NASA's Vegetation Index and Phenology (VIP) product to mask out non-vegetated pixels. For a pixel to be classed as having a valid growing season, the:
+
+* maximum growing season NDVI should be greater than a threshold value (NDVI > 0.12 is the NASA VIP default).
+* a minimum delta NDVI (maximum NDVI - minimum NDVI) greater than a threshold ($\Delta$NDVI > 0.05 is the NASA VIP default).
+* there should be a sustained increase in NDVI values for $n$ days (here we will require there to be at least 40 days of sustained vegetation growth). 
+
+<br>
+<details>
+  <summary><b>*Can you explain why these rules are sensible for masking out locations where there is no vegetation growth?*</b></summary>
+  <ul>
+    <li>A maximum growing season NDVI threshold ensures that there is some green vegetation present in a pixel.</li>  
+    <li>A $\Delta$NDVI greater than a thresold ensures the difference between peak greenness and low greenness is larger than small noisy fluctuations in spectral reflectance.</li> 
+    <li>A sustained increase in NDVI values is a characteristic of vegetation growth dynamics and will distinguish actual vegetation growth for small fluctuations in spectral reflectance that could still occur over non-vegetated pixels.</li> 
+  </ul>
+</details>
+<br>
+
+The `checkSeasonsVip` function requires four arguments:
+
+* An `ImageCollection` with `Image`s to check for valid pixels.
+* The maximum growing season NDVI threshold (here 0.12).
+* The $\Delta$NDVI threshold (here 0.1).
+* The time step, in days, between `Image`s in the `ImageCollection` (here 5).
+* The required number of days of a sustained increase in NDVI for a growing season to be valid (here 40). 
+
+```{js, echo=TRUE, eval=FALSE}
+// check for valid seasons using the NASA VIP rules
+// max season NDVI > a threshold (default 0.12)
+// minimum season delta NDVI > a threshold (default 0.05)
+// sustained increase in VI values for n days
+var seasonMask = phenology.checkSeasonsVip(s2Hants.select('fitted'), 0.12, 0.1, 5, 40);
+```
+
+We will keep our valid season mask in the variable `seasonMask` and use it at the end of our workflow to mask maps of phenology metrics such as start-of-season and length-of-season. 
+
+## Phenology Metrics
+
+From smoothed time-series of NDVI values, we will estimate the following phenology metrics:
+
+* Start-of-season.
+* End-of-season.
+* Length-of-season. 
+* Peak greenness.
+
+One approach to estimating start-of-season and end-of-season is using a fixed NDVI threshold. When a sequence of increasing NDVI values exceed the fixed threshold, start-of-season is detected. End-of-season is defined in a similar way, when a sequence of decreasing NDVI values pass the fixed threshold, end-of-season is detected. 
+
+<br>
+<details>
+  <summary><b>*What is a potential limitation of using fixed NDVI thresholds for detecting start-of-season and end-of-season?*</b></summary>
+  <p>
+    Different plant species, mixes of plant species in a pixel, or canopy coverage within a pixel will result in different NDVI time-series. Thus, a fixed NDVI threshold that works for one context is unlikely to transfer to different locations. 
+  </p>
+  <p>
+    Similarly, defining thresholds in one growing season might not be suitable for future or historical seasons due to inter-annual climate variation. 
+  </p>
+</details>
+<br>
+
+To overcome the limitations of using fixed NDVI thresholds to detect phenology metrics, a range of different approaches have been proposed and used. One approach that advances upon fixed NDVI thresholds is to use local (pixel-specific) thresholds applied to a time-series of NDVI values that have been transformed into NDVI ratio values. The NDVI ratio is computed as:
+
+$$NDVI_{ratio} = \frac{NDVI-NDVI_{min}}{NDVI_{max}-NDVI_{min}}$$
+
+NDVI ratio values fall between 0 and 1. A threshold value such as 0.5 [(While et al., 2009 )](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2486.2009.01910.x){.external target="_blank"} or 0.3 [(Didan et al., 2018)](https://vip.arizona.edu/VIP_ATBD_UsersGuide.php){.external target="_blank"} have been used. When increasing NDVI ratio values exceed this threshold, start-of-season is detected. As this threshold is applied to NDVI values transformed into the NDVI ratio, the absolute values of the threshold will vary from pixel to pixel depending on the amplitude of vegetation growth in each pixel's time-series.  
+
+<center>
+
+```{r im_4, fig.align = 'center', out.width = "90%", fig.cap = "Detecting start-of-season and end-of-season using thresholds applied to NDVI ratio time-series.", echo = FALSE}
+knitr::include_graphics("img/ndvi-ratio.png")
+
+```
+
+</center>
+
+We can use the `sosRatioThreshold()` function to generate a start-of-season date `Image` from an `ImageCollection` of smoothed NDVI values. The `eosRatioThreshold()` function can be used to generate an end-of-season date `Image` and the `peakVi()` function can be used to generate an `Image` with bands corresponding to peak NDVI and date of peak NDVI.
+
+Run the following code to generate start-of-season, end-of-season, and peak NDVI `Image`s and use the `seasonMask` to mask pixels where there was no vegetation growing. 
+
+```{js, echo=TRUE, eval=FALSE}
+// phenology parameters
+// start-of-season
+var sos = phenology.sosRatioThreshold(s2Hants, ['fitted'], 10, 0.3)
+  .updateMask(seasonMask);
+Map.addLayer(sos.select('day'), {min: 0, max: 150, palette:['440154', '433982', '30678D', '218F8B', '36B677', '8ED542', 'FDE725']}, 'start-of-season');
+
+// end-of-season
+var eos = phenology.eosRatioThreshold(s2Hants, ['fitted'], 10, 0.3)
+  .updateMask(seasonMask);
+Map.addLayer(eos.select('day'), {min: 200, max: 350, palette:['440154', '433982', '30678D', '218F8B', '36B677', '8ED542', 'FDE725']}, 'end-of-season', false);
+
+// peak NDVI
+var peakVi = phenology.peakVi(s2Hants, ['ndvi'])
+  .updateMask(seasonMask);
+Map.addLayer(peakVi.select('fitted'), {min: 0.6, max: 0.85, palette:['ffffcc', 'd9f0a3', 'addd8e', '78c679', '41ab5d', '238443', '005a32']}, 'peak NDVI', false);
+```
+
+<br>
+<details>
+  <summary><b>*Length-of-season is the difference between end-of-season and start-of-season? You have used <code>Image</code> math operations in Lab 7 where you subtracted one <code>Image</code> from another. Can you use the <code>sos</code> and <code>eos</code> <code>Image</code>s to generate a length-of-season <code>Image</code>?*</b></summary>
+```{js, echo=TRUE, eval=FALSE}
+  var los = eos.subtract(sos)
+    .updateMask(seasonMask);
+  Map.addLayer(los.select('day_from_start'), {min: 200, max: 350, palette:['440154', '433982', '30678D', '218F8B', '36B677', '8ED542', 'FDE725']}, 'length-of-season', false);
+```
+</details>
+<br>
+
+If you head to the *Inspector* tab, you can click on the map display and explore `Image` values at clicked locations. You can toggle the `sos`, `eos`, and `peakVi` layers on and off to see maps of the phenology metrics. You can also compare start-of-season and end-of-season at clicked locations with their NDVI time-series charts which will be generated in the *Console*. 
+
+## Phenology and Climate
+
+Now we have extracted phenology metrics from our NDVI time-series, we can use them in analysis and modelling tasks. Common analyses using phenology metrics derived from remote sensing images include assessing drivers of phenology (e.g. how does changes in climate or weather affect the timing of phenology events) or undertaking spatio-temporal trend analysis to characterise how ecosystems are changing over time. 
+
+Here, we will undertake a simple analysis to explore the relationship between summer land surface temperatures and start-of-season dates in Kings Park. Several observational studies have detected urban climates affecting the timing of phenological events. 
+
+Let's create an `Image` of average land surface temperatures from October 2019 to the end of February 2020. Broadly, this period corresponds to just before the start-of-season. We will use the land surface temperature band included in the Landsat 8 surface reflectance product and convert it from Kelvin to Degrees Celsius. 
+
+```{js, echo=TRUE, eval=FALSE}
+// Climate and phenology relationsips
+
+// apply scaling factors
+function maskL8Sr(image) {
+  // Bit 0 - Fill
+  // Bit 1 - Dilated Cloud
+  // Bit 2 - Cirrus
+  // Bit 3 - Cloud
+  // Bit 4 - Cloud Shadow
+  var qaMask = image.select('QA_PIXEL').bitwiseAnd(parseInt('11111', 2)).eq(0);
+  var saturationMask = image.select('QA_RADSAT').eq(0);
+
+  // Apply the scaling factors to the appropriate bands.
+  var opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2);
+  var thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0);
+
+  // Replace the original bands with the scaled ones and apply the masks.
+  return image.addBands(opticalBands, null, true)
+      .addBands(thermalBands, null, true)
+      .updateMask(qaMask)
+      .updateMask(saturationMask);
+}
+
+var lst = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+  .filterDate('2019-10-01', '2020-03-01')
+  .filterBounds(geometry)
+  .map(maskL8Sr)
+  .mean()
+  .select('ST_B10')
+  .subtract(273.15)
+  .rename('surface_temp_C')
+  .clip(geometry);
+  
+Map.addLayer(lst, {min: 30, max: 45, palette:['00FFFF', 'FFFF00', 'FF0000']}, 'LST (C)');
+
+```
+
+You should see a map of land surface temperature for the study area.
+
+<center>
+
+```{r xfig-5, fig.align = 'center', out.width = "90%", fig.cap = "Landsat 8 land surface temperature over Kings Park.", echo = FALSE}
+knitr::include_graphics("img/lst-kings-park.png")
+
+```
+
+</center>
+
+Scatter plots can visualise bivariate relationships between two variables. We will use a scatter plot to explore if there is a relationship between land surface temperature start-of-season in our study area. 
+
+First, we need to combine the start-of-season `Image` with our land surface temperature `Image`. Let's add `lst` as a band to the `sos` `Image`.  Then, we will sample 300 locations in the study area extracting the land surface temperature and start-of-season values at each location. 
+
+```{js, echo=TRUE, eval=FALSE}
+var sosLst = sos.addBands(lst);
+
+var sosLstPoints = sosLst.sample({
+  region: geometry, 
+  scale: 10, 
+  numPixels: 300, 
+  seed: 123, 
+  geometries: true
 });
-print(testData);
 
-// Classify the test data.
-var testClassified = testData.classify(trainedCART);
-print(testClassified);
-
+Map.addLayer(sosLstPoints, {}, 'sample points');
 ```
 
-<br>
-
-Using the predicted versus observed land cover types for the test data points you can generate an error matrix. This an $n$ x $n$ matrix where $n$ is the number of land cover types. In Google Earth Engine error matrices, the columns (1-axis) represent the predicted data and the rows (0-axis) represent the observed test data. The diagonal of the matrix represents pixels that were correctly classified (i.e. the classifier correctly predicted the observed land cover type in the test data). This code flips (transposes) the matrix for display purposes here so observed data are in the columns and predicted data are in the rows. 
-
-You can use the `errorMatrix()` function in Google Earth Engine to generate an error matrix from a `FeatureCollection`. The first argument to the `errorMatrix()` function is the observed land cover type (`lc` here) and the second argument is the predicted land cover type (`classification` here).
-
-<br>
+Finally, let's generate a scatter plot to see if there is a relationship between land surface temperature and start-of-season.
 
 ```{js, echo=TRUE, eval=FALSE}
-// Get an error matrix
-var errorMat = testClassified.errorMatrix('lc', 'classification');
-print('error matrix: ', errorMat.array().matrixTranspose(0, 1));
+// print lst v start-of-season chart on the console
+// add a linear trendline
+var lstSosChart =
+    ui.Chart.feature
+        .byFeature({
+          features: sosLstPoints,
+          xProperty: 'surface_temp_C',
+          yProperties: ['day']
+        })
+        .setSeriesNames([''])
+        .setChartType('ScatterChart')
+        .setOptions({
+          title: 'LST and start-of-season relationship',
+          hAxis:
+              {title: 'Temperature (°C)', titleTextStyle: {italic: false, bold: true}},
+          vAxis: {
+            title: 'Start of season',
+            titleTextStyle: {italic: false, bold: true},
+            viewWindow: {min: 50, max: 150}
+          },
+          pointSize: 10,
+          trendlines: { 0: {} }
+        });
+print(lstSosChart);
+```
 
+<center>
+
+```{r xfig-6, fig.align = 'center', out.width = "90%", fig.cap = "Relationship between land surface temperature and start-of-season date (day of year).", echo = FALSE}
+knitr::include_graphics("img/lst-sos.png")
 
 ```
 
-<br>
-
-```{r error-matrix, fig.align = 'center', out.width = "70%", fig.cap = "Error matrix and accuracy assessment indicators.", echo = FALSE}
-knitr::include_graphics("img/error-matrix.png")
-
-```
+</center>
 
 <br>
-
-The sum of the diagonal elements is the number of correctly classified pixels. The overall accuracy of the classifier can be computed as:
-
-$$accuracy=\frac{Correctly Classified Points}{Total Number of Points}$$
-This indicator of classification accuracy can be interpreted as $x$% of an image is correctly classified. It does not give any indication of the spatial variability in classification accuracy or if certain land cover types are classified more accurately than others. 
-
-There are helpful functions in Google Earth Engine that you can apply to error matrices to compute accuracy assessment statistics. You can apply the `accuracy()` function to your error matrix to compute the overall accuracy and you can apply the `kappa()` function to compute the kappa statistic. 
-
+<details>
+  <summary><b>*This has just been a quick demo of how to explore relationships between climatic drivers and phenology. If you were going to expand this analysis to complete a more comprehensive analysis of climate-phenology relationships, what would you need to consider?*</b></summary>
+  <p>
+    We should consider the vegetation species present in the case study area, and, if, temperature before the growing season is an important driver of their phenology. Other climatic drivers (e.g. precipitation and moisture availability or insolation) could affect phenology. The analysis could be expanded to incorporate other drivers of phenology to guard against omitted variable bias (e.g. (mis)attributing the effect of precipitation on phenology to surface temperatures); this could be done using multiple regression analysis. There are a few other things to explore such as the mix of vegetation species within a 10 m Sentinel-2 pixel footprint, and, if they're likely to have similar phenology profiles.
+  </p>
+</details>
 <br>
-
-```{js, echo=TRUE, eval=FALSE}
-print('overall accuracy: ', errorMat.accuracy());
-print('kappa: ', errorMat.kappa());
-print('producers accuracy: ', errorMat.producersAccuracy());
-print('users accuracy:', errorMat.consumersAccuracy());
-
-```
-
-<br>
-
-Using the error matrix you can compute producer's and user's accuracy that give an indication of the accuracy of classification for individual land cover types.
-
-The producer's accuracy is computed by dividing the entry in cell ($i$, $i$) of the error matrix by the sum of column $i$. The producer's accuracy is a measure of omission error and informs on the number of test pixels in a given land cover type that were correctly classified. Here, all of the vegetation (class 0) pixels in the test dataset were correctly classified as vegetation by `trainedCART`. Eight of the test data points labelled as built up were classified as vegetation; therefore, built up land cover has a producer's accuracy of 78%.
-
-The user's accuracy is computed by dividing the entry in cell ($i$, $i$) of the error matrix by the sum of row $i$. The user's accuracy is a measure of commission error (i.e. erroneously labelling a pixel a given land cover type). Of the 34 test data points that were predicted as being of vegetation land cover type, eight were observed as being built up. Thus, vegetation land cover has a user's accuracy of 76%. 
