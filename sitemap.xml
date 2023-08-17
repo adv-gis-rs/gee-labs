@@ -2,42 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adv-gis-rs.github.io/index.html</loc>
-    <lastmod>2022-09-24T13:58:27.574Z</lastmod>
+    <lastmod>2023-08-17T02:16:58.579Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/js-introduction.html</loc>
-    <lastmod>2022-09-24T13:58:27.578Z</lastmod>
+    <lastmod>2023-08-17T02:16:58.596Z</lastmod>
   </url>
   <url>
-    <loc>https://adv-gis-rs.github.io/lab-4a.html</loc>
-    <lastmod>2022-09-24T13:58:27.588Z</lastmod>
+    <loc>https://adv-gis-rs.github.io/ee-introduction.html</loc>
+    <lastmod>2023-08-17T02:16:58.609Z</lastmod>
   </url>
   <url>
-    <loc>https://adv-gis-rs.github.io/lab-4b.html</loc>
-    <lastmod>2022-09-24T13:58:27.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adv-gis-rs.github.io/lab-5.html</loc>
-    <lastmod>2022-09-24T13:58:27.597Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adv-gis-rs.github.io/lab-6.html</loc>
-    <lastmod>2022-09-24T13:58:27.602Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adv-gis-rs.github.io/lab-7.html</loc>
-    <lastmod>2022-09-24T13:58:27.608Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adv-gis-rs.github.io/lab-8.html</loc>
-    <lastmod>2022-09-24T13:58:27.611Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adv-gis-rs.github.io/lab-9.html</loc>
-    <lastmod>2022-09-24T13:58:27.615Z</lastmod>
+    <loc>https://adv-gis-rs.github.io/colour-vis.html</loc>
+    <lastmod>2023-08-17T02:16:58.621Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/3301.pdf</loc>
-    <lastmod>2022-09-24T13:58:27.034Z</lastmod>
+    <lastmod>2023-08-17T02:16:58.474Z</lastmod>
   </url>
 </urlset>
