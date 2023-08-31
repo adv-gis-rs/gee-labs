@@ -213,8 +213,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>This lab will introduce data transformation and manipulation operations for raster data.</p>
-<p><b>Quick recap:</b> In Google Earth Engine, raster data is represented using <code>Image</code> objects which include one or more bands and each band is a georeferenced raster. Each band can have its own set of <code>properties</code> such as data type (e.g.&nbsp;integer), scale (spatial resolution), band name, and projection. The <code>Image</code> object itself can contain metadata relevant to all bands inside a <code>properties</code> dictionary object (e.g.&nbsp;date of <code>Image</code> capture). A collection of <code>Image</code>s are stored in an <code>ImageCollection</code>. For example, all Landsat 8 <code>Image</code>s are stored in an <code>ImageCollection</code> object.</p>
-<p><a href="lab-5.html">Lab 6</a> introduced data transformation operations that can be applied to vector data. These operations can be categorised into:</p>
+<p><b>Quick recap:</b> In Google Earth Engine, raster data is represented using <code>Image</code> objects which include one or more bands and each band is a georeferenced raster. Each band can have its own set of <code>properties</code> such as a data type (e.g.&nbsp;integer), scale (spatial resolution), band name, and projection. The <code>Image</code> object itself can contain metadata relevant to all bands inside a <code>properties</code> dictionary object (e.g.&nbsp;date of <code>Image</code> capture). A collection of <code>Image</code>s are stored in an <code>ImageCollection</code>. For example, all Landsat 8 <code>Image</code>s are stored in an <code>ImageCollection</code> object.</p>
+<p>We have introduced data transformation operations that can be applied to vector data in a previous lab. These operations can be categorised into:</p>
 <ol type="1">
 <li>filtering or subsetting data</li>
 <li>creating new variables from existing / raw data</li>
@@ -254,10 +254,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup" class="level3">
 <h3 class="anchored" data-anchor-id="setup">Setup</h3>
-<p>Create a new script in your <em>labs-gee</em> repository called <em>lab6</em>. Enter the following comment header to the script.</p>
+<p>Create a new script in your <em>labs-gee</em> repository called <em>Raster Data Operations</em>. Enter the following comment header to the script.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 7</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Raster Data Operations</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Landsat 7 Im Coll 2000-2002:'</span><span class="op">,</span> l72000)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Print the Landsat 7 <code>ImageCollection</code> that is returned from filtering the <code>ImageCollection</code> storing the Landsat 7 archive for the <code>Images</code> that intersect with the <code>Geometry</code> object <code>bBox</code> and were captured between 1 January 2000 and 31 December 2002. The filtered <code>ImageCollection</code> is stored in the variable <code>l72000</code> and should contain 109 Landsat 7 <code>Images</code>. If you inspect the <code>SENSING_TIME:</code> property for each of the <code>Image</code>s in the <code>l72000</code> you should see dates between 1 January 2000 and 31 December 2002.</p>
+<p>Print the Landsat 7 <code>ImageCollection</code> that is returned from filtering the <code>ImageCollection</code> storing the Landsat 7 archive for the <code>Images</code> that intersect with the <code>Geometry</code> object <code>bBox</code> and were captured between 1 January 2000 and 31 December 2002. The filtered <code>ImageCollection</code> is stored in the variable <code>l72000</code> and should contain 109 Landsat 7 <code>Images</code>. If you inspect the <code>SENSING_TIME:</code> property for each of the <code>Image</code>s in <code>l72000</code> you should see dates between 1 January 2000 and 31 December 2002.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

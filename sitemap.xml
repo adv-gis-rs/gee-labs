@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adv-gis-rs.github.io/index.html</loc>
-    <lastmod>2023-08-21T01:35:17.458Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.494Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/js-introduction.html</loc>
-    <lastmod>2023-08-21T01:35:17.473Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.510Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/ee-introduction.html</loc>
-    <lastmod>2023-08-21T01:35:17.491Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.527Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/colour-vis.html</loc>
-    <lastmod>2023-08-21T01:35:17.504Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.540Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/vector.html</loc>
-    <lastmod>2023-08-21T01:35:17.524Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.559Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adv-gis-rs.github.io/raster-image.html</loc>
+    <lastmod>2023-08-31T02:54:07.592Z</lastmod>
   </url>
   <url>
     <loc>https://adv-gis-rs.github.io/3301.pdf</loc>
-    <lastmod>2023-08-21T01:35:17.327Z</lastmod>
+    <lastmod>2023-08-31T02:54:07.305Z</lastmod>
   </url>
 </urlset>
