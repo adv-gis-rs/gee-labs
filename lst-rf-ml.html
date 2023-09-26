@@ -2,19 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3301 - 9&nbsp; Introduction</title>
+<title>3301 - Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -41,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -88,7 +64,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lab-8.html" rel="prev">
+<link href="./lulc-classification.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,10 +90,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
@@ -127,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lst-rf-ml.html"><span class="chapter-title">Urban Heat and Machine Learning</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -139,17 +122,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">3301</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -164,45 +147,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-4a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5a</span></a>
+  <a href="./ee-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">GEE Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-4b.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 5b</span></a>
+  <a href="./colour-vis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Color and Data Visualisation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 6</span></a>
+  <a href="./vector.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vector Data Operations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 7</span></a>
+  <a href="./raster-image.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raster Data Operations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 8</span></a>
+  <a href="./phenology-vi-ts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Phenology and VI time-series</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lab 9</span></a>
+  <a href="./lulc-classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">LULC Classification</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab-9.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Lab 10</span></a>
+  <a href="./lst-rf-ml.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Urban Heat and Machine Learning</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -222,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -230,13 +214,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<p>In Lab 9 you implemented a workflow to train and test a machine learning model to perform a classification task. A classification problem is when the outcome variable is qualitative (i.e.&nbsp;it can take on a value of one of <span class="math inline">\(K\)</span> classes or categories). If the outcome variable is numerical and continuous this is termed a regression problem. This lab will introduce a workflow to train, test, and interpret a machine learning model for regression tasks.</p>
+<p>You have already implemented a workflow to train and test a machine learning model to perform a classification task. A classification problem is when the outcome variable is qualitative (i.e.&nbsp;it can take on a value of one of <span class="math inline">\(K\)</span> classes or categories). If the outcome variable is numerical and continuous this is a regression problem. This lab will introduce a workflow to train, test, and interpret a machine learning model for regression tasks.</p>
 <p>You will use a range of predictor variables to train a model that predicts summer land surface temperature (LST) across a study area in Perth.</p>
 <section id="predicting-land-surface-temperatures" class="level3">
 <h3 class="anchored" data-anchor-id="predicting-land-surface-temperatures">Predicting Land Surface Temperatures</h3>
@@ -247,25 +232,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/carleton-hsiang-science-2016.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Climate impacts on indicators of well-being (source: Carleton and Hsiang (2016)).</figcaption><p></p>
+<figcaption class="figure-caption">Climate impacts on indicators of well-being (source: Carleton and Hsiang (2016)).</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p><br></p>
-<p>Populations in urban areas are exposed to warmer temperatures compared to populations; the urban heat island (UHI) effect. Land cover affects the energy balance, and, thus, temperature in urban areas; for example, trees can provide a cooling affect via evapotranspiration or shade. The ability to predict how different configurations of urban land cover affects temperature is important for planners seeking to develop urban areas in ways that minimise heat exposure. The Low Carbon Living CRC has produced a useful <a href="http://www.lowcarbonlivingcrc.com.au/sites/all/files/publications_file_attachments/rp2024_guide_to_urban_cooling_strategies_2017_web.pdf" target="_blank">Guide to Urban Cooling Strategies</a> demonstrating how different urban land cover types affect temperature.</p>
+<p>Populations in urban areas are exposed to warmer temperatures compared to rural populations - the urban heat island (UHI) effect. Land cover affects the temperature in urban areas; for example, trees can provide a cooling affect via evapotranspiration or shade. The ability to predict how different configurations of urban land cover affects temperature is important for planners seeking to develop urban areas in ways that minimise heat exposure. The Low Carbon Living CRC has produced a useful <a href="http://www.lowcarbonlivingcrc.com.au/sites/all/files/publications_file_attachments/rp2024_guide_to_urban_cooling_strategies_2017_web.pdf" target="_blank">Guide to Urban Cooling Strategies</a> demonstrating how different urban land cover types affect temperature.</p>
 <p>In this lab you will use a range of spatial layers that represent the built environment to train and test a machine learning model that predicts urban LST. This model could be used for scenario analyses where the effect of different urban developments, which result in different land covers, on LST can be assessed.</p>
 </section>
 <section id="random-forests" class="level3">
 <h3 class="anchored" data-anchor-id="random-forests">Random Forests</h3>
-<p>As in lab 9, your goal will be to train a model <span class="math inline">\(f\)</span> which relates predictor variables <span class="math inline">\(X\)</span> to an outcome <span class="math inline">\(Y\)</span>.</p>
+<p>Your goal will be to train a model <span class="math inline">\(f\)</span> which relates predictor variables <span class="math inline">\(X\)</span> to an outcome <span class="math inline">\(Y\)</span>.</p>
 <p><span class="math display">\[Y = f(X)\]</span></p>
-<p>However, here <span class="math inline">\(Y\)</span> is LST which is a continuous variable. Therefore, the model <span class="math inline">\(\hat{f}\)</span> that you train will be in regression mode. This will still be a supervised learning task where you have observations of LST, <span class="math inline">\(Y\)</span>, and predictor variables, <span class="math inline">\(X\)</span>, which you use train a model <span class="math inline">\(\hat{f}\)</span> that learns rules that relate <span class="math inline">\(X\)</span> to predicted LST values, <span class="math inline">\(\hat{Y}\)</span>.</p>
+<p>Here, <span class="math inline">\(Y\)</span> is LST which is a continuous variable. Therefore, the model <span class="math inline">\(\hat{f}\)</span> that you train will be in regression mode. This will still be a supervised learning task where you have observations of LST, <span class="math inline">\(Y\)</span>, and predictor variables, <span class="math inline">\(X\)</span>, which you use train a model <span class="math inline">\(\hat{f}\)</span> that learns rules to relate <span class="math inline">\(X\)</span> to predicted LST values, <span class="math inline">\(\hat{Y}\)</span>.</p>
 <p>The model you will be using is a Random Forests model. A Random Forests model comprises an ensemble of decision (regression) tree models. In regression mode, the final prediction is the average of the predictions from all the regression trees in the ensemble.</p>
 <section id="regression-trees" class="level4">
 <h4 class="anchored" data-anchor-id="regression-trees">Regression Trees</h4>
 <p>First, let’s go through the process of training a single regression tree. A single regression tree divides the predictor space - the range of values the <span class="math inline">\(p\)</span> predictor variables can take - into <span class="math inline">\(J\)</span> distinct and non-overlapping regions <span class="math inline">\(R_{1}, R_{2},...R_{J}\)</span>. If an observation ends up in region <span class="math inline">\(R_{j}\)</span> it takes on the response value assigned to that region. This is the mean of all response values for that region in the training data. When training a regression tree, your task is to determine the rules that best divide the predictor space into <span class="math inline">\(J\)</span> regions by minimising an error or loss function.</p>
-<p>First, you find the predictor variable <span class="math inline">\(X_{j}\)</span> and cutpoint value <span class="math inline">\(s\)</span> that splits the training data such that the residual sum of squares (RSS) of response variable <span class="math inline">\(Y\)</span> in the two regions generated by the split is minimised. For any <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span> in your training data you can define two regions:</p>
+<p>First, you find the predictor variable <span class="math inline">\(X_{j}\)</span> and cutpoint value <span class="math inline">\(s\)</span> that splits the training data such that the residual sum of squares (RSS) of the response variable <span class="math inline">\(Y\)</span> in the two regions generated by the split is minimised. For any <span class="math inline">\(j\)</span> and <span class="math inline">\(s\)</span> in your training data you can define two regions:</p>
 <p><span class="math display">\[R_{1}(j,s) = \{X|X_{j} &lt; s\}  \: and \: R_{2}(j,s) = \{X|X_{j} ≥ s\}\]</span></p>
 <p>and you seek <span class="math inline">\(X_{j}\)</span> and <span class="math inline">\(s\)</span> that minimises the sum of the RSS for the two regions <span class="math inline">\(R_{1}\)</span> and <span class="math inline">\(R_{2}\)</span>:</p>
 <p><span class="math display">\[ \sum_{i: x_{i} \in R_{1}(j,s)}(y_{i} - \hat{y}_{R1})^2 + \sum_{i: x_{i} \in R_{2}(j,s)}(y_{i} - \hat{y}_{R2})^2 \]</span></p>
@@ -277,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/james-et-al-dec-tree.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Top left is the outcome of recursively splitting training data that consists of two predictors variables <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span>, top right is the same splits in the data represented as a tree, and the bottom panel shows a prediction surface with predicted values on the Y-axis (source: James et al.&nbsp;(2013)).</figcaption><p></p>
+<figcaption class="figure-caption">Top left is the outcome of recursively splitting training data that consists of two predictors variables <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span>, top right is the same splits in the data represented as a tree, and the bottom panel shows a prediction surface with predicted values on the Y-axis (source: James et al.&nbsp;(2013)).</figcaption>
 </figure>
 </div>
 </div>
@@ -296,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <p><br></p>
 <p>When you generate bagged training samples some of your initial training dataset are not used to train a given regression tree <span class="math inline">\(\hat{f}_b\)</span>. You can use these held-out data to compute the prediction error for a each regression tree by comparing predictions <span class="math inline">\(\hat{y}_i\)</span> for these data points to observed values <span class="math inline">\(y_{i}\)</span>. This is termed the <strong>out-of-bag</strong> error. You can combine the out-of-bag error computed for each <span class="math inline">\(i\)</span> observation in your training data to compute an overall out-of-bag mean square error (MSE) estimate for your bagged model.</p>
-<p>Random Forests build on bagged tree models by decorrelating the decision trees within the ensemble. If there was one strong predictor variable in your training dataset, each time you train a regression tree in using a bagged training sample you would expect this variable to be dominant in determining the first split in your tree. This would result in your regression trees having a similar structure and possibly missing relationships between other predictor variables and the response. Therefore, when training a Random Forests model at each split only <span class="math inline">\(m\)</span> out of <span class="math inline">\(p\)</span> predictor variables are considered. This decorrelates the regression trees in the Random Forests ensemble reducing the variance in predictions and capturing more information about the relationships between the predictors and the response variable.</p>
+<p>Random Forests build on bagged tree models by decorrelating the decision trees within the ensemble. If there was one strong predictor variable in your training dataset, each time you train a regression tree using a bagged training sample you would expect this variable to be dominant in determining the first split in your tree. This would result in your regression trees having a similar structure and possibly missing relationships between other predictor variables and the response. Therefore, when training a Random Forests model at each split only <span class="math inline">\(m\)</span> out of <span class="math inline">\(p\)</span> predictor variables are considered. This decorrelates the regression trees in the Random Forests ensemble reducing the variance in predictions and capturing more information about the relationships between the predictors and the response variable.</p>
 <p>Chapter 8 and Chapter 2 (section 2.2.2) of <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf" target="_blank">James et al.&nbsp;(2013)</a> provide a clear and detailed explanation of Random Forests models.</p>
 <p>This video also provides an overview of the process of training a Random Forests model.</p>
 <br>
@@ -326,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Lab 10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">LST Machine Learning</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Test</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Date: XX-XX-XXXX</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -335,7 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="data-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-import">Data Import</h2>
-<p>Import an <code>Image</code> <code>lab8Data</code> which contains a band <code>lst</code>; this is the response or outcome variable. <code>lst</code> is the average Landsat 8 LST for Perth’s summer months (December, January, and February) for the years 2014 to 2019 and was computed using the method in <a href="https://ieeexplore.ieee.org/document/6784508" target="_blank">Jiménez-Muñoz et al.&nbsp;(2014)</a>.</p>
+<p>Import an <code>Image</code> <code>labData</code> which contains a band <code>lst</code>; this is the response or outcome variable. <code>lst</code> is the average Landsat 8 LST for Perth’s summer months (December, January, and February) for the years 2014 to 2019 and was computed using the method in <a href="https://ieeexplore.ieee.org/document/6784508" target="_blank">Jiménez-Muñoz et al.&nbsp;(2014)</a>.</p>
 <p>This <code>Image</code> also contains a range of land cover related predictor variables as bands; you will train a model to predict LST using these bands. These predictor variables include:</p>
 <p><code>mb_cat16</code> - the <a href="https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Mesh%20Blocks%20(MB)~10012" class="external" target="blank">ABS Mesh Block</a> land use category for the Mesh Block with the largest intersection with a Landsat 8 pixel. The values correspond to land use categories:</p>
 <ol type="1">
@@ -351,64 +336,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><code>mb_road_length</code> - the length in metres of all OpenStreetMap roads that are returned from the intersection of Open Street Map roads and the Mesh Block.</p>
 <p><code>building_count</code> - count of buildings whose footprint intersects with a Landsat 8 pixel footprint. Building data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
-<p><code>building_area</code> - sum of building footprint area (in square metres) whose footprint intersects with a Landsat 8 pixel footprint. Building data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
-<p><code>median_eave_height</code> - for all buildings that intersect with a Landsat 8 pixel, the mean of the relative height of the eave elevation to the ground elevation and is calculated by taking the median eave elevation minus the minimum ground elevation. Building data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
-<p><code>max_building_height</code> - for all buildings that intersect with a Landsat 8 pixel, the mean relative height of the roof elevation to the ground elevation and is calculated by taking the maximum roof elevation minus the minimum ground elevation. Building data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
-<p><code>swim_pool_count</code> - count of swimming pools at buildings that intersect with a Landsat 8 pixel footprint. Swimming pool data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
-<p><code>solar_panel_count</code> - count of buildings that intersect with a Landsat 8 pixel footprint and have solar panels. Solar panel data is derived from the <a href="https://geoscape.com.au/data/buildings/" class="external" target="_blank">Geoscape Buildings</a> product.</p>
 <p><code>tree_pct</code> - percentage of a Landsat 8 pixel covered by tree canopy. Defined as vegetation greater than 3 m in height and derived from the Urban Monitor product <a href="https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf" class="external" target="_blank">(Caccetta, 2012)</a>.</p>
 <p><code>shrub_pct</code> - percentage of a Landsat 8 pixel covered by shrub. Defined as vegetation greater than 0.5 m and less than 3 m in height and derived from the Urban Monitor product <a href="https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf" class="external" target="_blank">(Caccetta, 2012)</a>.</p>
 <p><code>grass_pct</code> - percentage of a Landsat 8 pixel covered by grass. Defined as vegetation less than 0.5 m in height and derived from the Urban Monitor product <a href="https://urbanmonitor-beta.landgate.wa.gov.au/content/app/urban-monitor-metadata-final-report.pdf" class="external" target="_blank">(Caccetta, 2012)</a>.</p>
-<p>Import <code>lab8Data</code> and visualise its <code>Image</code> bands on the map display. Visually inspect the relationship between different land cover types and LST. Do they conform to your expectations? For example, use the <strong>Layers</strong> to turn off all layers except <code>LST</code> and <code>building_area</code>; can you see the relationship between large buildings and surface temperature?</p>
-<br>
+<p><code>building_pct</code> - the percentage of a Landsat 8 pixel covered by buildins. Buildings are derived from the Microsoft Building Footprints dataset.</p>
+<p>Import <code>labData</code> and visualise its <code>Image</code> bands on the map display. Visually inspect the relationship between different land cover types and LST. Do they conform to your expectations? For example, use the <strong>Layers</strong> to turn off all layers except <code>LST</code> and <code>building_pct</code>; can you see the relationship between buildings and surface temperature?</p>
+<!-- <br>
 <center>
-<iframe src="https://player.vimeo.com/video/460028055" width="640" height="284" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
-</iframe>
-<p>
-Visualisation of warmer LST over Sir Charles Gairdner Hospital.
-</p>
+<iframe src="https://player.vimeo.com/video/460028055" width="640" height="284" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p>Visualisation of warmer LST over Sir Charles Gairdner Hospital.</p>
 </center>
-<p><br></p>
+<br> -->
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Data import</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// mb_cat16 - ABS Mesh Block land use</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// mb_road_length - length of OSM roads (m) in an ABS Mesh Block</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// lst - Landsat 8 LST (K) Dec-Feb average for years 2014 - 2019</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">// building_count - count of building footprints intersecting Landsat 8 pixel</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// building_area - area of building footprints intersecting Landsat 8 pixel</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">// median_eave_height - median eave height of buildings intersecting Landsat 8 pixel</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">// max_building_height - max building height of buildings intersecting Landsat 8 pixel</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">// swim_pool_count - count of swimming pools at properties intersecting Landsat 8 pixel</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">// solar_panel_count - count of solar panels at properties intersecting Landsat 8 pixel</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">// tree_pct - % tree cover of Landsat 8 pixel</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">// shrub_pct - % shrub cover of Landsat 8 pixel</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">// grass_pct - % grass cover of Landsat 8 pixel</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lab8Data <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">'users/jmad1v07/gee-labs/lab-8-data'</span>)<span class="op">;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>lab8Data <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">rename</span>([<span class="st">'mb_cat16'</span><span class="op">,</span> <span class="st">'mb_road_length'</span><span class="op">,</span> <span class="st">'lst'</span><span class="op">,</span> <span class="st">'building_count'</span><span class="op">,</span> <span class="st">'building_area'</span><span class="op">,</span> <span class="st">'median_eave_height'</span><span class="op">,</span> <span class="st">'max_building_height'</span><span class="op">,</span> <span class="st">'swim_pool_count'</span><span class="op">,</span> <span class="st">'solar_panel_count'</span><span class="op">,</span> <span class="st">'tree_pct'</span><span class="op">,</span> <span class="st">'shrub_pct'</span><span class="op">,</span> <span class="st">'grass_pct'</span>])<span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lab8Data)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">// tree_pct - % tree cover of Landsat 8 pixel</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// shrub_pct - % shrub cover of Landsat 8 pixel</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">// grass_pct - % grass cover of Landsat 8 pixel</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">// building_pct - % building cover of Landsat 8 pixel - from Microsoft Buildings</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> labData <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">'users/jmad1v07/gee-labs/lst-ml-lab-data-v5'</span>)<span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>labData <span class="op">=</span> labData<span class="op">.</span><span class="fu">rename</span>([<span class="st">'mb_cat16'</span><span class="op">,</span> <span class="st">'mb_road_length'</span><span class="op">,</span> <span class="st">'lst'</span><span class="op">,</span> <span class="st">'tree_pct'</span><span class="op">,</span> <span class="st">'shrub_pct'</span><span class="op">,</span> <span class="st">'grass_pct'</span><span class="op">,</span> <span class="st">'building_pct'</span>])<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(labData)<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">// create study area from labData</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bBox <span class="op">=</span> labData<span class="op">.</span><span class="fu">geometry</span>()<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(bBox<span class="op">,</span> <span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(bBox)<span class="op">;</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">// create study area from lab8Data</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bBox <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">geometry</span>()<span class="op">;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(bBox<span class="op">,</span> <span class="dv">13</span>)<span class="op">;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(bBox)<span class="op">;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise LST</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'lst'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">295</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">315</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'0000FF'</span><span class="op">,</span> <span class="st">'00FFFF'</span><span class="op">,</span> <span class="st">'FFFF00'</span><span class="op">,</span> <span class="st">'FF0000'</span>]}<span class="op">,</span> <span class="st">'LST'</span>)<span class="op">;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise Building Count</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'building_count'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">8</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#ffffd4'</span><span class="op">,</span><span class="st">'#fee391'</span><span class="op">,</span><span class="st">'#fec44f'</span><span class="op">,</span><span class="st">'#fe9929'</span><span class="op">,</span><span class="st">'#d95f0e'</span><span class="op">,</span><span class="st">'#993404'</span>]}<span class="op">,</span> <span class="st">'Building Count'</span>)<span class="op">;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise Building Area</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'building_area'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">10000</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#ffffd4'</span><span class="op">,</span><span class="st">'#fee391'</span><span class="op">,</span><span class="st">'#fec44f'</span><span class="op">,</span><span class="st">'#fe9929'</span><span class="op">,</span><span class="st">'#d95f0e'</span><span class="op">,</span><span class="st">'#993404'</span>]}<span class="op">,</span> <span class="st">'Building Area'</span>)<span class="op">;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise Tree Cover</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'tree_pct'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">100</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#edf8e9'</span><span class="op">,</span><span class="st">'#c7e9c0'</span><span class="op">,</span><span class="st">'#a1d99b'</span><span class="op">,</span><span class="st">'#74c476'</span><span class="op">,</span><span class="st">'#31a354'</span><span class="op">,</span><span class="st">'#006d2c'</span>]}<span class="op">,</span> <span class="st">'Tree %'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise LST</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(labData<span class="op">.</span><span class="fu">select</span>(<span class="st">'lst'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">295</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">315</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'0000FF'</span><span class="op">,</span> <span class="st">'00FFFF'</span><span class="op">,</span> <span class="st">'FFFF00'</span><span class="op">,</span> <span class="st">'FF0000'</span>]}<span class="op">,</span> <span class="st">'LST'</span>)<span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise Building Cover</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(labData<span class="op">.</span><span class="fu">select</span>(<span class="st">'building_pct'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">100</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#ffffd4'</span><span class="op">,</span><span class="st">'#fee391'</span><span class="op">,</span><span class="st">'#fec44f'</span><span class="op">,</span><span class="st">'#fe9929'</span><span class="op">,</span><span class="st">'#d95f0e'</span><span class="op">,</span><span class="st">'#993404'</span>]}<span class="op">,</span> <span class="st">'Building %'</span>)<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualise Tree Cover</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(labData<span class="op">.</span><span class="fu">select</span>(<span class="st">'tree_pct'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">100</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'#edf8e9'</span><span class="op">,</span><span class="st">'#c7e9c0'</span><span class="op">,</span><span class="st">'#a1d99b'</span><span class="op">,</span><span class="st">'#74c476'</span><span class="op">,</span><span class="st">'#31a354'</span><span class="op">,</span><span class="st">'#006d2c'</span>]}<span class="op">,</span> <span class="st">'Tree %'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="training-feature-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="training-feature-engineering">Training (Feature) Engineering</h2>
-<p>The first task in a supervised classification workflow is to prepare the training data. You have already imported and visualised the outcome variable (<code>lst</code>) and a range of predictor variables.</p>
+<p>The first task in a machine learning workflow is to prepare the training data. You have already imported and visualised the outcome variable (<code>lst</code>) and a range of predictor variables.</p>
 <p>There are some additional variables in Google Earth Engine that you can add to your training data. There is often a relationship between elevation or distance from water bodies and temperature (e.g.&nbsp;cooling winds coming off the ocean).</p>
 <p>There are a range of elevation datasets pre-loaded into Google Earth Engine; here, you will import the <a href="https://developers.google.com/earth-engine/datasets/catalog/AU_GA_DEM_1SEC_v10_DEM-H" class="external" target="_blank">DEM-H: Australian SRTM Hydrologically Enforced Digital Elevation Model</a> where each pixel value represents elevation in metres.</p>
 <div class="cell">
@@ -437,7 +407,7 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <p>You need to add <code>dem</code> and <code>waterDist</code> as bands to the training data. You can use the <code>addBands()</code> function for this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// add water distance and dem to training data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lab8Data <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">addBands</span>(dem)<span class="op">.</span><span class="fu">addBands</span>(waterDist)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>labData <span class="op">=</span> labData<span class="op">.</span><span class="fu">addBands</span>(dem)<span class="op">.</span><span class="fu">addBands</span>(waterDist)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Having prepared and inspected the outcome and predictor data you need to create samples to train and test the model. First, mask out water bodies from the <code>dem</code> and <code>waterDist</code> bands.</p>
 <p>You will generate test and training samples by performing a stratified random sample where each of the Mesh Block land use categories are strata. You can use the <code>stratifiedSample()</code> function in Google Earth Engine to randomly sample a pre-specified number of points from strata (groups) in an <code>Image</code>. You need to convert the band <code>mb_cat16</code> to integer data type prior to using it as a strata argument in the <code>stratifiedSample()</code> function. The <code>seed</code> argument to the <code>stratifiedSample()</code> function ensures that you draw the same random sample each time you execute your code; this is important to ensure your results are reproducible.</p>
@@ -454,13 +424,13 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">//mask water from elevation and water distance layers</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mask <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'lst'</span>)<span class="op">.</span><span class="fu">gt</span>(<span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lab8Data <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mask <span class="op">=</span> labData<span class="op">.</span><span class="fu">select</span>(<span class="st">'lst'</span>)<span class="op">.</span><span class="fu">gt</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>labData <span class="op">=</span> labData<span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mb_cat16_int <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">select</span>(<span class="st">'mb_cat16'</span>)<span class="op">.</span><span class="fu">toInt</span>()<span class="op">.</span><span class="fu">rename</span>(<span class="st">'mb_cat16_int'</span>)<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>lab8Data <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">addBands</span>(mb_cat16_int)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mb_cat16_int <span class="op">=</span> labData<span class="op">.</span><span class="fu">select</span>(<span class="st">'mb_cat16'</span>)<span class="op">.</span><span class="fu">toInt</span>()<span class="op">.</span><span class="fu">rename</span>(<span class="st">'mb_cat16_int'</span>)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>labData <span class="op">=</span> labData<span class="op">.</span><span class="fu">addBands</span>(mb_cat16_int)<span class="op">;</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> training <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">stratifiedSample</span>({</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> training <span class="op">=</span> labData<span class="op">.</span><span class="fu">stratifiedSample</span>({</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">numPoints</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> </span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">classBand</span><span class="op">:</span> <span class="st">'mb_cat16_int'</span><span class="op">,</span> </span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> bBox<span class="op">,</span></span>
@@ -470,7 +440,7 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(training)<span class="op">;</span></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> test <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">stratifiedSample</span>({</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> test <span class="op">=</span> labData<span class="op">.</span><span class="fu">stratifiedSample</span>({</span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">numPoints</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> </span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">classBand</span><span class="op">:</span> <span class="st">'mb_cat16_int'</span><span class="op">,</span> </span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> bBox<span class="op">,</span></span>
@@ -498,7 +468,7 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Model Training</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// bands to use in training the model</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">'mb_cat16'</span><span class="op">,</span> <span class="st">'mb_road_length'</span><span class="op">,</span> <span class="st">'building_count'</span><span class="op">,</span> <span class="st">'building_area'</span><span class="op">,</span> <span class="st">'median_eave_height'</span><span class="op">,</span> <span class="st">'max_building_height'</span><span class="op">,</span> <span class="st">'swim_pool_count'</span><span class="op">,</span> <span class="st">'solar_panel_count'</span><span class="op">,</span> <span class="st">'tree_pct'</span><span class="op">,</span> <span class="st">'shrub_pct'</span><span class="op">,</span> <span class="st">'grass_pct'</span><span class="op">,</span> <span class="st">'elevation'</span><span class="op">,</span> <span class="st">'water_distance'</span>]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">'mb_cat16'</span><span class="op">,</span> <span class="st">'mb_road_length'</span><span class="op">,</span> <span class="st">'tree_pct'</span><span class="op">,</span> <span class="st">'shrub_pct'</span><span class="op">,</span> <span class="st">'grass_pct'</span><span class="op">,</span> <span class="st">'building_pct'</span><span class="op">,</span> <span class="st">'elevation'</span><span class="op">,</span> <span class="st">'water_distance'</span>]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You need to create a Random Forests model object of the <code>ee.Classifier.smileRandomForest</code> class and set the <code>numberOfTrees</code> and <code>seed</code> arguments. The <code>numberOfTrees</code> argument specifies the number of regression trees to include in ensemble. The <code>seed</code> is used to initialise a pseudo-random number generator; setting the seed ensures that the same bootstrap samples are drawn within the Random Forests algorithm each time you execute your code. This ensures your results are reproducible.</p>
 <p>Google Earth Engine implements the <a href="http://haifengl.github.io/api/java/smile/regression/RandomForest.html#importance" class="external" target="_blank">smile Random Forests</a> model.</p>
@@ -529,16 +499,6 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Explain:'</span><span class="op">,</span> explainRF)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Your <code>explainRF</code> dictionary object should be similar to the below figure. This Random Forests model has an out-of-bag error estimate of 1.09 Kelvin (RMSE between predicted and observed LST for all data points not included in a given regression tree within the Random Forests ensemble).</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/out-of-bag.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Printing the dictionary returned by explain() to the console.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
 <p>You will also see a property in <code>expainRF</code> called <code>importance</code>. This is a measure of variable importance in terms of each variable’s contribution to prediction accuracy. The variable importance measure represents the amount the error function (RSS) was reduced due to splits in a regression tree over a predictor variable and summed over all <span class="math inline">\(B\)</span> trees in the ensemble. A larger variable importance measure indicates that a predictor variable is more important for prediction accuracy.</p>
 <p>The <a href="http://haifengl.github.io/api/java/smile/regression/RandomForest.html#importance" class="external" target="_blank">smile Random Forests model</a> documentation defines the variable importance measure as <em>“Every time a split of a node is made on variable the impurity criterion for the two descendent nodes is less than the parent node. Adding up the decreases for each individual variable over all trees in the forest gives a fast measure of variable importance that is often very consistent with the permutation importance measure.”</em></p>
 <p>You can extract the <code>importance</code> property from <code>explainRF</code> to a <code>Feature</code> object and then plot each variable’s importance score as a column chart. Inspect your chart in the <em>Console</em>.</p>
@@ -556,16 +516,6 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(chartVarImp)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/variable-importance.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Variable importance chart for predictors of LST.</figcaption><p></p>
-</figure>
-</div>
-</div>
 </div>
 <p><br></p>
 <details>
@@ -586,10 +536,10 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 </p>
 </details>
 <p><br></p>
-<p>A final model interpretation activity is predicting LST for all locations in the <code>lab8Data</code> <code>Image</code>, the data set you used to generate your <code>training</code> sample. You can visualise the prediction of LST on the map and compare it to observed LST.</p>
+<p>A final model interpretation activity is predicting LST for all locations in the <code>labData</code> <code>Image</code>, the data set you used to generate your <code>training</code> sample. You can visualise the prediction of LST on the map and compare it to observed LST.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Predict LST</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predLST <span class="op">=</span> lab8Data<span class="op">.</span><span class="fu">classify</span>(randomForest)<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> predLST <span class="op">=</span> labData<span class="op">.</span><span class="fu">classify</span>(randomForest)<span class="op">;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(predLST<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">295</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">310</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span>[<span class="st">'0000FF'</span><span class="op">,</span> <span class="st">'00FFFF'</span><span class="op">,</span> <span class="st">'FFFF00'</span><span class="op">,</span> <span class="st">'FF0000'</span>]}<span class="op">,</span> <span class="st">'predicted LST'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Your predicted LST should look similar to the figure below.</p>
@@ -598,7 +548,7 @@ Visualisation of warmer LST over Sir Charles Gairdner Hospital.
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/pred-lst.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Predicted LST.</figcaption><p></p>
+<figcaption class="figure-caption">Predicted LST.</figcaption>
 </figure>
 </div>
 </div>
@@ -670,9 +620,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -684,7 +648,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -712,38 +693,143 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lab-8.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lab 9</span></span>
+      <a href="./lulc-classification.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">LULC Classification</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
